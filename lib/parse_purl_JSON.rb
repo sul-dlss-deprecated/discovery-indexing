@@ -9,7 +9,11 @@ def get_ids_from_purl_fetcher(collections)
   collections.each do | coll |
     coll["true_targets"].map!(&:downcase)
     if coll["true_targets"].include? "searchworks"
-      @purl_ids.push(coll["druid"].gsub(/druid:/, ''))
+      if coll["catkey"].nil? || coll["catkey"].empty?
+        @purl_ids.push(coll["druid"].gsub(/druid:/, ''))
+      else
+        @purl_ids.push([coll["druid"].gsub(/druid:/, ''),coll["catkey"]])
+      end
     end
   end
   @purl_ids
