@@ -23,21 +23,36 @@ def results(uri)
   return resp.body.split("\n")
 end
 
-def get_coll_ids_from_purl_fetcher(collections)
-  collections.each do | coll |
-    coll["true_targets"].map!(&:downcase)
-    if coll["true_targets"].include? "searchworks"
-      if coll["catkey"].nil? || coll["catkey"].empty?
-        @coll_ids.push(coll["druid"].gsub(/druid:/, ''))
-      else
-        @coll_ids.push([coll["druid"].gsub(/druid:/, ''), coll["catkey"]])
+def ids_from_purl_fetcher(data)
+  data_ids = []
+  data.each do | d |
+    if !d["true_targets"].nil? && !d["true_targets"].empty?
+      d["true_targets"].map!(&:downcase)
+      if d["true_targets"].include? "searchworks"
+        if d["catkey"].nil? || d["catkey"].empty?
+          data_ids.push(d["druid"].gsub(/druid:/, ''))
+        else
+          data_ids.push([d["druid"].gsub(/druid:/, ''), d["catkey"]])
+        end
       end
     end
   end
-  @coll_ids
+  data_ids
 end
 
-def get_coll_members_from_argo(collection_ids)
+def druids_from_results(id_array)
+  druids = []
+  id_array.each do | id |
+    if (id.is_a?(String))
+      druids.push(id)
+    elsif (id.is_a?(Array))
+      druids.push(id[0])
+    end
+  end
+  druids
+end
+
+def coll_members_from_argo(collection_ids)
   members = []
   collection_ids.each do | druid |
     members += results("https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=is_member_of_collection_ssim:%22info:fedora/druid:#{druid}%22&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false")
@@ -45,22 +60,8 @@ def get_coll_members_from_argo(collection_ids)
   members
 end
 
-def get_purl_ids_from_purl_fetcher(purls)
-  purl_ids = []
-  purls.each do | purl |
-    if (!purl["true_targets"].nil? && !purl["true_targets"].empty?)
-      purl["true_targets"].map!(&:downcase)
-      if purl["true_targets"].include? "searchworks"
-        if purl["catkey"].nil? || purl["catkey"].empty?
-          purl_ids.push(purl["druid"].gsub(/druid:/, ''))
-        else
-          purl_ids.push([purl["druid"].gsub(/druid:/, ''), purl["catkey"]])
-        end
-      end
-    end
-  end
-  puts purl_ids.length
-  purl_ids
+def no_pages(data)
+  data["pages"]["total_pages"]
 end
 
 # Need to compare druids from argo and from sw-prod index
@@ -84,56 +85,32 @@ argo_coll_results.each do | res |
   end
 end
 
-# Get all druids are collection druids
-uri = URI.parse("https://purl-fetcher-prod.stanford.edu/collections")
-response = Net::HTTP.get_response(uri)
-colls = JSON.parse(response.body)
-no_pages = colls["pages"]["total_pages"]
+# Get all collection druids that have been released to SearchWorks production
+coll = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/collections"))
 
-@colls_ids = []
-@colls_ids = get_coll_ids_from_purl_fetcher(colls["collections"])
+coll_ids = []
+coll_ids += ids_from_purl_fetcher(coll["collections"])
 
-(2..no_pages).each do |i|
-  uri = URI.parse("https://purl-fetcher-prod.stanford.edu/collections?page=#{i}")
-  response = Net::HTTP.get_response(uri)
-  colls = JSON.parse(response.body)
-  @colls_ids = get_coll_ids_from_purl_fetcher(colls["collections"])
+(2..no_pages(coll)).each do |i|
+  coll = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/collections?page=#{i}"))
+  coll_ids += ids_from_purl_fetcher(coll["collections"])
 end
 
-coll_druids = []
-@colls_ids.each do | p |
-  if (p.is_a?(String))
-    coll_druids.push(p)
-  elsif (p.is_a?(Array))
-    coll_druids.push(p[0])
-  end
-end
+coll_druids = druids_from_results(coll_ids)
 
-# Get all druids are released
-uri = URI.parse("https://purl-fetcher.stanford.edu/purls?target=SearchWorks&per_page=10000")
-response = Net::HTTP.get_response(uri)
-purls = JSON.parse(response.body)
-no_pages = purls["pages"]["total_pages"]
+# Get all druids are released to SearchWorks production
+purl = JSON.parse(results("https://purl-fetcher.stanford.edu/purls?target=SearchWorks&per_page=10000"))
 
-@purl_ids = []
-@purl_ids += get_purl_ids_from_purl_fetcher(purls["purls"])
+purl_ids = []
+purl_ids += ids_from_purl_fetcher(purl["purls"])
 
-(2..no_pages).each do |i|
+(2..no_pages(purl)).each do |i|
   puts i
-  uri = URI.parse("https://purl-fetcher-prod.stanford.edu/purls?target=SearchWorks&page=#{i}&per_page=10000")
-  response = Net::HTTP.get_response(uri)
-  purls = JSON.parse(response.body)
-  @purl_ids += get_purl_ids_from_purl_fetcher(purls["purls"])
+  purl = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/purls?target=SearchWorks&page=#{i}&per_page=10000"))
+  purl_ids += ids_from_purl_fetcher(purl["purls"])
 end
 
-purl_druids = []
-@purl_ids.each do | p |
-  if (p.is_a?(String))
-    purl_druids.push(p)
-  elsif (p.is_a?(Array))
-    purl_druids.push(p[0])
-  end
-end
+purl_druids = druids_from_results(purl_ids)
 
 # Get all IDs that are druids and all druids in the managed_purl_urls fields
 lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false") +
@@ -146,9 +123,6 @@ lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A
              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false")
-#             results("http://searchworks-solr-lb:8983/solr/current/select?q=%3Apurl.stanford.edu%3A&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false")
-
-#http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A%2F%5B0-9%5D*%2F&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false
 
 # To get members of collections
 # https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=is_member_of_collection_ssim:%22info:fedora/druid:$druid%22&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
