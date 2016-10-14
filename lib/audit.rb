@@ -17,9 +17,9 @@ require 'json'
 require 'net/http'
 require 'uri'
 
-def results(uri)
-  res_uri = URI.parse(uri)
-  resp = Net::HTTP.get_response(res_uri)
+def results(url)
+  res_url = URI.parse(url)
+  resp = Net::HTTP.get_response(res_url)
   return resp.body.split("\n")
 end
 
@@ -52,21 +52,12 @@ def druids_from_results(id_array)
   druids
 end
 
-# https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=is_member_of_collection_ssim:%22info:fedora/druid:$druid%22&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
-def coll_members_from_argo(collection_ids)
+def coll_members(collection_ids, url)
   members = []
   collection_ids.each do | druid |
-    members += results("https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=is_member_of_collection_ssim:%22info:fedora/druid:#{druid}%22&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false")
+    members += results(url)
   end
   members
-end
-
-# https://sul-solr.stanford.edu/solr/purl-prod/select?&fq=is_member_of_collection_ssim:"druid:$druid"&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
-def coll_members_from_purl_fetcher
-end
-
-# https://sul-solr.stanford.edu/solr/sw-preview-stage/select?&fq=collection:$druid&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
-def coll_members_from_SearchWorks
 end
 
 def no_pages(data)
@@ -103,47 +94,56 @@ def individual_items_in_argo_released_to_SearchWorks_prod(argo_ind_items)
   druids
 end
 
-def compare_collections
+def compare_collections(argo_url, purl_fetcher_url, searchworks_url)
   # Argo collection druids
-  argo_coll_results = results("https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=objectType_ssim:%22collection%22&fl=id,released_to_ssim,catkey_id_ssim&rows=10000&sort=id%20asc&wt=csv&csv.header=false")
+  # argo_coll_results = results("https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=objectType_ssim:%22collection%22&fl=id,released_to_ssim,catkey_id_ssim&rows=10000&sort=id%20asc&wt=csv&csv.header=false")
+  argo_coll_results = results(argo_url)
 
   # Purl_fetcher collection druids
-  coll = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/collections"))
+  #coll = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/collections"))
+  coll = JSON.parse(results(purl_fetcher_url))
 
   coll_ids = []
   coll_ids += ids_from_purl_fetcher(coll["collections"])
 
   (2..no_pages(coll)).each do |i|
-    coll = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/collections?page=#{i}"))
+    coll = JSON.parse(results("#{purl_fetcher_url}?page=#{i}"))
     coll_ids += ids_from_purl_fetcher(coll["collections"])
   end
 
   coll_druids = druids_from_results(coll_ids)
 
   #SearchWorks production collection druids
-  lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=collection_type%3A%22Digital+Collection%22&rows=1000&fl=id&wt=csv&csv.header=false")
+  # lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=collection_type%3A%22Digital+Collection%22&rows=1000&fl=id&wt=csv&csv.header=false")
+  lb_results = results(searchworks_url)
 end
 
-def compare_collection_members
+def compare_collection_members(argo_url, purl_fetcher_url, searchworks_url)
+  # coll_members_from_argo url https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=is_member_of_collection_ssim:%22info:fedora/druid:#{druid}%22&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
+  # coll_members_from_purl_fetcher url https://purl-fetcher.stanford.edu/collections/#{druid}/purls
+  # coll_members_from_SearchWorks url http://searchworks-solr-lb:8983/solr/current/select?&fq=collection:#{druid}&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
+
+
 end
 
-def compare_individual_items
-
+def compare_individual_items(argo_url, purl_fetcher_url, searchworks_url)
   # Argo individual item druids that are released
-  argo_released_druids = results("https://sul-solr-a.stanford.edu/solr/argo3_prod/select?fl=id,released_to_ssim,catkey_id_ssim&fq=released_to_ssim:*&q=*:*&rows=1000000&wt=csv")
+  # argo_released_druids = results("https://sul-solr-a.stanford.edu/solr/argo3_prod/select?fl=id,released_to_ssim,catkey_id_ssim&fq=released_to_ssim:*&q=*:*&rows=1000000&wt=csv")
+  argo_released_druids = results(argo_url)
 
   # Argo druids released to SearchWorks production
   argo_druids = individual_items_in_argo_released_to_SearchWorks_prod(argo_ind_items)
 
   # All Purl_fetcher druids that are released to SearchWorks production
-  purl = JSON.parse(results("https://purl-fetcher.stanford.edu/purls?target=SearchWorks&per_page=10000"))
+  # purl = JSON.parse(results("https://purl-fetcher.stanford.edu/purls?target=SearchWorks&per_page=10000"))
+  purl = JSON.parse(results("#{purl_fetcher_url}?target=SearchWorks&per_page=10000"))
 
   purl_ids = []
   purl_ids += ids_from_purl_fetcher(purl["purls"])
 
   (2..no_pages(purl)).each do |i|
-    puts i
-    purl = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/purls?target=SearchWorks&page=#{i}&per_page=10000"))
+#    purl = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/purls?target=SearchWorks&page=#{i}&per_page=10000"))
+    purl = JSON.parse(results("#{purl_fetcher_url}?target=SearchWorks&page=#{i}&per_page=10000"))
     purl_ids += ids_from_purl_fetcher(purl["purls"])
   end
 
@@ -151,19 +151,28 @@ def compare_individual_items
 
   # Get all SearchWorks IDs that are druids and all druids in the
   # managed_purl_urls fields
-  lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A1*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A2*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A3*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A4*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A5*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A6*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false")
+  # lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A1*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A2*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A3*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A4*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A5*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A6*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false")
+  lb_results = results("#{searchworks_url}?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A1*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A2*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A3*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A4*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A5*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A6*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
+               results("#{searchworks_url}?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false")
 
   sw_lb_druids = druids_from_managed_purls(lb_results)
-
 end
 
 argo_druids_not_purl = argo_druids - purl_druids
