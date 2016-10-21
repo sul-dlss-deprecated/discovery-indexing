@@ -64,4 +64,21 @@ class PurlClient
     end
     druids
   end
+
+  def collection_members(coll_druid)
+    # coll_members_from_pf
+    query = "/collections/druid:#{coll_druid}/purls"
+    mem = JSON.parse(results("#{url + query}"))
+
+    mem_ids = []
+    mem_ids += ids_from_purl_fetcher(mem["purls"])
+
+    (2..no_pages(mem)).each do |i|
+      mem = JSON.parse(results("#{url + query}?page=#{i}"))
+      mem_ids += ids_from_purl_fetcher(mem["purls"])
+    end
+
+    druids_from_results(mem_ids)
+  end
+
 end

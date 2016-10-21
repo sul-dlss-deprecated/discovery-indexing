@@ -37,4 +37,11 @@ class ArgoClient
     druids
   end
 
+  def collection_members(coll_druid)
+    # coll_members_from_argo
+    query = "/select?&fq=is_member_of_collection_ssim:%22info:fedora/druid:#{coll_druid}%22&fl=id,released_to_ssim,catkey_id_ssim&rows=1000000&sort=id%20asc&wt=csv&csv.header=false"
+    argo_mem_results = results("#{url + query}").split("\n")
+    individual_items_released_to_tgt(argo_mem_results)
+  end
+
 end
