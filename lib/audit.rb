@@ -19,8 +19,7 @@ require 'uri'
 
 def results(url)
   res_url = URI.parse(url)
-  resp = Net::HTTP.get_response(res_url)
-  return resp.body.split("\n")
+  Net::HTTP.get_response(res_url).body
 end
 
 def ids_from_purl_fetcher(data)
@@ -79,6 +78,45 @@ def druids_from_SearchWorks(results)
   druids
 end
 
+def argo_druids(argo_url)
+  # Argo collection druids
+  query = "/select?&fq=objectType_ssim:%22collection%22&fl=id,released_to_ssim,catkey_id_ssim&rows=10000&sort=id%20asc&wt=csv&csv.header=false"
+  argo_coll_results = results(argo_url + query).split("\n")
+  individual_items_in_argo_released_to_SearchWorks_prod(argo_coll_results)
+end
+
+def pf_druids(pf_url)
+  # Purl_fetcher collection druids
+  query = "/collections"
+  coll = JSON.parse(results(pf_url + query))
+
+  coll_ids = []
+  coll_ids += ids_from_purl_fetcher(coll["collections"])
+
+  (2..no_pages(coll)).each do |i|
+    coll = JSON.parse(results("#{pf_url + query}?page=#{i}"))
+    coll_ids += ids_from_purl_fetcher(coll["collections"])
+  end
+
+  druids_from_results(coll_ids)
+end
+
+def sw_druids(sw_url)
+  #SearchWorks production collection druids
+  query = "/select?q=*%3A*&fq=collection_type%3A%22Digital+Collection%22&rows=1000&fl=id&wt=csv&csv.header=false"
+  lb_results = results("#{sw_url + query}?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A1*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A2*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A3*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A4*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A5*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A6*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n") +
+               results("#{sw_url + query}?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false").split("\n")
+  druids_from_SearchWorks(lb_results).uniq.sort
+end
+
 def individual_items_in_argo_released_to_SearchWorks_prod(argo_ind_items)
   # Only care about druids released to Searchworks
   druids = []
@@ -94,87 +132,19 @@ def individual_items_in_argo_released_to_SearchWorks_prod(argo_ind_items)
   druids
 end
 
-def compare_collections(argo_url, purl_fetcher_url, searchworks_url)
-  # Argo collection druids
-  # argo_coll_results = results("https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=objectType_ssim:%22collection%22&fl=id,released_to_ssim,catkey_id_ssim&rows=10000&sort=id%20asc&wt=csv&csv.header=false")
-  argo_coll_results = results(argo_url)
+argo_res = argo_druids(ENV['ARGO_URL'])
+pf_res = pf_druids(ENV['PF_URL'])
+sw_res = sw_druids(ENV['SW_URL'])
+puts("Collections Statistics")
+puts("Argo Production has #{argo_res.length} released to Searchworks")
+puts("PF Production has #{pf_res.length} released to Searchworks")
+puts("SW Production has #{sw_res.length} released in Searchworks")
 
-  # Purl_fetcher collection druids
-  #coll = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/collections"))
-  coll = JSON.parse(results(purl_fetcher_url))
-
-  coll_ids = []
-  coll_ids += ids_from_purl_fetcher(coll["collections"])
-
-  (2..no_pages(coll)).each do |i|
-    coll = JSON.parse(results("#{purl_fetcher_url}?page=#{i}"))
-    coll_ids += ids_from_purl_fetcher(coll["collections"])
-  end
-
-  coll_druids = druids_from_results(coll_ids)
-
-  #SearchWorks production collection druids
-  # lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=collection_type%3A%22Digital+Collection%22&rows=1000&fl=id&wt=csv&csv.header=false")
-  lb_results = results(searchworks_url)
-end
-
-def compare_collection_members(argo_url, purl_fetcher_url, searchworks_url)
-  # coll_members_from_argo url https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=is_member_of_collection_ssim:%22info:fedora/druid:#{druid}%22&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
-  # coll_members_from_purl_fetcher url https://purl-fetcher.stanford.edu/collections/#{druid}/purls
-  # coll_members_from_SearchWorks url http://searchworks-solr-lb:8983/solr/current/select?&fq=collection:#{druid}&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
-
-
-end
-
-def compare_individual_items(argo_url, purl_fetcher_url, searchworks_url)
-  # Argo individual item druids that are released
-  # argo_released_druids = results("https://sul-solr-a.stanford.edu/solr/argo3_prod/select?fl=id,released_to_ssim,catkey_id_ssim&fq=released_to_ssim:*&q=*:*&rows=1000000&wt=csv")
-  argo_released_druids = results(argo_url)
-
-  # Argo druids released to SearchWorks production
-  argo_druids = individual_items_in_argo_released_to_SearchWorks_prod(argo_ind_items)
-
-  # All Purl_fetcher druids that are released to SearchWorks production
-  # purl = JSON.parse(results("https://purl-fetcher.stanford.edu/purls?target=SearchWorks&per_page=10000"))
-  purl = JSON.parse(results("#{purl_fetcher_url}?target=SearchWorks&per_page=10000"))
-
-  purl_ids = []
-  purl_ids += ids_from_purl_fetcher(purl["purls"])
-
-  (2..no_pages(purl)).each do |i|
-#    purl = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/purls?target=SearchWorks&page=#{i}&per_page=10000"))
-    purl = JSON.parse(results("#{purl_fetcher_url}?target=SearchWorks&page=#{i}&per_page=10000"))
-    purl_ids += ids_from_purl_fetcher(purl["purls"])
-  end
-
-  purl_druids = druids_from_results(purl_ids)
-
-  # Get all SearchWorks IDs that are druids and all druids in the
-  # managed_purl_urls fields
-  # lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A1*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A2*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A3*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A4*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A5*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A6*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false")
-  lb_results = results("#{searchworks_url}?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A1*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A2*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A3*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A4*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A5*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A6*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false")
-
-  sw_lb_druids = druids_from_managed_purls(lb_results)
-end
-
-argo_druids_not_purl = argo_druids - purl_druids
-purl_druids_not_argo = purl_druids - argo_druids
-# argo_druids_not_sw_lb =
+puts("These druids are in Argo as released but not in PF")
+puts argo_res.sort - pf_res.sort
+puts("These druids are in Argo as released but not in SW")
+puts argo_res.sort - sw_res.sort
+puts("These druids are in PF as released but not in SW")
+puts pf_res.sort - sw_res.sort
+puts("These druids are in PF as released but not in Argo")
+puts pf_res.sort - argo_res.sort
