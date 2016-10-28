@@ -49,12 +49,29 @@ class SwClient
     # So need to determine the catkey of the collection.  The best way to determine that is to look for the collection
     # druid in the managed_purl_urls and returning the id
     if lb_results.length == 0
-      query = "/select?fq=managed_purl_urls%3A*#{coll_druid}&fl=id&wt=csv&&csv.header=false"
-      coll_ckey = results("#{url + query}").gsub!("\n","")
-      member_query = "/select?fq=collection%3A#{coll_ckey}&fl=id&wt=csv&&csv.header=false"
+      coll_ckey = ckey_from_druid(coll_druid)
+      member_query = "/select?fq=collection%3A#{coll_ckey}&fl=id&rows=100000&wt=csv&&csv.header=false"
       lb_results = results("#{url + member_query}").split("\n").flatten
+      druid_ids=[]
+      lb_results.each do |item|
+        if item =~ /^[0-9]/
+          druid_ids.push(druid_from_ckey(item))
+        else
+          druid_ids.push(item)
+        end
+      end
     end
-    druids_from_SearchWorks(lb_results).uniq.sort
+    druid_ids.uniq.sort
+  end
+
+  def ckey_from_druid(druid)
+    query = "/select?fq=managed_purl_urls%3A*#{druid}&fl=id&wt=csv&&csv.header=false"
+    ckey = results("#{url + query}").gsub!("\n","")
+  end
+
+  def druid_from_ckey(ckey)
+    query = "/select?fq=id%3A#{ckey}&fl=managed_purl_urls&wt=csv&&csv.header=false"
+    druid = results("#{url + query}").gsub!("\n","").gsub!("http:\/\/purl.stanford.edu\/", "")
   end
 
   def all_druids
