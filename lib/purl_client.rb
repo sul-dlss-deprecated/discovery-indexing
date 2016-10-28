@@ -8,7 +8,7 @@ class PurlClient
 
   def initialize(url, tgt)
     @url = url
-    @tgt = tgt
+    @tgt = tgt.downcase
   end
 
   def results(url_with_params)
@@ -25,7 +25,7 @@ class PurlClient
     data.each do | d |
       if !d["true_targets"].nil? && !d["true_targets"].empty?
         d["true_targets"].map!(&:downcase)
-        if d["true_targets"].include? tgt
+        if d["true_targets"].any? { |t| t == tgt }
           if d["catkey"].nil? || d["catkey"].empty?
             data_ids.push(d["druid"].gsub(/druid:/, ''))
           else
@@ -79,6 +79,24 @@ class PurlClient
     end
 
     druids_from_results(mem_ids)
+  end
+
+  def all_druids
+    # Purl_fetcher all druids
+    # Query is for all druids with true or false target equal to Searchworks
+    query = "/purls?target=#{tgt}"
+    all = JSON.parse(results("#{url + query}"))
+
+    all_ids = []
+    all_ids += ids_from_purl_fetcher(all['purls'])
+
+    (2..no_pages(all)).each do |i|
+      puts i
+      all = JSON.parse(results("#{url + query}&page=2"))
+      all_ids += ids_from_purl_fetcher(all["purls"])
+    end
+
+    druids_from_results(all_ids)
   end
 
 end
