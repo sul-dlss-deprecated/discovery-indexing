@@ -13,44 +13,32 @@
 #   - searchworks index
 
 require 'rubygems'
-require 'json'
 require 'net/http'
 require 'uri'
+require './argo_client'
+require './purl_client'
+require './sw_client'
+
+# Environment variables
+argo_url = ENV['ARGO_URL']
+pf_url = ENV['PF_URL']
+sw_url = ENV['SW_URL']
+sw_target = ENV['SW_TGT']
+
+# Everything Released Summary, Collections Summary, Individual Items Summary, Collection-specific Summary
+report_type = ENV['RPT_TYPE']
+collection_druid = ENV['COLL_DRUID']
+
+argo_client = ArgoClient.new(argo_url, sw_target)
+purl_client = PurlClient.new(pf_url, sw_target)
+sw_client = SwClient.new(sw_url)
+
 
 def results(url)
   res_url = URI.parse(url)
-  resp = Net::HTTP.get_response(res_url)
-  return resp.body.split("\n")
+  Net::HTTP.get_response(res_url).body
 end
 
-def ids_from_purl_fetcher(data)
-  data_ids = []
-  data.each do | d |
-    if !d["true_targets"].nil? && !d["true_targets"].empty?
-      d["true_targets"].map!(&:downcase)
-      if d["true_targets"].include? "searchworks"
-        if d["catkey"].nil? || d["catkey"].empty?
-          data_ids.push(d["druid"].gsub(/druid:/, ''))
-        else
-          data_ids.push([d["druid"].gsub(/druid:/, ''), d["catkey"]])
-        end
-      end
-    end
-  end
-  data_ids
-end
-
-def druids_from_results(id_array)
-  druids = []
-  id_array.each do | id |
-    if (id.is_a?(String))
-      druids.push(id)
-    elsif (id.is_a?(Array))
-      druids.push(id[0])
-    end
-  end
-  druids
-end
 
 def coll_members(collection_ids, url)
   members = []
@@ -60,121 +48,184 @@ def coll_members(collection_ids, url)
   members
 end
 
-def no_pages(data)
-  data["pages"]["total_pages"]
+# Get sw records that have druids as IDs but are not collections
+def records_with_druid_ids(url)
+  results("#{sw_url}/select?fq=-collection_type%3A%22Digital+Collection%22&q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false").split("\n")
 end
 
-def druids_from_SearchWorks(results)
-  druids = []
-  results.each do | res |
-    urls = res.split(",")
-    urls.each do | url |
-      if (url =~ /^[a-z]/)
-        url.gsub!("\"", "")
-        url.gsub!("http:\/\/purl.stanford.edu\/", "")
-        druids.push(url)
-      end
-    end
+def collections_summary(argo_client, purl_client, sw_client, sw_target)
+
+  argo_coll = argo_client.collections_druids
+  pf_coll = purl_client.collections_druids
+  sw_coll = sw_client.collections_druids
+
+  puts("Collections Statistics")
+  puts("Argo has #{argo_coll.length} released to #{sw_target}")
+  puts("PF has #{pf_coll.length} released to #{sw_target}")
+  puts("SW has #{sw_coll.length} released to #{sw_target}")
+
+  argo_pf_diff = argo_coll.sort - pf_coll.sort
+  argo_sw_diff = argo_coll.sort - sw_coll.sort
+  pf_sw_diff = pf_coll.sort - sw_coll.sort
+  pf_argo_diff = pf_coll.sort - argo_coll.sort
+  if (argo_pf_diff.length > 0)
+    puts("These collections are in Argo as released to #{sw_target} but not in PF")
+    puts argo_pf_diff
+  else
+    puts("Same collections in Argo and PF are released to #{sw_target}")
   end
-  druids
-end
-
-def individual_items_in_argo_released_to_SearchWorks_prod(argo_ind_items)
-  # Only care about druids released to Searchworks
-  druids = []
-  argo_ind_items.each do | res |
-    pieces = res.split(',')
-    # Look for searchworks in the second column for each result
-    # and remove druid: prefix on druid in first column
-    if (!pieces[1].nil? && pieces[1].downcase == "searchworks")
-      pieces[0].gsub! "druid:", ""
-      druids.push(pieces[0])
-    end
+  if (argo_sw_diff.length > 0)
+    puts("These collections are in Argo as released to #{sw_target} but not in SW")
+    puts argo_sw_diff
+  else
+    puts("Same collections in Argo and SW are released to #{sw_target}")
   end
-  druids
-end
-
-def compare_collections(argo_url, purl_fetcher_url, searchworks_url)
-  # Argo collection druids
-  # argo_coll_results = results("https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=objectType_ssim:%22collection%22&fl=id,released_to_ssim,catkey_id_ssim&rows=10000&sort=id%20asc&wt=csv&csv.header=false")
-  argo_coll_results = results(argo_url)
-
-  # Purl_fetcher collection druids
-  #coll = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/collections"))
-  coll = JSON.parse(results(purl_fetcher_url))
-
-  coll_ids = []
-  coll_ids += ids_from_purl_fetcher(coll["collections"])
-
-  (2..no_pages(coll)).each do |i|
-    coll = JSON.parse(results("#{purl_fetcher_url}?page=#{i}"))
-    coll_ids += ids_from_purl_fetcher(coll["collections"])
+  if (pf_sw_diff.length > 0)
+    puts("These collections are in PF as released to #{sw_target} but not in SW")
+    puts pf_sw_diff
+  else
+    puts("Same collections in PF and SW are released to #{sw_target}")
   end
-
-  coll_druids = druids_from_results(coll_ids)
-
-  #SearchWorks production collection druids
-  # lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=collection_type%3A%22Digital+Collection%22&rows=1000&fl=id&wt=csv&csv.header=false")
-  lb_results = results(searchworks_url)
-end
-
-def compare_collection_members(argo_url, purl_fetcher_url, searchworks_url)
-  # coll_members_from_argo url https://sul-solr.stanford.edu/solr/argo3_prod/select?&fq=is_member_of_collection_ssim:%22info:fedora/druid:#{druid}%22&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
-  # coll_members_from_purl_fetcher url https://purl-fetcher.stanford.edu/collections/#{druid}/purls
-  # coll_members_from_SearchWorks url http://searchworks-solr-lb:8983/solr/current/select?&fq=collection:#{druid}&fl=id&rows=1000&sort=id%20asc&wt=csv&csv.header=false
-
-
-end
-
-def compare_individual_items(argo_url, purl_fetcher_url, searchworks_url)
-  # Argo individual item druids that are released
-  # argo_released_druids = results("https://sul-solr-a.stanford.edu/solr/argo3_prod/select?fl=id,released_to_ssim,catkey_id_ssim&fq=released_to_ssim:*&q=*:*&rows=1000000&wt=csv")
-  argo_released_druids = results(argo_url)
-
-  # Argo druids released to SearchWorks production
-  argo_druids = individual_items_in_argo_released_to_SearchWorks_prod(argo_ind_items)
-
-  # All Purl_fetcher druids that are released to SearchWorks production
-  # purl = JSON.parse(results("https://purl-fetcher.stanford.edu/purls?target=SearchWorks&per_page=10000"))
-  purl = JSON.parse(results("#{purl_fetcher_url}?target=SearchWorks&per_page=10000"))
-
-  purl_ids = []
-  purl_ids += ids_from_purl_fetcher(purl["purls"])
-
-  (2..no_pages(purl)).each do |i|
-#    purl = JSON.parse(results("https://purl-fetcher-prod.stanford.edu/purls?target=SearchWorks&page=#{i}&per_page=10000"))
-    purl = JSON.parse(results("#{purl_fetcher_url}?target=SearchWorks&page=#{i}&per_page=10000"))
-    purl_ids += ids_from_purl_fetcher(purl["purls"])
+  if (pf_argo_diff.length > 0)
+    puts("These collections are in PF as released to #{sw_target} but not in Argo")
+    puts pf_argo_diff
+  else
+    puts("Same collections in PF and Argo are released to #{sw_target}")
   end
-
-  purl_druids = druids_from_results(purl_ids)
-
-  # Get all SearchWorks IDs that are druids and all druids in the
-  # managed_purl_urls fields
-  # lb_results = results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A1*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A2*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A3*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A4*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A5*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A6*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-  #              results("http://searchworks-solr-lb:8983/solr/current/select?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false")
-  lb_results = results("#{searchworks_url}?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A1*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A2*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A3*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A4*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A5*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A6*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A7*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A8*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false") +
-               results("#{searchworks_url}?q=*%3A*&fq=id%3A9*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false")
-
-  sw_lb_druids = druids_from_managed_purls(lb_results)
 end
 
-argo_druids_not_purl = argo_druids - purl_druids
-purl_druids_not_argo = purl_druids - argo_druids
-# argo_druids_not_sw_lb =
+def individual_items_summary(argo_client, purl_client, sw_client, sw_target)
+
+  argo_items = argo_client.items_druids
+  pf_items = purl_client.items_druids
+  sw_items = sw_client.items_druids
+
+  puts("Individual Items Statistics")
+  puts("Argo has #{argo_items.length} released to #{sw_target}")
+  puts("PF has #{pf_items.length} released to #{sw_target}")
+  puts("SW has #{sw_items.length} released to #{sw_target}")
+
+  argo_pf_diff = argo_items.sort - pf_items.sort
+  argo_sw_diff = argo_items.sort - sw_items.sort
+  pf_sw_diff = pf_items.sort - sw_items.sort
+  pf_argo_diff = pf_items.sort - argo_items.sort
+  if (argo_pf_diff.length > 0)
+    puts("These individual items are in Argo as released to #{sw_target} but not in PF")
+    puts argo_pf_diff
+  else
+    puts("Same individual items in Argo and PF are released to #{sw_target}")
+  end
+  if (argo_sw_diff.length > 0)
+    puts("These individual items are in Argo as released to #{sw_target} but not in SW")
+    puts argo_sw_diff
+  else
+    puts("Same individual items in Argo and SW are released to #{sw_target}")
+  end
+  if (pf_sw_diff.length > 0)
+    puts("These individual items are in PF as released to #{sw_target} but not in SW")
+    puts pf_sw_diff
+  else
+    puts("Same individual items in PF and SW are released to #{sw_target}")
+  end
+  if (pf_argo_diff.length > 0)
+    puts("These individual items are in PF as released to #{sw_target} but not in Argo")
+    puts pf_argo_diff
+  else
+    puts("Same individual items in PF and Argo are released to #{sw_target}")
+  end
+end
+
+def individual_collection_summary(argo_client, purl_client, sw_client, sw_target, collection_druid)
+
+  fail "Must provide Environment variable COLL_DRUID with this script" if collection_druid.nil?
+  argo_mem = argo_client.collection_members(collection_druid)
+  pf_mem = purl_client.collection_members(collection_druid)
+  sw_mem = sw_client.collection_members(collection_druid)
+
+  puts("Individual Collection Statistics")
+  puts("Argo has #{argo_mem.length} members in collection #{collection_druid} released to #{sw_target}")
+  puts("PF has #{pf_mem.length} members in collection #{collection_druid} released to #{sw_target}")
+  puts("SW has #{sw_mem.length} members in collection #{collection_druid} released to #{sw_target}")
+
+  argo_pf_diff = argo_mem.sort - pf_mem.sort
+  argo_sw_diff = argo_mem.sort - sw_mem.sort
+  pf_sw_diff = pf_mem.sort - sw_mem.sort
+  pf_argo_diff = pf_mem.sort - argo_mem.sort
+  if (argo_pf_diff.length > 0)
+    puts("These members for collection #{collection_druid} are in Argo as released to #{sw_target} but not in PF")
+    puts argo_pf_diff
+  else
+    puts("Same members in Argo and PF for collection #{collection_druid}")
+  end
+  if (argo_sw_diff.length > 0)
+    puts("These members for collection #{collection_druid} are in Argo as released to #{sw_target} but not in SW")
+    puts argo_sw_diff
+  else
+    puts("Same members in Argo and SW for collection #{collection_druid}")
+  end
+  if (pf_sw_diff.length > 0)
+    puts("These members for collection #{collection_druid} are in PF as released to #{sw_target} but not in SW")
+    puts pf_sw_diff
+  else
+    puts("Same members in PF and SW for collection #{collection_druid}")
+  end
+  if (pf_argo_diff.length > 0)
+    puts("These members for collection #{collection_druid} are in PF as released to #{sw_target} but not in Argo")
+    puts pf_argo_diff
+  else
+    puts("Same members in PF and Argo for collection #{collection_druid}")
+  end
+end
+
+def everything_released_summary(argo_client, purl_client, sw_client, sw_target)
+  argo_all = argo_client.all_druids
+  pf_all = purl_client.all_druids
+  sw_all = sw_client.all_druids
+
+  puts("Everything Statistics")
+  puts("Argo has #{argo_all.length} released to #{sw_target}")
+  puts("PF has #{pf_all.length} released to #{sw_target}")
+  puts("SW has #{sw_all.length} released to #{sw_target}")
+
+  argo_pf_diff = argo_all.sort - pf_all.sort
+  argo_sw_diff = argo_all.sort - sw_all.sort
+  pf_sw_diff = pf_all.sort - sw_all.sort
+  pf_argo_diff = pf_all.sort - argo_all.sort
+  if (argo_pf_diff.length > 0)
+    puts("These druids are in Argo as released to #{sw_target} but not in PF")
+    puts argo_pf_diff
+  else
+    puts("Same druids in Argo and PF are released to #{sw_target}")
+  end
+  if (argo_sw_diff.length > 0)
+    puts("These druids are in Argo as released to #{sw_target} but not in SW")
+    puts argo_sw_diff
+  else
+    puts("Same druids in Argo and SW are released to #{sw_target}")
+  end
+  if (pf_sw_diff.length > 0)
+    puts("These druids are in PF as released to #{sw_target} but not in SW")
+    puts pf_sw_diff
+  else
+    puts("Same druids in PF and SW are released to #{sw_target}")
+  end
+  if (pf_argo_diff.length > 0)
+    puts("These druids are in PF as released to #{sw_target} but not in Argo")
+    puts pf_argo_diff
+  else
+    puts("Same druids in PF and Argo are released to #{sw_target}")
+  end
+end
+
+case report_type
+when "Collections Summary"
+  collections_summary(argo_client, purl_client, sw_client, sw_target)
+when "Individual Items Summary"
+  individual_items_summary(argo_client, purl_client, sw_client, sw_target)
+when "Collection-specific Summary"
+  individual_collection_summary(argo_client, purl_client, sw_client, sw_target, collection_druid)
+when "Everything Released Summary"
+  everything_released_summary(argo_client, purl_client, sw_client, sw_target)
+else
+  collections_summary(argo_client, purl_client, sw_client, sw_target)
+end
