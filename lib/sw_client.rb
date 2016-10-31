@@ -42,7 +42,7 @@ class SwClient
 
   def items_druids
     #SearchWorks production item druids not in a collection
-    query = "/select?&fq=-collection%3A*&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false"
+    query = "/select?fq=-collection_type%3A%22Digital+Collection%22&fq=managed_purl_urls%3A*&fq=collection%3A%22sirsi%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false"
     # This first results statement finds all item records with druids as ids (id:/[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/))
     # the rest of the results statements look for records with catkeys, ie ids that start with a number
     id_array = ["%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F"] +  (1..9).map { |v| "#{v}*" }
