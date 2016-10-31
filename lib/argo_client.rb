@@ -22,6 +22,13 @@ class ArgoClient
     individual_items_released_to_tgt(argo_coll_results["response"]["docs"])
   end
 
+  def items_druids
+    # Argo item druids released but not in a collection
+    query = "/select?fq=-is_member_of_collection_ssim%3A*&fq=objectType_ssim%3A%22item%22&fq=released_to_ssim%3A*&fl=id,released_to_ssim,catkey_id_ssim&rows=10000&sort=id%20asc&wt=json"
+    argo_coll_results = JSON.parse(results("#{url + query}"))
+    individual_items_released_to_tgt(argo_coll_results["response"]["docs"])
+  end
+
   def all_druids
     # All Argo druids released to target
     query = "/select?&fq=released_to_ssim%3A*&q=*%3A*&fl=id,released_to_ssim,catkey_id_ssim&rows=1000000&sort=id%20asc&wt=json"

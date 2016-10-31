@@ -37,6 +37,25 @@ class PurlClient
     data_ids
   end
 
+  def individual_ids_from_purl_fetcher(data)
+    data_ids = []
+    data.each do | d |
+      if !d["true_targets"].nil? && !d["true_targets"].empty?
+        d["true_targets"].map!(&:downcase)
+        if d["true_targets"].any? { |t| t == tgt }
+          if d["collections"].nil? || d["collections"].empty?
+            if d["catkey"].nil? || d["catkey"].empty?
+              data_ids.push(d["druid"].gsub(/druid:/, ''))
+            else
+              data_ids.push([d["druid"].gsub(/druid:/, ''), d["catkey"]])
+            end
+          end
+        end
+      end
+    end
+    data_ids
+  end
+
   def collections_druids
     # Purl_fetcher collection druids
     query = "/collections"
@@ -51,6 +70,23 @@ class PurlClient
     end
 
     druids_from_results(coll_ids)
+  end
+
+  def items_druids
+    # Purl_fetcher item druids that are not in collections
+    query = "/purls?membership=none&object_type=item&per_page=10000"
+    purls = JSON.parse(results("#{url + query}"))
+
+    item_ids = []
+    item_ids += individual_ids_from_purl_fetcher(purls["purls"])
+
+    (2..no_pages(purls)).each do |i|
+      purls = JSON.parse(results("#{url + query}&page=#{i}&per_page=10000"))
+      puts "#{i}"
+      item_ids += individual_ids_from_purl_fetcher(purls["purls"])
+    end
+
+    druids_from_results(item_ids)
   end
 
   def druids_from_results(id_array)

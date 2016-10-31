@@ -94,6 +94,47 @@ def collections_summary(argo_client, purl_client, sw_client, sw_target)
   end
 end
 
+def individual_items_summary(argo_client, purl_client, sw_client, sw_target)
+
+  argo_items = argo_client.items_druids
+  pf_items = purl_client.items_druids
+  sw_items = sw_client.items_druids
+
+  puts("Individual Items Statistics")
+  puts("Argo has #{argo_items.length} released to #{sw_target}")
+  puts("PF has #{pf_items.length} released to #{sw_target}")
+  puts("SW has #{sw_items.length} released to #{sw_target}")
+
+  argo_pf_diff = argo_items.sort - pf_items.sort
+  argo_sw_diff = argo_items.sort - sw_items.sort
+  pf_sw_diff = pf_items.sort - sw_items.sort
+  pf_argo_diff = pf_items.sort - argo_items.sort
+  if (argo_pf_diff.length > 0)
+    puts("These individual items are in Argo as released to #{sw_target} but not in PF")
+    puts argo_pf_diff
+  else
+    puts("Same individual items in Argo and PF are released to #{sw_target}")
+  end
+  if (argo_sw_diff.length > 0)
+    puts("These individual items are in Argo as released to #{sw_target} but not in SW")
+    puts argo_sw_diff
+  else
+    puts("Same individual items in Argo and SW are released to #{sw_target}")
+  end
+  if (pf_sw_diff.length > 0)
+    puts("These individual items are in PF as released to #{sw_target} but not in SW")
+    puts pf_sw_diff
+  else
+    puts("Same individual items in PF and SW are released to #{sw_target}")
+  end
+  if (pf_argo_diff.length > 0)
+    puts("These individual items are in PF as released to #{sw_target} but not in Argo")
+    puts pf_argo_diff
+  else
+    puts("Same individual items in PF and Argo are released to #{sw_target}")
+  end
+end
+
 def individual_collection_summary(argo_client, purl_client, sw_client, sw_target, collection_druid)
 
   fail "Must provide Environment variable COLL_DRUID with this script" if collection_druid.nil?
@@ -180,6 +221,7 @@ case report_type
 when "Collections Summary"
   collections_summary(argo_client, purl_client, sw_client, sw_target)
 when "Individual Items Summary"
+  individual_items_summary(argo_client, purl_client, sw_client, sw_target)
 when "Collection-specific Summary"
   individual_collection_summary(argo_client, purl_client, sw_client, sw_target, collection_druid)
 when "Everything Released Summary"
