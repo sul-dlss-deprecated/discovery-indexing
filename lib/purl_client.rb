@@ -81,8 +81,7 @@ class PurlClient
     item_ids += individual_ids_from_purl_fetcher(purls["purls"])
 
     (2..no_pages(purls)).each do |i|
-      purls = JSON.parse(results("#{url + query}&page=#{i}&per_page=10000"))
-      puts "#{i}"
+      purls = JSON.parse(results("#{url + query}&page=#{i}"))
       item_ids += individual_ids_from_purl_fetcher(purls["purls"])
     end
 

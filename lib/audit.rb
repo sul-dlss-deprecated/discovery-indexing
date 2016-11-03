@@ -68,6 +68,9 @@ def collections_summary(argo_client, purl_client, sw_client, sw_target)
   argo_sw_diff = argo_coll.sort - sw_coll.sort
   pf_sw_diff = pf_coll.sort - sw_coll.sort
   pf_argo_diff = pf_coll.sort - argo_coll.sort
+  sw_argo_diff = sw_coll.sort - argo_coll.sort
+  sw_pf_diff = sw_coll.sort - pf_coll.sort
+
   if (argo_pf_diff.length > 0)
     puts("These collections are in Argo as released to #{sw_target} but not in PF")
     puts argo_pf_diff
@@ -92,6 +95,18 @@ def collections_summary(argo_client, purl_client, sw_client, sw_target)
   else
     puts("Same collections in PF and Argo are released to #{sw_target}")
   end
+  if (sw_pf_diff.length > 0)
+    puts("These individual items are in SW but not as released in PF to #{sw_target}")
+    puts sw_pf_diff
+  else
+    puts("Same individual items in PF and SW are released to #{sw_target}")
+  end
+  if (sw_argo_diff.length > 0)
+    puts("These individual items are in SW but not as released in Argo to #{sw_target}")
+    puts sw_argo_diff
+  else
+    puts("Same individual items in PF and Argo are released to #{sw_target}")
+  end
 end
 
 def individual_items_summary(argo_client, purl_client, sw_client, sw_target)
@@ -109,6 +124,9 @@ def individual_items_summary(argo_client, purl_client, sw_client, sw_target)
   argo_sw_diff = argo_items.sort - sw_items.sort
   pf_sw_diff = pf_items.sort - sw_items.sort
   pf_argo_diff = pf_items.sort - argo_items.sort
+  sw_argo_diff = sw_items.sort - argo_items.sort
+  sw_pf_diff = sw_items.sort - pf_items.sort
+
   if (argo_pf_diff.length > 0)
     puts("These individual items are in Argo as released to #{sw_target} but not in PF")
     puts argo_pf_diff
@@ -133,6 +151,18 @@ def individual_items_summary(argo_client, purl_client, sw_client, sw_target)
   else
     puts("Same individual items in PF and Argo are released to #{sw_target}")
   end
+  if (sw_pf_diff.length > 0)
+    puts("These individual items are in SW but not as released in PF to #{sw_target}")
+    puts sw_pf_diff
+  else
+    puts("Same individual items in PF and SW are released to #{sw_target}")
+  end
+  if (sw_argo_diff.length > 0)
+    puts("These individual items are in SW but not as released in Argo to #{sw_target}")
+    puts sw_argo_diff
+  else
+    puts("Same individual items in PF and Argo are released to #{sw_target}")
+  end
 end
 
 def individual_collection_summary(argo_client, purl_client, sw_client, sw_target, collection_druid)
@@ -151,6 +181,9 @@ def individual_collection_summary(argo_client, purl_client, sw_client, sw_target
   argo_sw_diff = argo_mem.sort - sw_mem.sort
   pf_sw_diff = pf_mem.sort - sw_mem.sort
   pf_argo_diff = pf_mem.sort - argo_mem.sort
+  sw_argo_diff = sw_mem.sort - argo_mem.sort
+  sw_pf_diff = sw_mem.sort - pf_mem.sort
+
   if (argo_pf_diff.length > 0)
     puts("These members for collection #{collection_druid} are in Argo as released to #{sw_target} but not in PF")
     puts argo_pf_diff
@@ -175,6 +208,18 @@ def individual_collection_summary(argo_client, purl_client, sw_client, sw_target
   else
     puts("Same members in PF and Argo for collection #{collection_druid}")
   end
+  if (sw_pf_diff.length > 0)
+    puts("These individual items are in SW but not as released in PF to #{sw_target}")
+    puts sw_pf_diff
+  else
+    puts("Same individual items in PF and SW are released to #{sw_target}")
+  end
+  if (sw_argo_diff.length > 0)
+    puts("These individual items are in SW but not as released in Argo to #{sw_target}")
+    puts sw_argo_diff
+  else
+    puts("Same individual items in PF and Argo are released to #{sw_target}")
+  end
 end
 
 def everything_released_summary(argo_client, purl_client, sw_client, sw_target)
@@ -191,6 +236,9 @@ def everything_released_summary(argo_client, purl_client, sw_client, sw_target)
   argo_sw_diff = argo_all.sort - sw_all.sort
   pf_sw_diff = pf_all.sort - sw_all.sort
   pf_argo_diff = pf_all.sort - argo_all.sort
+  sw_argo_diff = sw_all.sort - argo_all.sort
+  sw_pf_diff = sw_all.sort - pf_all.sort
+  
   if (argo_pf_diff.length > 0)
     puts("These druids are in Argo as released to #{sw_target} but not in PF")
     puts argo_pf_diff
@@ -214,6 +262,18 @@ def everything_released_summary(argo_client, purl_client, sw_client, sw_target)
     puts pf_argo_diff
   else
     puts("Same druids in PF and Argo are released to #{sw_target}")
+  end
+  if (sw_pf_diff.length > 0)
+    puts("These individual items are in SW but not as released in PF to #{sw_target}")
+    puts sw_pf_diff
+  else
+    puts("Same individual items in PF and SW are released to #{sw_target}")
+  end
+  if (sw_argo_diff.length > 0)
+    puts("These individual items are in SW but not as released in Argo to #{sw_target}")
+    puts sw_argo_diff
+  else
+    puts("Same individual items in PF and Argo are released to #{sw_target}")
   end
 end
 

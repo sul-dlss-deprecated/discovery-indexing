@@ -41,13 +41,29 @@ class SwClient
   end
 
   def items_druids
+    ids = []
     #SearchWorks production item druids not in a collection
-    query = "/select?fq=-collection_type%3A%22Digital+Collection%22&fq=managed_purl_urls%3A*&fq=collection%3A%22sirsi%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false"
+    druid_id_query = "/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fq=building_facet%3A%22Stanford+Digital+Repository%22&fq=-collection_type%3A%22Digital+Collection%22&fq=-collection%3A*&rows=10000000&fl=id&wt=csv&csv.header=false"
+    query = "/select?fq=-collection_type%3A%22Digital+Collection%22&fq=collection%3A%22sirsi%22&fq=id%3A%2F%5B0-9%5D*%2F&fq=building_facet%3A%22Stanford+Digital+Repository%22&q=*%3A*&rows=100000&fl=id%2Cmanaged_purl_urls,collection&wt=json"
     # This first results statement finds all item records with druids as ids (id:/[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/))
     # the rest of the results statements look for records with catkeys, ie ids that start with a number
-    id_array = ["%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F"] +  (1..9).map { |v| "#{v}*" }
-    lb_results = id_array.map { |id| results("#{url + query}&fq=id%3A#{id}").split("\n")}.flatten
-    druids_from_SearchWorks(lb_results).uniq.sort
+    ids = results("#{url + druid_id_query}").split("\n").flatten
+    ckey_resp = JSON.parse(results("#{url + query}"))
+    inter = []
+    ckey_resp["response"]["docs"].each do |c|
+      if c["collection"].length < 2
+        inter.push(c)
+      end
+    end
+    inter.each do |i|
+      if i["managed_purl_urls"]
+        flat = i["managed_purl_urls"].flatten
+        flat.each do |f|
+          ids.push(f.gsub("http:\/\/purl.stanford.edu\/", ""))
+        end
+      end
+    end
+    ids.uniq.sort
   end
 
   def collection_members(coll_druid)
@@ -76,12 +92,12 @@ class SwClient
 
   def ckey_from_druid(druid)
     query = "/select?fq=managed_purl_urls%3A*#{druid}&fl=id&wt=csv&&csv.header=false"
-    ckey = results("#{url + query}").gsub!("\n","")
+    results("#{url + query}").gsub!("\n","")
   end
 
   def druid_from_ckey(ckey)
     query = "/select?fq=id%3A#{ckey}&fl=managed_purl_urls&wt=csv&&csv.header=false"
-    druid = results("#{url + query}").gsub!("\n","").gsub!("http:\/\/purl.stanford.edu\/", "")
+    results("#{url + query}").gsub!("\n","").gsub!("http:\/\/purl.stanford.edu\/", "")
   end
 
   def all_druids
