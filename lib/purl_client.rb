@@ -97,7 +97,7 @@ class PurlClient
         druids.push(id[0])
       end
     end
-    druids
+    druids.sort
   end
 
   def collection_members(coll_druid)
