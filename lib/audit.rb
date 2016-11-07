@@ -25,7 +25,8 @@ pf_url = ENV['PF_URL']
 sw_url = ENV['SW_URL']
 sw_target = ENV['SW_TGT']
 
-# Everything Released Summary, Collections Summary, Individual Items Summary, Collection-specific Summary
+# Report types - Everything Released Summary, Collections Summary,
+#                Individual Items Summary, Collection-specific Summary
 report_type = ENV['RPT_TYPE']
 collection_druid = ENV['COLL_DRUID']
 
@@ -33,12 +34,10 @@ argo_client = ArgoClient.new(argo_url, sw_target)
 purl_client = PurlClient.new(pf_url, sw_target)
 sw_client = SwClient.new(sw_url)
 
-
 def results(url)
   res_url = URI.parse(url)
   Net::HTTP.get_response(res_url).body
 end
-
 
 def coll_members(collection_ids, url)
   members = []
@@ -48,9 +47,45 @@ def coll_members(collection_ids, url)
   members
 end
 
-# Get sw records that have druids as IDs but are not collections
+# Get Searchworks records that have druids as IDs but are not digital collection records
 def records_with_druid_ids(url)
   results("#{sw_url}/select?fq=-collection_type%3A%22Digital+Collection%22&q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false").split("\n")
+end
+
+def differences(ar, pf, sw)
+  diff = {}
+  diff["argo_pf"] = ar - pf
+  diff["argo_sw"] = ar - sw
+  diff["pf_argo"] = pf - ar
+  diff["pf_sw"]   = pf - sw
+  diff["sw_argo"] = sw - ar
+  diff["sw_pf"]   = sw - pf
+  diff
+end
+
+def system(s)
+  case s
+  when "argo"
+    "Argo"
+  when "pf"
+    "PF"
+  when "sw"
+    "Searchworks"
+  end
+end
+
+def rpt_output(com, sw_target)
+  com.keys.each do |c|
+    sys = c.split("_")
+    first = system(sys[0])
+    second = system(sys[1])
+    if (com[c].length > 0)
+      puts("These druids are in #{first} as released to #{sw_target} but not in #{second}")
+      puts com[c]
+    else
+      puts("Same druids in #{first} and #{second} are released to #{sw_target}")
+    end
+  end
 end
 
 def collections_summary(argo_client, purl_client, sw_client, sw_target)
@@ -64,34 +99,8 @@ def collections_summary(argo_client, purl_client, sw_client, sw_target)
   puts("PF has #{pf_coll.length} released to #{sw_target}")
   puts("SW has #{sw_coll.length} released to #{sw_target}")
 
-  argo_pf_diff = argo_coll.sort - pf_coll.sort
-  argo_sw_diff = argo_coll.sort - sw_coll.sort
-  pf_sw_diff = pf_coll.sort - sw_coll.sort
-  pf_argo_diff = pf_coll.sort - argo_coll.sort
-  if (argo_pf_diff.length > 0)
-    puts("These collections are in Argo as released to #{sw_target} but not in PF")
-    puts argo_pf_diff
-  else
-    puts("Same collections in Argo and PF are released to #{sw_target}")
-  end
-  if (argo_sw_diff.length > 0)
-    puts("These collections are in Argo as released to #{sw_target} but not in SW")
-    puts argo_sw_diff
-  else
-    puts("Same collections in Argo and SW are released to #{sw_target}")
-  end
-  if (pf_sw_diff.length > 0)
-    puts("These collections are in PF as released to #{sw_target} but not in SW")
-    puts pf_sw_diff
-  else
-    puts("Same collections in PF and SW are released to #{sw_target}")
-  end
-  if (pf_argo_diff.length > 0)
-    puts("These collections are in PF as released to #{sw_target} but not in Argo")
-    puts pf_argo_diff
-  else
-    puts("Same collections in PF and Argo are released to #{sw_target}")
-  end
+  rpt_output(differences(argo_coll, pf_coll, sw_coll), sw_target)
+
 end
 
 def individual_items_summary(argo_client, purl_client, sw_client, sw_target)
@@ -105,34 +114,8 @@ def individual_items_summary(argo_client, purl_client, sw_client, sw_target)
   puts("PF has #{pf_items.length} released to #{sw_target}")
   puts("SW has #{sw_items.length} released to #{sw_target}")
 
-  argo_pf_diff = argo_items.sort - pf_items.sort
-  argo_sw_diff = argo_items.sort - sw_items.sort
-  pf_sw_diff = pf_items.sort - sw_items.sort
-  pf_argo_diff = pf_items.sort - argo_items.sort
-  if (argo_pf_diff.length > 0)
-    puts("These individual items are in Argo as released to #{sw_target} but not in PF")
-    puts argo_pf_diff
-  else
-    puts("Same individual items in Argo and PF are released to #{sw_target}")
-  end
-  if (argo_sw_diff.length > 0)
-    puts("These individual items are in Argo as released to #{sw_target} but not in SW")
-    puts argo_sw_diff
-  else
-    puts("Same individual items in Argo and SW are released to #{sw_target}")
-  end
-  if (pf_sw_diff.length > 0)
-    puts("These individual items are in PF as released to #{sw_target} but not in SW")
-    puts pf_sw_diff
-  else
-    puts("Same individual items in PF and SW are released to #{sw_target}")
-  end
-  if (pf_argo_diff.length > 0)
-    puts("These individual items are in PF as released to #{sw_target} but not in Argo")
-    puts pf_argo_diff
-  else
-    puts("Same individual items in PF and Argo are released to #{sw_target}")
-  end
+  rpt_output(differences(argo_items, pf_items, sw_items), sw_target)
+
 end
 
 def individual_collection_summary(argo_client, purl_client, sw_client, sw_target, collection_druid)
@@ -147,34 +130,8 @@ def individual_collection_summary(argo_client, purl_client, sw_client, sw_target
   puts("PF has #{pf_mem.length} members in collection #{collection_druid} released to #{sw_target}")
   puts("SW has #{sw_mem.length} members in collection #{collection_druid} released to #{sw_target}")
 
-  argo_pf_diff = argo_mem.sort - pf_mem.sort
-  argo_sw_diff = argo_mem.sort - sw_mem.sort
-  pf_sw_diff = pf_mem.sort - sw_mem.sort
-  pf_argo_diff = pf_mem.sort - argo_mem.sort
-  if (argo_pf_diff.length > 0)
-    puts("These members for collection #{collection_druid} are in Argo as released to #{sw_target} but not in PF")
-    puts argo_pf_diff
-  else
-    puts("Same members in Argo and PF for collection #{collection_druid}")
-  end
-  if (argo_sw_diff.length > 0)
-    puts("These members for collection #{collection_druid} are in Argo as released to #{sw_target} but not in SW")
-    puts argo_sw_diff
-  else
-    puts("Same members in Argo and SW for collection #{collection_druid}")
-  end
-  if (pf_sw_diff.length > 0)
-    puts("These members for collection #{collection_druid} are in PF as released to #{sw_target} but not in SW")
-    puts pf_sw_diff
-  else
-    puts("Same members in PF and SW for collection #{collection_druid}")
-  end
-  if (pf_argo_diff.length > 0)
-    puts("These members for collection #{collection_druid} are in PF as released to #{sw_target} but not in Argo")
-    puts pf_argo_diff
-  else
-    puts("Same members in PF and Argo for collection #{collection_druid}")
-  end
+  rpt_output(differences(argo_mem, pf_mem, sw_mem), sw_target)
+
 end
 
 def everything_released_summary(argo_client, purl_client, sw_client, sw_target)
@@ -187,34 +144,8 @@ def everything_released_summary(argo_client, purl_client, sw_client, sw_target)
   puts("PF has #{pf_all.length} released to #{sw_target}")
   puts("SW has #{sw_all.length} released to #{sw_target}")
 
-  argo_pf_diff = argo_all.sort - pf_all.sort
-  argo_sw_diff = argo_all.sort - sw_all.sort
-  pf_sw_diff = pf_all.sort - sw_all.sort
-  pf_argo_diff = pf_all.sort - argo_all.sort
-  if (argo_pf_diff.length > 0)
-    puts("These druids are in Argo as released to #{sw_target} but not in PF")
-    puts argo_pf_diff
-  else
-    puts("Same druids in Argo and PF are released to #{sw_target}")
-  end
-  if (argo_sw_diff.length > 0)
-    puts("These druids are in Argo as released to #{sw_target} but not in SW")
-    puts argo_sw_diff
-  else
-    puts("Same druids in Argo and SW are released to #{sw_target}")
-  end
-  if (pf_sw_diff.length > 0)
-    puts("These druids are in PF as released to #{sw_target} but not in SW")
-    puts pf_sw_diff
-  else
-    puts("Same druids in PF and SW are released to #{sw_target}")
-  end
-  if (pf_argo_diff.length > 0)
-    puts("These druids are in PF as released to #{sw_target} but not in Argo")
-    puts pf_argo_diff
-  else
-    puts("Same druids in PF and Argo are released to #{sw_target}")
-  end
+  rpt_output(differences(argo_all, pf_all, sw_all), sw_target)
+
 end
 
 case report_type
