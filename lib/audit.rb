@@ -39,19 +39,6 @@ def results(url)
   Net::HTTP.get_response(res_url).body
 end
 
-def coll_members(collection_ids, url)
-  members = []
-  collection_ids.each do | druid |
-    members += results(url)
-  end
-  members
-end
-
-# Get Searchworks records that have druids as IDs but are not digital collection records
-def records_with_druid_ids(url)
-  results("#{sw_url}/select?fq=-collection_type%3A%22Digital+Collection%22&q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fl=id,managed_purl_urls&wt=csv&rows=10000000&csv.header=false").split("\n")
-end
-
 def differences(ar, pf, sw)
   diff = {}
   diff["argo_pf"] = ar - pf

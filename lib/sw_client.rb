@@ -24,15 +24,17 @@ class SwClient
   end
 
   def parse_json_results(res)
+    druid_ids=[]
     res["response"]["docs"].each do |i|
       if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"]
         i["managed_purl_urls"].each do |u|
-          druid_ids.push(u.gsub!("http:\/\/purl.stanford.edu\/", ""))
+          druid_ids.push(druid_from_managed_purl(u))
         end
       else
         druid_ids.push(i["id"])
       end
     end
+    druid_ids
   end
 
   def druid_from_managed_purl(mpu)
@@ -40,42 +42,14 @@ class SwClient
     mpu.gsub!("http:\/\/purl.stanford.edu\/", "")
   end
 
-  def druids_from_SearchWorks(results)
-    druids = []
-    results.each do | res |
-      urls = res.split(",")
-      urls.each do | url |
-        if (url =~ /^[a-z]/)
-          druid_from_managed_purl(url)
-          druids.push(url)
-        end
-      end
-    end
-    druids
-  end
-
   def collections_druids
     # SearchWorks production collection druids
     # Query is fq=collection_type:"Digital Collection", q=*:*
     # number of rows to output is 10000000
     # output fields are id and managed_purl_urls
-    # output format is csv and don't want header data wt=csv&csv.header=false
-    query = "/select?&fq=collection_type%3A%22Digital+Collection%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false"
-    # This first results statement finds all Digital Collections records with druids as ids (id:/[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/))
-    # the rest of the results statements look for records with catkeys, ie ids that start with a number
-    id_array = ["%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F"] +  (1..9).map { |v| "#{v}*" }
-    lb_results = id_array.map { |id| results("#{url + query}&fq=id%3A#{id}").split("\n")}.flatten
-    druids_from_SearchWorks(lb_results).uniq.sort
-  end
-
-  def collections_ids
-    # SearchWorks production collection druids
-    # Query is fq=collection_type:"Digital Collection", q=*:*
-    # number of rows to output is 10000000
-    # output fields are id and managed_purl_urls
-    # output format is csv and don't want header data wt=csv&csv.header=false
-    query = "/select?&fq=collection_type%3A%22Digital+Collection%22&q=*%3A*&rows=10000000&fl=id&wt=csv&csv.header=false"
-    results("#{url + query}").split("\n")
+    # output format is json
+    query = "/select?&fq=collection_type%3A%22Digital+Collection%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=json"
+    parse_json_results(json_parsed_resp(url, query)).uniq.sort
   end
 
   def items_druids
@@ -88,8 +62,8 @@ class SwClient
     #          fq=-collection:*,                          Not associated with a collection
     #          q=*:*
     # output field is id
-    # output format is csv and don't want header data wt=csv&csv.header=false
-    druid_id_query = "/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fq=building_facet%3A%22Stanford+Digital+Repository%22&fq=-collection_type%3A%22Digital+Collection%22&fq=-collection%3A*&rows=10000000&fl=id&wt=csv&csv.header=false"
+    # output format is json
+    druid_id_query = "/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&fq=building_facet%3A%22Stanford+Digital+Repository%22&fq=-collection_type%3A%22Digital+Collection%22&fq=-collection%3A*&rows=10000000&fl=id&wt=json"
     # ckey_id_query searches for records with catkeys as ids
     # Query is fq=id:/[0-9]*/,                            Id is in the format of a catkey (all numbers)
     #          fq=building_facet:"Stanford Digital Repository", From SDR
@@ -101,8 +75,8 @@ class SwClient
     ckey_id_query = "/select?fq=-collection_type%3A%22Digital+Collection%22&fq=collection%3A%22sirsi%22&fq=id%3A%2F%5B0-9%5D*%2F&fq=building_facet%3A%22Stanford+Digital+Repository%22&q=*%3A*&rows=100000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
     # This first results statement finds all item records with druids as ids (id:/[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/))
     # the rest of the results statements look for records with catkeys, ie ids that start with a number
-    ids = results("#{url + druid_id_query}").split("\n").flatten
-    ckey_resp = JSON.parse(results("#{url + ckey_id_query}"))
+    ids = parse_json_results(json_parsed_resp(url, druid_id_query))
+    ckey_resp = json_parsed_resp(url, ckey_id_query)
     inter = []
     ckey_resp["response"]["docs"].each do |c|
       if c["collection"].length < 2
@@ -121,7 +95,8 @@ class SwClient
   end
 
   def collection_members(coll_druid)
-    # collection members for searchworks - determined by looking for records that have the collection druid or catkey
+    # collection members for searchworks - determined by looking for records
+    # that have the collection druid or catkey
     # Query is fq=collection:coll_druid, q=*:*
     # number of rows to output is 10000000
     # output fields are id and managed_purl_urls
@@ -148,17 +123,6 @@ class SwClient
   def druid_from_ckey(ckey)
     query = "/select?fq=id%3A#{ckey}&fl=managed_purl_urls&wt=csv&&csv.header=false"
     results("#{url + query}").gsub!("\n","").gsub!("http:\/\/purl.stanford.edu\/", "")
-  end
-
-  def all_druids
-    # All SearchWorks production druids from the digital repository
-    query = "/select?&fq=managed_purl_urls%3A*&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&csv.header=false"
-    # This first results statement finds all records with druids as ids (id:/[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/))
-    # the rest of the results statements look for records with catkeys, ie ids that start with a number
-    druid_id_query = "/select?q=*%3A*&fq=id%3A%2F%5Ba-z%5D%7B2%7D%5B0-9%5D%7B3%7D%5Ba-z%5D%7B2%7D%5B0-9%5D%7B4%7D%2F&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=csv&indent=true"
-    druid_ids = results("#{url + druid_id_query}").split(",\n").flatten
-    druid_ids += results("#{url + query}").split("\n").flatten
-    druids_from_SearchWorks(druid_ids).uniq.sort
   end
 
 end
