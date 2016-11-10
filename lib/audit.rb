@@ -34,11 +34,6 @@ argo_client = ArgoClient.new(argo_url, sw_target)
 purl_client = PurlClient.new(pf_url, sw_target)
 sw_client = SwClient.new(sw_url)
 
-def results(url)
-  res_url = URI.parse(url)
-  Net::HTTP.get_response(res_url).body
-end
-
 def differences(ar, pf, sw)
   diff = {}
   diff["argo_pf"] = ar - pf

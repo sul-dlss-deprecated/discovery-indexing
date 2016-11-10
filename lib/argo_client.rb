@@ -34,7 +34,7 @@ class ArgoClient
     # output fields are id, released_to_ssim, and catkey_id_ssim
     # output ascending sorted by id
     # output format is json
-    query = "/select?fq=-is_member_of_collection_ssim%3A*&fq=objectType_ssim%3A%22item%22&fq=released_to_ssim%3A*&fl=id,released_to_ssim,catkey_id_ssim&rows=10000&sort=id%20asc&wt=json"
+    query = "/select?fq=-is_member_of_collection_ssim%3A*&fq=objectType_ssim%3A%22item%22&fq=released_to_ssim%3A*&fl=id,released_to_ssim,catkey_id_ssim,processing_status_text_ssi,rights_descriptions_ssim&rows=10000&sort=id%20asc&wt=json"
     argo_coll_results = JSON.parse(results("#{url + query}"))
     individual_items_released_to_tgt(argo_coll_results["response"]["docs"])
   end
@@ -52,10 +52,11 @@ class ArgoClient
   end
 
   def individual_items_released_to_tgt(argo_ind_items)
-    # Only care about druids released to specified tgt
+    # Only care about druids released to specified tgt with processing status anything but Registered and
+    # rights anything but dark
     druids = []
     argo_ind_items.each do | res |
-      if res.has_key?("released_to_ssim")
+      if res.has_key?("released_to_ssim") && res["processing_status_text_ssi"] != "Registered" && !res["rights_descriptions_ssim"].include?("dark")
         res["released_to_ssim"].map!(&:downcase)
         uniq_tgt = res["released_to_ssim"].uniq
         if uniq_tgt.include? tgt
