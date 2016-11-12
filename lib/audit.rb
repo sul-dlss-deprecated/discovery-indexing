@@ -50,7 +50,7 @@ def system(s)
   when "argo"
     "Argo"
   when "pf"
-    "PF"
+    "PURL"
   when "sw"
     "Searchworks"
   end
@@ -78,7 +78,7 @@ def collections_summary(argo_client, purl_client, sw_client, sw_target)
 
   puts("Collections Statistics")
   puts("Argo has #{argo_coll.length} released to #{sw_target}")
-  puts("PF has #{pf_coll.length} released to #{sw_target}")
+  puts("PURL has #{pf_coll.length} released to #{sw_target}")
   puts("SW has #{sw_coll.length} released to #{sw_target}")
 
   rpt_output(differences(argo_coll, pf_coll, sw_coll), sw_target)
@@ -93,7 +93,7 @@ def individual_items_summary(argo_client, purl_client, sw_client, sw_target)
 
   puts("Individual Items Statistics")
   puts("Argo has #{argo_items.length} released to #{sw_target}")
-  puts("PF has #{pf_items.length} released to #{sw_target}")
+  puts("PURL has #{pf_items.length} released to #{sw_target}")
   puts("SW has #{sw_items.length} released to #{sw_target}")
 
   rpt_output(differences(argo_items, pf_items, sw_items), sw_target)
@@ -109,7 +109,7 @@ def individual_collection_summary(argo_client, purl_client, sw_client, sw_target
 
   puts("Individual Collection Statistics")
   puts("Argo has #{argo_mem.length} members in collection #{collection_druid} released to #{sw_target}")
-  puts("PF has #{pf_mem.length} members in collection #{collection_druid} released to #{sw_target}")
+  puts("PURL has #{pf_mem.length} members in collection #{collection_druid} released to #{sw_target}")
   puts("SW has #{sw_mem.length} members in collection #{collection_druid} released to #{sw_target}")
 
   rpt_output(differences(argo_mem, pf_mem, sw_mem), sw_target)
@@ -123,7 +123,7 @@ def everything_released_summary(argo_client, purl_client, sw_client, sw_target)
 
   puts("Everything Statistics")
   puts("Argo has #{argo_all.length} released to #{sw_target}")
-  puts("PF has #{pf_all.length} released to #{sw_target}")
+  puts("PURL has #{pf_all.length} released to #{sw_target}")
   puts("SW has #{sw_all.length} released to #{sw_target}")
 
   rpt_output(differences(argo_all, pf_all, sw_all), sw_target)
