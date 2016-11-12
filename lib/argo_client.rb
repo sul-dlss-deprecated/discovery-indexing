@@ -52,7 +52,7 @@ class ArgoClient
     # All Argo druids released to target
     # Query is fq=released_to_ssim:*
     # number of rows to output is 1000000
-    # output fields are id, released_to_ssim, and catkey_id_ssim
+    # output fields are id, released_to_ssim, catkey_id_ssim, processing_status_text_ssi, rights_descriptions_ssim
     # output ascending sorted by id
     # output format is json
     query = "/select?&fq=released_to_ssim%3A*&q=*%3A*&fl=id,released_to_ssim,catkey_id_ssim,processing_status_text_ssi,rights_descriptions_ssim&rows=1000000&sort=id%20asc&wt=json"
