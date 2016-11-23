@@ -25,15 +25,25 @@ class SwClient
 
   def parse_json_results(res)
     druid_ids=[]
+    multi_urls={}
     res["response"]["docs"].each do |i|
       if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"]
-        i["managed_purl_urls"].each do |u|
-          druid_ids.push(druid_from_managed_purl(u))
+        multi=[]
+        if i["managed_purl_urls"].length == 1
+          druid_ids.push(druid_from_managed_purl(i["managed_purl_urls"].first))
+        else
+          i["managed_purl_urls"].each do |u|
+            multi.push(druid_from_managed_purl(u))
+          end
+          multi_urls[i["id"]] = multi
         end
       else
         druid_ids.push(i["id"])
       end
     end
+    file = File.open("./multiple_mangaged_purls.txt", "w")
+    file.write(multi_urls)
+    file.close unless file.nil?
     druid_ids
   end
 
