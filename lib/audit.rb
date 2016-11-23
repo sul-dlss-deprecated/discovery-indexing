@@ -106,7 +106,7 @@ def individual_items_summary(argo_client, purl_client, sw_client, coll_data, sw_
   puts("PURL has #{pf_items.length} released to #{sw_target}")
   puts("SW has #{sw_items.length} released to #{sw_target}")
 
-  rpt_output(differences(argo_items, pf_items, sw_items), sw_target)
+  rpt_output(differences(argo_items, pf_items, sw_items), coll_data, sw_target)
 
 end
 
@@ -122,7 +122,7 @@ def individual_collection_summary(argo_client, purl_client, sw_client, coll_data
   puts("PURL has #{pf_mem.length} members in collection #{collection_druid} released to #{sw_target}")
   puts("SW has #{sw_mem.length} members in collection #{collection_druid} released to #{sw_target}")
 
-  rpt_output(differences(argo_mem, pf_mem, sw_mem), sw_target)
+  rpt_output(differences(argo_mem, pf_mem, sw_mem), coll_data, sw_target)
 
 end
 
@@ -136,7 +136,7 @@ def everything_released_summary(argo_client, purl_client, sw_client, coll_data, 
   puts("PURL has #{pf_all.length} released to #{sw_target}")
   puts("SW has #{sw_all.length} released to #{sw_target}")
 
-  rpt_output(differences(argo_all, pf_all, sw_all), sw_target)
+  rpt_output(differences(argo_all, pf_all, sw_all), coll_data, sw_target)
 
 end
 
