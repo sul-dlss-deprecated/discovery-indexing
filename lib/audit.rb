@@ -58,11 +58,15 @@ def system(s)
 end
 
 def rpt_output(com, coll_data, sw_target)
+  puts ''
+  puts '====================================================================='
+  puts ''
   com.keys.each do |c|
     sys = c.split("_")
     first = system(sys[0])
     second = system(sys[1])
     if (com[c].length > 0)
+      puts ''
       puts("These #{com[c].length} druids are in #{first} as released to #{sw_target} but not in #{second}")
       com[c].each do |ele|
         puts "#{ele} #{coll_data[ele]}" if coll_data[ele]
