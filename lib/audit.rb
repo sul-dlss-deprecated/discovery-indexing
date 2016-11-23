@@ -63,13 +63,16 @@ def rpt_output(com, coll_data, sw_target)
     first = system(sys[0])
     second = system(sys[1])
     if (com[c].length > 0)
-      puts("These druids are in #{first} as released to #{sw_target} but not in #{second}")
+      puts("These #{com[c].length} druids are in #{first} as released to #{sw_target} but not in #{second}")
       com[c].each do |ele|
         puts "#{ele} #{coll_data[ele]}" if coll_data[ele]
       end
     else
-      puts("Same druids in #{first} and #{second} are released to #{sw_target}")
+      puts("The same #{com[c].length} druids from #{first} and #{second} are released to #{sw_target}")
     end
+    puts ''
+    puts '====================================================================='
+    puts ''
   end
 end
 
@@ -82,7 +85,7 @@ def collections_summary(argo_client, purl_client, sw_client, coll_data, sw_targe
   puts("Collections Statistics")
   puts("Argo has #{argo_coll.length} released to #{sw_target}")
   puts("PURL has #{pf_coll.length} released to #{sw_target}")
-  puts("SW has #{sw_coll.length} released to #{sw_target}")
+  puts("SW has #{sw_coll.length} collections")
 
   rpt_output(differences(argo_coll, pf_coll, sw_coll), coll_data, sw_target)
 
