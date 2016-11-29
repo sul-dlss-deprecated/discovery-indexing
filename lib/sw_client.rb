@@ -27,17 +27,17 @@ class SwClient
     druid_ids=[]
     multi_urls={}
     res["response"]["docs"].each do |i|
-      if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"]
+      if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"] && i["collection"].length < 2
         multi=[]
         if i["managed_purl_urls"].length == 1
           druid_ids.push(druid_from_managed_purl(i["managed_purl_urls"].first))
-        else
+        elsif i["managed_purl_urls"].length > 1
           i["managed_purl_urls"].each do |u|
             multi.push(druid_from_managed_purl(u))
           end
           multi_urls[i["id"]] = multi
         end
-      else
+      elsif !(/[0-9]*/.match(i["id"]))
         druid_ids.push(i["id"])
       end
     end
@@ -83,24 +83,23 @@ class SwClient
     # output fields are id, managed_purl_urls, and collection
     # output format is json
     ckey_id_query = "/select?fq=-collection_type%3A%22Digital+Collection%22&fq=collection%3A%22sirsi%22&fq=id%3A%2F%5B0-9%5D*%2F&fq=building_facet%3A%22Stanford+Digital+Repository%22&q=*%3A*&rows=100000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
-    # This first results statement finds all item records with druids as ids (id:/[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/))
-    # the rest of the results statements look for records with catkeys, ie ids that start with a number
     ids = parse_json_results(json_parsed_resp(url, druid_id_query))
     ckey_resp = json_parsed_resp(url, ckey_id_query)
-    inter = []
-    ckey_resp["response"]["docs"].each do |c|
-      if c["collection"].length < 2
-        inter.push(c)
-      end
-    end
-    inter.each do |i|
-      if i["managed_purl_urls"]
-        flat = i["managed_purl_urls"].flatten
-        flat.each do |f|
-          ids.push(druid_from_managed_purl(f))
-        end
-      end
-    end
+    # inter = []
+    # ckey_resp["response"]["docs"].each do |c|
+    #   if c["collection"].length < 2
+    #     inter.push(c)
+    #   end
+    # end
+    # inter.each do |i|
+    #   if i["managed_purl_urls"]
+    #     flat = i["managed_purl_urls"].flatten
+    #     flat.each do |f|
+    #       ids.push(druid_from_managed_purl(f))
+    #     end
+    #   end
+    # end
+    ids += parse_json_results(ckey_resp)
     ids.uniq.sort
   end
 
