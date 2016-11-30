@@ -27,7 +27,7 @@ class SwClient
     druid_ids=[]
     multi_urls={}
     res["response"]["docs"].each do |i|
-      if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"]
+      if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"] && i["collection"].length < 2
         multi=[]
         if i["managed_purl_urls"].length == 1
           druid_ids.push(druid_from_managed_purl(i["managed_purl_urls"].first))
