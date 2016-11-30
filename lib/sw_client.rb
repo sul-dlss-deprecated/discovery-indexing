@@ -16,7 +16,7 @@ class SwClient
   end
 
   def coll_search(id)
-    query = "/select?&fq=collection:#{id}&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=json"
+    query = "/select?&fq=collection:#{id}&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
   end
 
   def json_parsed_resp(url, query)
@@ -27,7 +27,7 @@ class SwClient
     druid_ids=[]
     multi_urls={}
     res["response"]["docs"].each do |i|
-      if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"] && i["collection"].length < 2
+      if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"]
         multi=[]
         if i["managed_purl_urls"].length == 1
           druid_ids.push(druid_from_managed_purl(i["managed_purl_urls"].first))
@@ -37,7 +37,7 @@ class SwClient
           end
           multi_urls[i["id"]] = multi
         end
-      elsif !(/[0-9]*/.match(i["id"]))
+      elsif /[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/.match(i["id"])
         druid_ids.push(i["id"])
       end
     end
@@ -58,7 +58,7 @@ class SwClient
             druid_ids.push(druid_from_managed_purl(u))
           end
         end
-      elsif !(/[0-9]*/.match(i["id"]))
+      elsif /[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/.match(i["id"])
         druid_ids.push(i["id"])
       end
     end
@@ -121,7 +121,7 @@ class SwClient
       # Get the catkey by finding the corresponding managed_purl_urls
       ckey = ckey_from_druid(coll_druid)
       query = coll_search(ckey)
-      res = json_item_parsed_resp(url, query)
+      res = json_parsed_resp(url, query)
     end
     druid_ids += parse_item_json_results(res)
     druid_ids.uniq.sort
