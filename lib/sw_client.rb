@@ -76,7 +76,7 @@ class SwClient
     # number of rows to output is 10000000
     # output fields are id and managed_purl_urls
     # output format is json
-    query = "/select?&fq=collection_type%3A%22Digital+Collection%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=json"
+    query = "/select?&fq=collection_type%3A%22Digital+Collection%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
     parse_collection_json_results(json_parsed_resp(url, query)).uniq.sort
   end
 

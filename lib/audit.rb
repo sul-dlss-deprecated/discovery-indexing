@@ -69,10 +69,15 @@ def rpt_output(com, coll_data, sw_target)
       puts("These #{com[c].length} druids are in #{first} as released to #{sw_target} but not in #{second}")
       puts ''
       com[c].each do |ele|
-        puts "#{ele} #{coll_data[ele]}" if coll_data[ele]
+        print ele
+        if coll_data[ele]
+          puts coll_data[ele]
+        else
+          puts ''
+        end
       end
     else
-      puts("The same #{com[c].length} druids from #{first} and #{second} are released to #{sw_target}")
+      puts("The same druids from #{first} and #{second} are released to #{sw_target}")
     end
     puts ''
     puts '====================================================================='
