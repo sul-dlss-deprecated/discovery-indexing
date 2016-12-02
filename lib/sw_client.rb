@@ -16,14 +16,14 @@ class SwClient
   end
 
   def coll_search(id)
-    query = "/select?&fq=collection:#{id}&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=json"
+    query = "/select?&fq=collection:#{id}&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
   end
 
   def json_parsed_resp(url, query)
     JSON.parse(results("#{url + query}"))
   end
 
-  def parse_json_results(res)
+  def parse_collection_json_results(res)
     druid_ids=[]
     multi_urls={}
     res["response"]["docs"].each do |i|
@@ -31,19 +31,37 @@ class SwClient
         multi=[]
         if i["managed_purl_urls"].length == 1
           druid_ids.push(druid_from_managed_purl(i["managed_purl_urls"].first))
-        else
+        elsif i["managed_purl_urls"].length > 1
           i["managed_purl_urls"].each do |u|
             multi.push(druid_from_managed_purl(u))
           end
           multi_urls[i["id"]] = multi
         end
-      else
+      elsif /[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/.match(i["id"])
         druid_ids.push(i["id"])
       end
     end
     file = File.open("./multiple_mangaged_purls.txt", "w")
     file.write(multi_urls)
     file.close unless file.nil?
+    druid_ids
+  end
+
+  def parse_item_json_results(res)
+    druid_ids=[]
+    res["response"]["docs"].each do |i|
+      if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"] && i["collection"].length < 2
+        if i["managed_purl_urls"].length == 1
+          druid_ids.push(druid_from_managed_purl(i["managed_purl_urls"].first))
+        elsif i["managed_purl_urls"].length > 1
+          i["managed_purl_urls"].each do |u|
+            druid_ids.push(druid_from_managed_purl(u))
+          end
+        end
+      elsif /[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/.match(i["id"])
+        druid_ids.push(i["id"])
+      end
+    end
     druid_ids
   end
 
@@ -58,8 +76,8 @@ class SwClient
     # number of rows to output is 10000000
     # output fields are id and managed_purl_urls
     # output format is json
-    query = "/select?&fq=collection_type%3A%22Digital+Collection%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls&wt=json"
-    parse_json_results(json_parsed_resp(url, query)).uniq.sort
+    query = "/select?&fq=collection_type%3A%22Digital+Collection%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
+    parse_collection_json_results(json_parsed_resp(url, query)).uniq.sort
   end
 
   def items_druids
@@ -83,24 +101,8 @@ class SwClient
     # output fields are id, managed_purl_urls, and collection
     # output format is json
     ckey_id_query = "/select?fq=-collection_type%3A%22Digital+Collection%22&fq=collection%3A%22sirsi%22&fq=id%3A%2F%5B0-9%5D*%2F&fq=building_facet%3A%22Stanford+Digital+Repository%22&q=*%3A*&rows=100000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
-    # This first results statement finds all item records with druids as ids (id:/[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/))
-    # the rest of the results statements look for records with catkeys, ie ids that start with a number
-    ids = parse_json_results(json_parsed_resp(url, druid_id_query))
-    ckey_resp = json_parsed_resp(url, ckey_id_query)
-    inter = []
-    ckey_resp["response"]["docs"].each do |c|
-      if c["collection"].length < 2
-        inter.push(c)
-      end
-    end
-    inter.each do |i|
-      if i["managed_purl_urls"]
-        flat = i["managed_purl_urls"].flatten
-        flat.each do |f|
-          ids.push(druid_from_managed_purl(f))
-        end
-      end
-    end
+    ids = parse_item_json_results(json_parsed_resp(url, druid_id_query))
+    ids += parse_item_json_results(json_parsed_resp(url, ckey_id_query))
     ids.uniq.sort
   end
 
@@ -121,7 +123,7 @@ class SwClient
       query = coll_search(ckey)
       res = json_parsed_resp(url, query)
     end
-    druid_ids += parse_json_results(res)
+    druid_ids += parse_item_json_results(res)
     druid_ids.uniq.sort
   end
 
