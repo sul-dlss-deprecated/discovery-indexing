@@ -41,7 +41,7 @@ class SwClient
         druid_ids.push(i["id"])
       end
     end
-    file = File.open("./multiple_mangaged_purls.txt", "w")
+    file = File.open("./multiple_managed_purls.txt", "w")
     file.write(multi_urls)
     file.close unless file.nil?
     druid_ids
