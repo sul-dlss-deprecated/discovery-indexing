@@ -42,7 +42,11 @@ class SwClient
       end
     end
     file = File.open("./multiple_managed_purls.txt", "w")
-    file.write(multi_urls)
+    multi_urls.keys.each do | id |
+      file.write("#{id},")
+      file.write(multi_urls[id].map { |i| i.to_s }.join(","))
+      file.write("\n")
+    end
     file.close unless file.nil?
     druid_ids
   end
