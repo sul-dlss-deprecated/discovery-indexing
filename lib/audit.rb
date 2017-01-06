@@ -32,14 +32,15 @@ class Audit
     diff
   end
 
-def system(s)
-  case s
-  when "argo"
-    "Argo"
-  when "pf"
-    "PURL"
-  when "sw"
-    "Searchworks"
+  def system(s)
+    case s
+    when "argo"
+      "Argo"
+    when "pf"
+      "PURL"
+    when "sw"
+      "Searchworks"
+    end
   end
 
   def rpt_output(com, sw_target)
