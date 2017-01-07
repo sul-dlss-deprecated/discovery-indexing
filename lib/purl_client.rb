@@ -126,7 +126,6 @@ class PurlClient
     all_ids += ids_from_purl_fetcher(all['purls'])
 
     (2..no_pages(all)).each do |i|
-      puts i
       all = JSON.parse(results("#{url + query}&page=2"))
       all_ids += ids_from_purl_fetcher(all["purls"])
     end

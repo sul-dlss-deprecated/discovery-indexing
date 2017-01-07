@@ -1,0 +1,114 @@
+{
+    "purls": [
+        {
+            "druid": "druid:cv301vb5243",
+            "published_at": "2012-08-29T02:26:29.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537165",
+            "title": "Economic adaptation of immigrants: a comparative approach",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:tp454dp0638",
+            "published_at": "2012-08-29T02:26:40.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537116",
+            "title": "Computational modeling of solvent in structural biology",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:hk621tj0645",
+            "published_at": "2012-08-29T02:26:50.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537156",
+            "title": "Carbon nanotubes: device physics, RF circuits, surface science, and nanotechnology",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:fh176zf4079",
+            "published_at": "2012-08-29T02:27:10.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537133",
+            "title": "Research synthesis for multiway tables of varying shapes and size",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:px491tp4561",
+            "published_at": "2012-08-29T02:27:21.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537155",
+            "title": "A microfluidic biochip based on magnetoresistive detection of nanoparticles",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:gw196by8202",
+            "published_at": "2012-08-29T02:27:31.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537138",
+            "title": "Quantification of optical gain-limiting processes in silicon nanocrystals using microcavities",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:pb603fs3989",
+            "published_at": "2012-08-29T02:28:00.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537126",
+            "title": "Applications of feedback control to musical instrument design",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:vv695gh8211",
+            "published_at": "2012-08-29T02:28:10.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537152",
+            "title": "Interface and stress engineering in germanium metal-oxide-semiconductor field-effect-transistors for high performance application",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:cx054br0225",
+            "published_at": "2012-08-29T02:28:22.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537139",
+            "title": "Metal Nanostructures in optoelectronic devices",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:fk368by4307",
+            "published_at": "2012-08-29T02:29:02.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537147",
+            "title": "Algorithms for analysis of multiple biological sequences: theory and practice",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        }
+    ],
+    "pages": {
+        "current_page": 1,
+        "next_page": 2,
+        "prev_page": null,
+        "total_pages": 6,
+        "per_page": 10,
+        "offset_value": 0,
+        "first_page?": true,
+        "last_page?": false
+    }
+}

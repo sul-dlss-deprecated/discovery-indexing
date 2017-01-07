@@ -1,0 +1,1289 @@
+{
+    "purls": [
+        {
+            "druid": "druid:kb500wc8564",
+            "published_at": "2014-07-02T20:22:52.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083253",
+            "title": "Medieval manuscripts : fragment collection, 11-- - 14--, and no date",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:rt343yt6088",
+            "published_at": "2014-07-02T20:23:08.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083253",
+            "title": "Medieval manuscripts : fragment collection, 11-- - 14--, and no date",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:sf574ms6063",
+            "published_at": "2014-07-02T20:24:13.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083253",
+            "title": "Medieval manuscripts : fragment collection, 11-- - 14--, and no date",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:zj232nc4489",
+            "published_at": "2014-07-02T20:25:29.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083253",
+            "title": "Medieval manuscripts : fragment collection, 11-- - 14--, and no date",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:zr762vg9431",
+            "published_at": "2014-07-02T20:25:30.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083253",
+            "title": "Medieval manuscripts : fragment collection, 11-- - 14--, and no date",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:jg707sd1061",
+            "published_at": "2015-04-24T18:33:59.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "10184209",
+            "title": "Pompeius Festus, de verborum significatione; Titus Livius of Ferrara, de orthographia; a legal dictionary, [and other related texts], Germany : manuscript codex on paper",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:ky937vr1346",
+            "published_at": "2015-04-24T18:36:38.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9521779",
+            "title": "De natura deorum / Marcus Tullius Cicero : manuscript codex",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:tj877gw9119",
+            "published_at": "2016-08-08T02:09:36.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082816",
+            "title": "Horae Beatae Mariae Virginis",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:sx355fc4017",
+            "published_at": "2016-08-08T02:09:38.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083226",
+            "title": "Medical and astrological texts",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:tb236vn2045",
+            "published_at": "2016-08-08T02:09:43.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083832",
+            "title": "Medieval fragment, ca. 1490?",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:tk658vg4243",
+            "published_at": "2016-08-08T02:09:45.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658110",
+            "title": "Missal, with neumes, containing November and December from a calendar, Kyries and Glorias with staveless neumes, and mass prefaces for major feasts (Christmas, Epiphany, Lent, etc.): manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:nd720fb2049",
+            "published_at": "2016-08-08T02:09:50.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659479",
+            "title": "Missal, with neumes, with parts of the second and third masses for Christmas day : manuscript fragment, 13th century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:mt959sj8266",
+            "published_at": "2016-08-08T02:09:56.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082829",
+            "title": "Missale Romanum",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ss926bh6225",
+            "published_at": "2016-08-08T02:09:56.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658063",
+            "title": "Legenda aurea : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ss015jh9987",
+            "published_at": "2016-08-08T02:10:03.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "7684046",
+            "title": "Incipit prologus sup[er] legendas sanctorum quas compilavit Fr[ater] Iacobus natione Ianuensis de Ordine Fratrum Predicatorum",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:tc659wz4125",
+            "published_at": "2016-08-08T02:10:03.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658014",
+            "title": "Bible, in Latin, interpretation of Hebrew names, the end of the letter 'S' and beginning of 'T' : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:rw579hm3419",
+            "published_at": "2016-08-08T02:10:10.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "7912764",
+            "title": "Historia scholastica: manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:tw490xj0071",
+            "published_at": "2016-08-08T02:10:14.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8657985",
+            "title": "Commentary on the 'De Sensu et Sensato' : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:rx201rz4528",
+            "published_at": "2016-08-08T02:10:17.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659507",
+            "title": "Gradual, with neumes, including the Gradual and Alleluia, Offertory, and Communion for the 2nd Sunday after Trinity, followed by rubrics for the 3rd : manuscript fragment, late 13th century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:rm504km6504",
+            "published_at": "2016-08-08T02:10:20.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082819",
+            "title": "Divae Catharinae Senensis Vita",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:bk254dq8652",
+            "published_at": "2016-08-08T02:10:24.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082820",
+            "title": "Horae",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:kq131cs7229",
+            "published_at": "2016-08-08T02:10:31.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083458",
+            "title": "Manuscript fragment of the Gospels and Canonical Epistles, glossed",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:kg345fg4958",
+            "published_at": "2016-08-08T02:10:33.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658027",
+            "title": "Calendar, from a liturgical text, the month of January: manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:kt264fz9218",
+            "published_at": "2016-08-08T02:10:38.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "7899747",
+            "title": "Italy. Leaves from a lectionary : manuscript on vellum, circa 1190",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ks001th1324",
+            "published_at": "2016-08-08T02:10:39.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659532",
+            "title": "Speculum historiale, Book IV, chapters 45-47, 53-54 and 69-71 / Vincent of Beauvais : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:gh328kv5465",
+            "published_at": "2016-08-08T02:10:45.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083551",
+            "title": "De situ Dunelmi : manuscript poem",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:kv814bz5938",
+            "published_at": "2016-08-08T02:10:45.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8112917",
+            "title": "Officium Beate Marie Virginis: secundum consuetudinem romane ecclesie",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:jr910mv3576",
+            "published_at": "2016-08-08T02:10:51.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8254559",
+            "title": "Pandectae : manuscript fragment, 12th century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:gx851rh2524",
+            "published_at": "2016-08-08T02:10:52.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659528",
+            "title": "Medical treatise : manuscript fragment, 14th century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:jt667pt7887",
+            "published_at": "2016-08-08T02:10:57.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8439778",
+            "title": "Biblia Latina",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:hw369xh3348",
+            "published_at": "2016-08-08T02:10:59.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659500",
+            "title": "Breviary, with neumes, with readings from Psalm 55 : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:kb706kg3068",
+            "published_at": "2016-08-08T02:11:05.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659529",
+            "title": "De virtutibus herbarum; the end of chapter 21 and beginning of chapter 22 : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:jm034qk3490",
+            "published_at": "2016-08-08T02:11:05.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658077",
+            "title": "Lectionary, in Latin : manuscript fragments",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ct307bc2324",
+            "published_at": "2016-08-08T02:11:10.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658058",
+            "title": "Legenda aurea, portion of chapters 26-27 : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:dd449nr8009",
+            "published_at": "2016-08-08T02:11:12.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8512587",
+            "title": "Text from II Kings, chapters 4:31-6:28 : manuscript leaf from a medieval Bible",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:fm769yq8232",
+            "published_at": "2016-08-08T02:11:16.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082810",
+            "title": "[Temptations of the World] : manuscript fragment of a religious text",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:gc030ss7797",
+            "published_at": "2016-08-08T02:11:18.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659475",
+            "title": "Breviary, with neumes, with texts for the Office of St. Afra : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:pz757cr7068",
+            "published_at": "2016-08-08T02:11:22.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4783680",
+            "title": "Divina commedia. Inferno (canto VIII 19 - IX 27)",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:rc289zr8012",
+            "published_at": "2016-08-08T02:11:24.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659441",
+            "title": "Missal, with neumes, with readings for the feasts of All Saints, Saint Martin, Andrew, Nicholas, and the dedication of a church : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:qs633yw1332",
+            "published_at": "2016-08-08T02:11:28.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082817",
+            "title": "Bucolics, Georgics, and the Aeneid",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:pd341hr8820",
+            "published_at": "2016-08-08T02:11:31.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083297",
+            "title": "Enarrationes in Psalmos : manuscript fragment of Psalm XXXV",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:pf136qb8276",
+            "published_at": "2016-08-08T02:11:34.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658112",
+            "title": "Missal, with neumes : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:pn373pf2415",
+            "published_at": "2016-08-08T02:11:37.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "5175666",
+            "title": "Commentaries on S. Remigio : manuscript notes and annotated partial text of JANUARIUS, nd",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:pm647gd9792",
+            "published_at": "2016-08-08T02:11:41.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083218",
+            "title": "De civitate Dei. Book VIII, ch. 2-6 : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:bz689hb4817",
+            "published_at": "2016-08-08T02:11:44.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4783680",
+            "title": "Divina commedia. Inferno (canto VIII 19 - IX 27)",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:cb825zt2361",
+            "published_at": "2016-08-08T02:11:48.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658048",
+            "title": "Viaticum, book VII, chapters 2-3 and 15-20 : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:dw728sc2070",
+            "published_at": "2016-08-08T02:11:51.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082819",
+            "title": "Divae Catharinae Senensis Vita",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:pc088yz3209",
+            "published_at": "2016-08-08T02:11:54.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658031",
+            "title": "Moralia in Job : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:rm816sk5227",
+            "published_at": "2016-08-08T02:11:58.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083877",
+            "title": "Book of Hours and Psalter",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:wy326ny3705",
+            "published_at": "2016-08-08T02:12:01.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082821",
+            "title": "Breviary",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:vx909kg6013",
+            "published_at": "2016-08-08T02:12:05.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659524",
+            "title": "Medical treatise : manuscript fragment, 13th century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:wj862sc8818",
+            "published_at": "2016-08-08T02:12:07.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4329993",
+            "title": "Manuscript leaf with commentary by Bede",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:sk288dw6327",
+            "published_at": "2016-08-08T02:12:12.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082818",
+            "title": "De officiis: Libri tres",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:tt083bq4397",
+            "published_at": "2016-08-08T02:12:13.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658005",
+            "title": "Bible, in Latin, 2 Chronicles 4, 12 - 6, 37 : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:wf421qm3260",
+            "published_at": "2016-08-08T02:12:18.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659485",
+            "title": "Breviary, with neumes, including part of the Office of Matins for the 2nd Sunday in Lent : manuscript fragment, 14th century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yp374mr6479",
+            "published_at": "2016-08-08T02:12:19.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8659531",
+            "title": "Psalter, in Latin, Psalms 146,8 - 149,1 : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yw470rk2452",
+            "published_at": "2016-08-08T02:12:25.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8657992",
+            "title": "Bible, in Latin, 2 Kings 21,13-24,16 : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yq686hn6902",
+            "published_at": "2016-08-08T02:12:28.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658021",
+            "title": "Book of Hours, in Latin and French : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yx072zy1806",
+            "published_at": "2016-08-08T02:12:32.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658091",
+            "title": "Sacramentary, including part of the masses for the Vigil of St. Andrew (29 November), the Feast of St. Andrew (30 November) and the Feast of St. Lucy (13 December) : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:xy747tn7254",
+            "published_at": "2016-08-08T02:12:34.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658096",
+            "title": "Breviary, with neumes, with the antiphon for Vespers at Holy Trinity : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ys110kq7404",
+            "published_at": "2016-08-08T02:12:38.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082842",
+            "title": "Historia scholastica : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yb640fm3078",
+            "published_at": "2016-08-08T02:12:40.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658087",
+            "title": "Missal, containing feasts in July and August, including the Division of the Apostles, Alexis, Praxedis, Dominic, Oswald, Felix, Affra, and Donatus : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:zd089yr4302",
+            "published_at": "2016-08-08T02:12:44.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "5451841",
+            "title": "Sermon in Lent, Homilia 21, in Quadragesima : manuscript vellum leaf, 11th century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:qw118xm2703",
+            "published_at": "2016-08-08T02:12:46.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083004",
+            "title": "Commentary on the Clementinae: fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ry959dj1264",
+            "published_at": "2016-08-08T02:12:52.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9931327",
+            "title": "Breviary, with neumes, with readings for the fourth Sunday in Lent : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:qf941pf2699",
+            "published_at": "2016-08-08T02:12:53.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9925895",
+            "title": "Kitab al-Tanqih / Jonah ibn Janah : manuscript leaves from two Hebrew dictionaries",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:sj966nx0544",
+            "published_at": "2016-08-08T02:12:58.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "10088494",
+            "title": "Antiphonary with Ambrosian musical chant : partial manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:tw368kj5707",
+            "published_at": "2016-08-08T02:12:59.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9272935",
+            "title": "Breviary : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:vn453zz8352",
+            "published_at": "2016-08-08T02:13:05.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9654030",
+            "title": "Magna Glossatura in epistolas pauli : leaves from a decorated manuscript on vellum",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:xf680rd3068",
+            "published_at": "2016-08-08T02:13:06.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "10157160",
+            "title": "Latin glossary : small manuscript fragment on vellum",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:dr325vv7757",
+            "published_at": "2016-08-08T02:13:11.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9654007",
+            "title": "Homilies on the Gospels / manuscript leaf, end of 12th century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yn437bg8736",
+            "published_at": "2016-08-08T02:13:16.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "10088546",
+            "title": "De Medicina Equorum of Giordano Ruffo : decorated manuscript leaves",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yn050tj3456",
+            "published_at": "2016-08-08T02:13:20.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9860942",
+            "title": "Roman military diploma fragment, circa 2nd century",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yx896nf5271",
+            "published_at": "2016-08-08T02:13:22.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9931324",
+            "title": "Breviary, with neumes, with part of the service for Pentecost : manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:yn176hh9896",
+            "published_at": "2016-08-08T02:13:27.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9931321",
+            "title": "Missal : manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:mt870kn7478",
+            "published_at": "2016-08-08T02:13:29.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "10088478",
+            "title": "Psalter : illuminated manuscript leaf on vellum",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:jp117jd8338",
+            "published_at": "2016-08-08T02:13:33.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9932042",
+            "title": "Aurora, containing part of the evangelium by Petrus Riga : manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:dv924vb2099",
+            "published_at": "2016-08-08T02:13:35.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9960949",
+            "title": "Catholicon of Giovanni Balbi : manuscript leaf in Latin",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:wv868tt4562",
+            "published_at": "2016-08-08T02:13:40.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9853073",
+            "title": "Interpretation of Hebrew names / Stephen Langton: manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:wq955tp5546",
+            "published_at": "2016-08-08T02:13:41.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9960889",
+            "title": "Interpretation of Hebrew names : single manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:kq583vm4760",
+            "published_at": "2016-08-08T02:13:47.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9926506",
+            "title": "Interpretationes Nominum Hebraicorum / St. Jerome : manuscript leaves",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:rf019zm2476",
+            "published_at": "2016-08-08T02:13:47.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9932113",
+            "title": "De rerum naturis / Rabanus Maurus : manuscript fragment of a leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ks620rq1685",
+            "published_at": "2016-08-08T02:13:53.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9932059",
+            "title": "Institutiones grammaticae / Priscian : manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:dn341sd3055",
+            "published_at": "2016-08-08T02:13:59.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9932146",
+            "title": "Andria / Terence : manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ry202zd0900",
+            "published_at": "2016-08-08T02:13:59.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "10089841",
+            "title": "Interpretation of Hebrew names / Saint Jerome : manuscript codex",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:fr717bk4616",
+            "published_at": "2016-08-08T02:14:05.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9925820",
+            "title": "Vocabularius ex quo : manuscript leaves from a German - Latin dictionary with an example of an inhabited initial",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:fm590rc7316",
+            "published_at": "2016-08-08T02:14:05.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9931313",
+            "title": "Graecismus of Évrard de Béthune : four manuscript bifolia",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:wh600gn2158",
+            "published_at": "2016-08-08T02:14:11.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9960900",
+            "title": "Bible, in Latin (Book of Isaiah) : manuscript bifolium",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:cv494md6864",
+            "published_at": "2016-08-08T02:14:17.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083238",
+            "title": "Geoffrey Chaucer : portrait, 14--",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:bn507hr4651",
+            "published_at": "2016-08-08T02:14:18.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082864",
+            "title": "Letter, 1507 June 25: Florence",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:rt376tb6484",
+            "published_at": "2016-08-08T02:14:22.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082830",
+            "title": "Catalonia (Spain) : deed of land, 963",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:sr696dt9862",
+            "published_at": "2016-08-08T02:14:24.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083224",
+            "title": "Dragmaticon",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:pj011rv1516",
+            "published_at": "2016-08-08T02:14:28.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9591166",
+            "title": "Bible, in Latin (II Samuel 24:9-25) : large manuscript leaf",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:dw698sk5671",
+            "published_at": "2016-08-08T02:14:30.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9537236",
+            "title": "Postilla in librum Job / Hugo de Sancto Caro : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:ps908vt5059",
+            "published_at": "2016-08-08T02:14:35.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083228",
+            "title": "Statuta Civitatis Massilie, 1228-1319",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:vm036hj1303",
+            "published_at": "2016-08-08T02:14:36.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "9931285",
+            "title": "Bible, in Latin, parts of St. Jerome's prologue to Job : manuscript fragment",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:gp178js1323",
+            "published_at": "2016-10-26T00:47:31.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4082816",
+            "title": "Horae Beatae Mariae Virginis",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:jb603kp3053",
+            "published_at": "2016-10-26T00:48:43.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "11467715",
+            "title": "Old Testament: 2 Chronicles",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": [
+                "Searchworks",
+                "SearchWorksPreview"
+            ]
+        },
+        {
+            "druid": "druid:bm422jf0159",
+            "published_at": "2016-11-22T06:45:23.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8658039",
+            "title": "Postillae in universa biblia, parts of the commentary on Book of Proverbs 22-23 and 27 : manuscript fragments",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"],
+            "false_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:dh813jk5245",
+            "published_at": "2016-11-22T06:52:06.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "4083768",
+            "title": "Ars minor",
+            "collections": ["druid:sk373nx0013"],
+            "true_targets": ["Searchworks"],
+            "false_targets": ["Searchworks"]
+        }
+    ],
+    "pages": {
+        "current_page": 1,
+        "next_page": 1,
+        "prev_page": null,
+        "total_pages": 1,
+        "per_page": 100,
+        "offset_value": 0,
+        "first_page?": true,
+        "last_page?": false
+    }
+}
