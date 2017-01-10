@@ -146,4 +146,8 @@ describe SwClient do
     end
   end
 
+  after do
+    File.delete('multiple_managed_purls.txt') if File.file?('multiple_managed_purls.txt')
+  end
+
 end
