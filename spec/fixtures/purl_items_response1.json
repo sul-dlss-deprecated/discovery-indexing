@@ -45,7 +45,6 @@
             "published_at": "2012-08-29T02:27:21.000Z",
             "deleted_at": null,
             "object_type": "item",
-            "catkey": "8537155",
             "title": "A microfluidic biochip based on magnetoresistive detection of nanoparticles",
             "collections": [],
             "true_targets": ["Searchworks"]
@@ -55,7 +54,6 @@
             "published_at": "2012-08-29T02:27:31.000Z",
             "deleted_at": null,
             "object_type": "item",
-            "catkey": "8537138",
             "title": "Quantification of optical gain-limiting processes in silicon nanocrystals using microcavities",
             "collections": [],
             "true_targets": ["Searchworks"]
@@ -85,7 +83,6 @@
             "published_at": "2012-08-29T02:28:22.000Z",
             "deleted_at": null,
             "object_type": "item",
-            "catkey": "8537139",
             "title": "Metal Nanostructures in optoelectronic devices",
             "collections": [],
             "true_targets": ["Searchworks"]

@@ -32,31 +32,47 @@ describe PurlClient do
 
   describe '.ids_from_purl_fetcher' do
     it 'returns druids and catkeys from results' do
-
-    end
-    it 'downcases the values in the true_targets data' do
-
+      inp = File.open('spec/fixtures/purl_coll_response1.json').read
+      coll = JSON.parse(inp)
+      ids = subject.ids_from_purl_fetcher(coll["collections"])
+      expect(ids).to eq([["jh346sh2097", "9145819"], "xw274dm7079", ["rw431mw4432", "3195852"], "fs078sw0006", "nx585yw5390", "ys200gq1840", "gg286wk0365", "yw872fq2295", "tv224nt5377", "yp335tw7818"])
     end
     it 'returns only druid without prefix when no catkey exists' do
-
+      inp = File.open('spec/fixtures/purl_coll_response1.json').read
+      coll = JSON.parse(inp)
+      expect(coll["collections"].any? { |hash| hash['druid'].include?('xw274dm7079') })
+      ids = subject.ids_from_purl_fetcher(coll["collections"])
+      expect(ids).to include("xw274dm7079", "fs078sw0006", "nx585yw5390", "ys200gq1840", "gg286wk0365", "yw872fq2295", "tv224nt5377", "yp335tw7818")
     end
     it 'returns druid without prefix and catkey if catkey exists' do
-
+      inp = File.open('spec/fixtures/purl_coll_response1.json').read
+      coll = JSON.parse(inp)
+      expect(coll["collections"].any? { |hash| hash['catkey'].include?('9145819') })
+      ids = subject.ids_from_purl_fetcher(coll["collections"])
+      expect(ids).to include(["jh346sh2097", "9145819"],["rw431mw4432", "3195852"])
     end
   end
 
   describe '.individual_ids_from_purl_fetcher' do
     it 'returns druids and catkeys of items without associated collections from results' do
-
-    end
-    it 'downcases the values in the true_targets data' do
-
+      inp = File.open('spec/fixtures/purl_items_response1.json').read
+      purls = JSON.parse(inp)
+      ids = subject.ids_from_purl_fetcher(purls["purls"])
+      expect(ids).to eq([["cv301vb5243", "8537165"],["tp454dp0638","8537116"],["hk621tj0645","8537156"],["fh176zf4079","8537133"],"px491tp4561","gw196by8202",["pb603fs3989","8537126"],["vv695gh8211","8537152"],"cx054br0225",["fk368by4307","8537147"]])
     end
     it 'returns only druid without prefix when no catkey exists for items without associated collections' do
-
+      inp = File.open('spec/fixtures/purl_items_response1.json').read
+      purls = JSON.parse(inp)
+      expect(purls["purls"].any? { |hash| hash['druid'].include?("px491tp4561") })
+      ids = subject.ids_from_purl_fetcher(purls["purls"])
+      expect(ids).to include("px491tp4561","gw196by8202","cx054br0225")
     end
     it 'returns druid without prefix and catkey if catkey exists for items without associated collections' do
-
+      inp = File.open('spec/fixtures/purl_items_response1.json').read
+      purls = JSON.parse(inp)
+      expect(purls["purls"].any? { |hash| hash['catkey'].include?("8537116") })
+      ids = subject.ids_from_purl_fetcher(purls["purls"])
+      expect(ids).to include(["cv301vb5243", "8537165"],["tp454dp0638","8537116"],["hk621tj0645","8537156"],["fh176zf4079","8537133"],["pb603fs3989","8537126"],["vv695gh8211","8537152"],["fk368by4307","8537147"])
     end
   end
 
