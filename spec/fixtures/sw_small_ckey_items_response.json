@@ -1,0 +1,5636 @@
+{
+    "responseHeader": {
+        "status": 0,
+        "QTime": 3374,
+        "params": {
+            "fl": "id,managed_purl_urls,collection",
+            "q": "*:*",
+            "wt": "json",
+            "fq": [
+                "-collection_type:\"Digital Collection\"",
+                "collection:\"sirsi\"",
+                "id:/[0-9]*/",
+                "building_facet:\"Stanford Digital Repository\""
+            ],
+            "rows": "100000"
+        }
+    },
+    "response": {
+        "numFound": 14704,
+        "start": 0,
+        "docs": [
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/tx066sr4275",
+                    "http://purl.stanford.edu/wc864bj2502",
+                    "http://purl.stanford.edu/xm252pn4140"
+                ],
+                "id": "9100313"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714801"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652347"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652400"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714803"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572514"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652486"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714858"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714754"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572163"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8802320"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10753595"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572530"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815961"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714796"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652458"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652469"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11863115"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652526"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11653152"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714733"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652446"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714833"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731540"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8797264"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652470"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572544"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10588332"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813226"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8785660"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572524"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819032"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652375"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570267"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714804"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714910"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714783"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819028"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572527"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11581557"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572580"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11359488"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714882"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8726578"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572539"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9219073"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652492"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652478"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714787"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819024"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652534"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731467"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8800033"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10753594"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652475"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731476"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714908"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652428"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815958"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714795"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652497"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652342"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570270"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10352831"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154525"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154530"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154531"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154529"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154527"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147705"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154549"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147727"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9164858"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652523"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8727354"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652459"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11823541"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652345"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714868"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8713179"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8774031"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714753"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731551"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147723"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815950"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10739199"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652426"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813218"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572550"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652420"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815969"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10753776"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8799062"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572579"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570115"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8801462"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11237753"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813220"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10753777"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652429"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377692"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572540"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570111"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714789"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8809113"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11863129"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652531"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813824"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10753773"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147722"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714839"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812407"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11573382"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714836"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11359972"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652448"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11359970"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572566"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11533171"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10246110"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10228360"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714848"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10703143"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652537"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731465"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652477"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572553"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714885"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9100287"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714775"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572533"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652386"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714784"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652399"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815965"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714851"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572156"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652466"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731479"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9949650"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572520"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714760"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652532"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652479"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652543"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9164860"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815929"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11573651"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8730029"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652374"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652528"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714810"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572161"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652473"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714856"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572516"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714890"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9584064"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8827204"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10754122"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652354"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9390926"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652380"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652415"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813814"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652411"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731487"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819022"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11823556"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714734"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572573"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714901"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572552"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714871"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652507"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9863025"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714755"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819031"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572510"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570109"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804624"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652408"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652484"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819020"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714873"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815944"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714797"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714725"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652461"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652538"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652522"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572583"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652349"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714893"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377753"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8788895"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377792"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9565190"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714802"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572166"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652535"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11359967"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814534"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11237755"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714877"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815959"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049479"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815963"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652382"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373496"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812409"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572561"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815960"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714746"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377752"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714740"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8830801"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819019"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8707796"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8703916"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652359"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652406"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652519"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815934"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11085858"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154528"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813219"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714739"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714798"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714807"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714857"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652509"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815938"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652542"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572512"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8731187"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8801464"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572549"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8655173"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815925"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652383"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572559"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11863111"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815942"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652444"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8788494"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11237754"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8931845"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572574"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570117"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652369"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572581"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815940"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714907"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652467"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11694163"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714889"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714846"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572523"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9344899"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572521"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652442"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804623"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652480"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819029"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714880"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572165"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9584063"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714805"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8931109"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714735"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714896"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714828"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714815"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652376"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017505"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652398"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017491"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652417"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714900"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572528"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813823"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652433"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652447"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813816"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572546"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8786125"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017680"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815932"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714866"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017504"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8691772"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652371"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652440"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017487"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714813"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714772"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714799"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017506"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652356"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10145968"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714816"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9584062"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147724"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652481"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8811258"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11085855"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813818"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714895"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815968"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652544"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714728"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714759"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714818"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714841"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10787714"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11652682"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652441"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804622"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9949666"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652358"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154533"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652385"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10145971"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652495"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11359969"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652395"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570266"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714812"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652435"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652489"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9408357"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9100286"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8931113"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9565193"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10111905"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652355"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652414"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8730032"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572562"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377687"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815952"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11085857"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714770"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147721"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652394"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652508"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572584"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570116"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652472"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652384"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9344037"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652350"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815962"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11085860"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572565"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10787703"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572543"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714822"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572560"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714883"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731525"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652474"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11581558"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8800559"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815946"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652499"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731474"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815930"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652346"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11462549"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572509"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11462548"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572547"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049971"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572507"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714849"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652378"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714768"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652348"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373499"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10145980"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652482"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8824012"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8730031"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11700802"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8799063"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714781"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8931106"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8707795"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804621"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9522551"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714829"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804038"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11573213"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714850"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572569"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572517"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714823"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814536"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815951"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8791802"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812406"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572555"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572541"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049969"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714788"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652357"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8931126"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652455"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11863116"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714764"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8785658"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9408346"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572519"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147719"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8785659"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714765"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652390"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731490"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572506"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049965"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714811"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813822"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11386154"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8722228"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652502"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10788547"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652381"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714838"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11581580"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9100254"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813222"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11556937"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10352817"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10353600"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812414"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572513"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813817"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815945"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652392"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8931111"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8787052"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714800"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049990"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714763"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714840"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049996"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652487"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8703973"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9584068"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819026"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11236130"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813224"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10217504"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017679"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812411"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652363"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652501"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714786"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714762"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714879"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652464"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652391"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572542"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11823538"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714743"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049994"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652471"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714863"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11235676"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714898"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652541"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815948"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356773"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714845"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714826"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814541"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714886"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017494"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652388"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9949657"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652539"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804040"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11236134"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819027"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714724"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714887"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815964"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815947"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652513"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714843"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8774590"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714821"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652401"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815939"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356777"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8721228"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8730030"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714752"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652373"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652536"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11532460"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714820"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049991"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714806"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652368"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11397494"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8729357"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652352"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714904"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714830"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9220325"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652341"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714881"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572538"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11556815"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652456"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815935"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9499687"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812413"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8722229"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714756"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714792"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11556888"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814540"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652402"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714730"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9150176"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8789651"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572537"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049968"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714745"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373503"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714721"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815937"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8727353"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652465"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11823540"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714779"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572548"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714876"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652545"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813826"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9386819"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652468"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373490"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652494"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652512"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11386084"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8788896"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714834"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572158"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714864"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813825"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356779"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714773"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652452"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652485"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714825"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714757"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11556887"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8790966"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9949656"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652407"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572556"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815970"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8707804"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652364"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373497"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572576"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377688"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819030"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652379"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572585"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714791"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652436"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714736"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652421"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377693"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814532"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11581595"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714891"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652516"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714769"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572154"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815972"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377793"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8809115"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356778"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572532"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570108"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714862"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572159"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714852"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652498"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11556823"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714894"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714749"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714738"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11826196"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652337"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11556824"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652425"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652410"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652454"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572577"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714727"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8707798"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8715522"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8707790"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8830800"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11479030"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017681"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10018461"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815953"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819023"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652525"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11652377"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652353"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373498"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813225"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11823554"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652409"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731475"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652490"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10145974"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652500"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652438"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652524"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11652376"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652521"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652335"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819018"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804037"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652437"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8797267"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8797270"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804039"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8803048"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10353599"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652366"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813223"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652450"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10140222"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652432"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714835"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11386085"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652503"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572586"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572575"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11386083"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815943"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572563"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8654550"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572511"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714878"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572564"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714847"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813821"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652340"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377697"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652504"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11388912"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9584065"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652462"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8788493"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815931"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154534"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652427"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572571"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815936"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714867"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652339"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8731186"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714854"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652372"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714865"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652445"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9618484"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8794616"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714776"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9100322"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652530"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11556822"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652505"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570260"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714814"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8931104"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572545"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714742"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10145978"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815971"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812410"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8773100"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714744"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714780"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652370"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819021"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652423"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814539"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356781"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572558"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714855"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731539"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572557"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652517"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714729"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8727016"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714774"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373504"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9949663"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652387"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652404"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714860"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714912"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714892"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8797266"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652533"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652460"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815949"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11389139"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10106787"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652493"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652419"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11666106"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714750"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652439"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570264"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652403"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377694"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714909"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652416"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373494"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714809"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714831"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714782"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572568"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815957"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356774"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714794"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813221"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9164855"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10281391"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8809597"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714817"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813819"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10753774"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714741"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11581579"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652431"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11695413"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814537"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356768"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652422"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049976"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8809114"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714761"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572153"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652344"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373501"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652453"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572525"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9565192"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714899"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10107737"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572536"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731455"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714827"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049997"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572582"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049972"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652336"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11556825"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714844"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11863124"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814533"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714902"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572570"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049967"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652397"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572567"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11534037"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714819"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11359971"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8654549"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714785"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812408"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356766"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652457"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377691"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815924"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356770"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9100285"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9164853"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10352826"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714824"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8790965"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714751"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714875"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652496"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652430"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017503"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652412"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652488"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714884"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714758"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8819025"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11573645"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714767"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652424"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815928"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572587"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815967"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652506"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049974"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813217"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11479031"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714771"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377754"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9148407"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9164854"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9584067"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8774030"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652365"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652476"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572554"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572508"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10221167"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8801463"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10145981"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652510"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9564448"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652351"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11570269"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815966"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356772"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8931121"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815956"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652520"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652389"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377695"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714793"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714853"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652413"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714778"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652405"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714766"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8721229"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714859"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9219076"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815927"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714897"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714911"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049995"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652540"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714723"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572572"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714726"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652483"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147713"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652362"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652443"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10179953"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9253121"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572526"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714777"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11049992"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813820"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356769"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652463"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652360"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572531"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572515"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572518"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714842"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714874"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714888"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017493"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652377"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572529"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10352819"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714748"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572535"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714906"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813815"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8785657"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714905"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572551"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652515"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11823539"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652527"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815926"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356771"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652529"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9164859"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714722"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714832"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652361"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815955"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11573652"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652343"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714872"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652449"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652393"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815933"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714790"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572534"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10017492"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652418"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652338"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377698"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11735678"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11734613"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814538"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11356776"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714913"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652451"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714747"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652434"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652491"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652511"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813227"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11573639"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652367"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11377696"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714837"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8729358"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652396"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11373495"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8730028"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8789652"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9177202"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8813229"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8814535"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714737"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11572162"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147706"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815954"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714870"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9366271"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8652514"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9100277"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714861"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8815941"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154535"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154536"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154538"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154540"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154542"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154545"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9272824"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9150178"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154532"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714903"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8572578"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8812412"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9584069"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714869"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8714808"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8804036"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9563369"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9154550"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537147"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731420"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537128"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731421"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537126"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9148404"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537131"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537173"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10145989"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9082441"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537136"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11569995"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147731"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147729"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10281392"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9700254"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537156"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537130"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11569994"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537137"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11569993"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9530526"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537134"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537116"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11719731"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537132"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10196986"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537171"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537142"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9100269"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537123"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537144"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537165"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10229866"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537172"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537160"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537145"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537176"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537157"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537135"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11653150"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10197012"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537122"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537170"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9147720"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11264964"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537124"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537163"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11569991"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537120"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537143"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11569990"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537175"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10731428"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537129"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537127"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10217506"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10217503"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537118"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537164"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10353602"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10196983"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537152"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537167"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537154"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8707797"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "9520222"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537117"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10106781"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10145967"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537139"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537155"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10353601"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537140"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537159"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "10787694"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "8537149"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/nm509pb1354"],
+                "collection": ["sirsi"],
+                "id": "8436523"
+            },
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/xh181yf7437"],
+                "id": "5319882"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/bn233ts3261"],
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "id": "8800575"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/wb611cw7159"],
+                "collection": ["sirsi"],
+                "id": "4330173"
+            },
+            {
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/cn485jw3222",
+                    "http://purl.stanford.edu/fg946vx7053",
+                    "http://purl.stanford.edu/ns919gj7223",
+                    "http://purl.stanford.edu/xt449pb9903",
+                    "http://purl.stanford.edu/yd695xz5746",
+                    "http://purl.stanford.edu/zy779nh8046"
+                ],
+                "collection": ["sirsi"],
+                "id": "9943332"
+            },
+            {
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/bk784bd8639",
+                    "http://purl.stanford.edu/gn793yc0820",
+                    "http://purl.stanford.edu/mn998ck0386",
+                    "http://purl.stanford.edu/rh491vj9085",
+                    "http://purl.stanford.edu/sb281bq4606",
+                    "http://purl.stanford.edu/wy098zd0329"
+                ],
+                "collection": ["sirsi"],
+                "id": "9943339"
+            },
+            {
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/cz724yy1819",
+                    "http://purl.stanford.edu/fx033dm3515",
+                    "http://purl.stanford.edu/hs843xz7051",
+                    "http://purl.stanford.edu/nd610kk1525",
+                    "http://purl.stanford.edu/nh911rn6305",
+                    "http://purl.stanford.edu/vp685qd3804"
+                ],
+                "collection": ["sirsi"],
+                "id": "9943341"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/ph822ft4740"],
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "id": "8788161"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/hd767tx4719"],
+                "collection": [
+                    "sirsi",
+                    "xh235dd9059"
+                ],
+                "id": "11403480"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "9645653"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/gc042fb1556"],
+                "id": "11586561"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/vf314sz8601"],
+                "id": "8703849"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/ys278fh1740"],
+                "id": "8718973"
+            },
+            {
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/hv036mr5099",
+                    "http://purl.stanford.edu/kg230zz1169",
+                    "http://purl.stanford.edu/nk606xg2728",
+                    "http://purl.stanford.edu/nw394ms2072",
+                    "http://purl.stanford.edu/sr703gv0537",
+                    "http://purl.stanford.edu/ws291yn6729",
+                    "http://purl.stanford.edu/zv360cx5032"
+                ],
+                "collection": ["sirsi"],
+                "id": "2165651"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/js905fv2891"],
+                "id": "9522865"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/ts931ns4055"],
+                "id": "9452007"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/jn860xr5917"],
+                "id": "2204957"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/bn055kg5854"],
+                "id": "9532413"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/nv130tg0131"],
+                "id": "9384868"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/zc223gg8344"],
+                "id": "9366619"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/gf559bk7931"],
+                "id": "9613015"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/gq732wx3370"],
+                "id": "9427090"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/mk942qt4874"],
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "id": "9626146"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/sk239zz9760"],
+                "id": "9630244"
+            },
+            {
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/kv098tq9469",
+                    "http://purl.stanford.edu/wg405gg4384"
+                ],
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "id": "8569927"
+            },
+            {
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/ff666tc5527",
+                    "http://purl.stanford.edu/fx384gb7875",
+                    "http://purl.stanford.edu/xd593dj5556",
+                    "http://purl.stanford.edu/xq054np4157"
+                ],
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "id": "8689046"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/hx676nr2846"],
+                "collection": [
+                    "sirsi",
+                    "10357851"
+                ],
+                "id": "8837545"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/db821pz5857"],
+                "collection": ["sirsi"],
+                "id": "2989547"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/wk696sf3742"],
+                "id": "9413609"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/tf147xr6726"],
+                "id": "9411419"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/kb999zx7358"],
+                "id": "9628563"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/hp708zw5396"],
+                "id": "9505560"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/bh306pw0871"],
+                "id": "8697959"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/qv612cn0902"],
+                "collection": [
+                    "sirsi",
+                    "xh235dd9059"
+                ],
+                "id": "10449022"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/qt212bj4481"],
+                "collection": [
+                    "bf420qj4978",
+                    "sirsi"
+                ],
+                "id": "11513955"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/xf052dx2385"],
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "id": "9451975"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/hr065py0754"],
+                "id": "9331796"
+            },
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/xg404ym0968"],
+                "id": "9208284"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/kz438vz0376"],
+                "id": "9590198"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/qx486yj6233"],
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "id": "8390745"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/ck660gy9032",
+                    "http://purl.stanford.edu/sy092jw9534"
+                ],
+                "id": "9615138"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/rm460rv7252"],
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "id": "9411330"
+            },
+            {
+                "managed_purl_urls": [
+                    "http://purl.stanford.edu/cf215mq5204",
+                    "http://purl.stanford.edu/jj256ms0096"
+                ],
+                "collection": [
+                    "sirsi",
+                    "sp673gr4168"
+                ],
+                "id": "1261655"
+            },
+            {
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/nf508rv7602"],
+                "id": "9383385"
+            },
+            {
+                "managed_purl_urls": ["http://purl.stanford.edu/ry291gy8226"],
+                "collection": [
+                    "sirsi",
+                    "jt466yc7169"
+                ],
+                "id": "9622601"
+            },
+            {
+                "collection": [
+                    "bf420qj4978",
+                    "sirsi"
+                ],
+                "managed_purl_urls": ["http://purl.stanford.edu/cs646pm7442"],
+                "id": "11530965"
+            }
+        ]
+    },
+    "facet_counts": {
+        "facet_queries": {},
+        "facet_fields": {
+            "access_facet": [
+                "Online",
+                14686,
+                "At the Library",
+                9232
+            ],
+            "author_person_facet": [
+                "Diaconis, Persi",
+                186,
+                "Efron, Bradley",
+                164,
+                "Lai, T. L.",
+                149,
+                "Olkin, Ingram",
+                130,
+                "Donoho, David Leigh",
+                92,
+                "Leifer, Larry J.",
+                92,
+                "Stephens, Michael A., 1927-",
+                81,
+                "Cutkosky, Mark R.",
+                76,
+                "Anderson, T. W. (Theodore Wilbur), 1918-2016",
+                75,
+                "Tibshirani, Robert",
+                73,
+                "Harris, J. S. (James Stewart), 1942-",
+                68,
+                "Brongersma, Mark L.",
+                67,
+                "Johnstone, Iain",
+                66,
+                "Khosla, Chaitan, 1964-",
+                64,
+                "Wong, Hon-Sum Philip, 1959-",
+                62,
+                "Pande, Vijay",
+                61,
+                "Howe, Roger",
+                60,
+                "Salleo, Alberto",
+                60,
+                "Cui, Yi, Prof",
+                59,
+                "Fan, Shanhui, 1972-",
+                59,
+                "Alonso, Juan José, 1968-",
+                57
+            ],
+            "author_other_facet": [
+                "Stanford University. Department of Statistics",
+                1491,
+                "National Science Foundation (U.S.)",
+                763,
+                "Stanford University. Department of Electrical Engineering",
+                676,
+                "Stanford University. Committee on Graduate Studies",
+                601,
+                "United States. Office of Naval Research",
+                549,
+                "Stanford University. Department of Mechanical Engineering",
+                375,
+                "Stanford University. Department of Chemistry",
+                254,
+                "Stanford University. Department of Physics",
+                184,
+                "Stanford University. Applied Mathematics and Statistics Laboratory",
+                177,
+                "United States. Public Health Service",
+                171,
+                "Stanford University. Division of Biostatistics",
+                168,
+                "Stanford University. Department of Applied Physics",
+                158,
+                "Stanford University. Department of Materials Science and Engineering",
+                155,
+                "Stanford University. Department of Economics",
+                144,
+                "Stanford University. Department of Management Science and Engineering",
+                131,
+                "Stanford University. School of Education",
+                129,
+                "Stanford University. Department of Chemical Engineering",
+                125,
+                "Stanford University. Graduate School of Business",
+                121,
+                "Stanford University. Department of Aeronautics and Astronautics",
+                118,
+                "Stanford University. Department of Biology",
+                111,
+                "National Cancer Institute (U.S.)",
+                108
+            ],
+            "building_facet": [
+                "Archive of Recorded Sound",
+                39,
+                "Art & Architecture (Bowes)",
+                3,
+                "Biology (Falconer)",
+                9,
+                "Business",
+                27,
+                "Chemistry & ChemEng (Swain)",
+                1,
+                "Classics",
+                5,
+                "David Rumsey Map Center",
+                1400,
+                "Earth Sciences (Branner)",
+                318,
+                "East Asia",
+                272,
+                "Education (Cubberley)",
+                36,
+                "Engineering (Terman)",
+                2,
+                "Green",
+                207,
+                "Law (Crown)",
+                9,
+                "Marine Biology (Miller)",
+                28,
+                "Math & Statistics",
+                4,
+                "Media & Microtext Center",
+                9,
+                "Medical (Lane)",
+                601,
+                "Music",
+                9,
+                "Philosophy (Tanner)",
+                6,
+                "SAL1&2 (on-campus shelving)",
+                52,
+                "SAL3 (off-campus storage)",
+                317,
+                "Special Collections",
+                6326,
+                "Stanford Digital Repository",
+                14704
+            ],
+            "callnum_facet_hsim": [
+                "Dewey Classification",
+                267,
+                "Dewey Classification|000s - Computer Science, Information & General Works",
+                5,
+                "Dewey Classification|000s - Computer Science, Information & General Works|010s - Bibliography",
+                1,
+                "Dewey Classification|000s - Computer Science, Information & General Works|050s - General Serials & their Indexes",
+                1,
+                "Dewey Classification|000s - Computer Science, Information & General Works|060s - General Organization & Museology",
+                3,
+                "Dewey Classification|100s - Philosophy & Psychology",
+                16,
+                "Dewey Classification|100s - Philosophy & Psychology|100s - Philosophy & Psychology",
+                1,
+                "Dewey Classification|100s - Philosophy & Psychology|110s - Metaphysics",
+                1,
+                "Dewey Classification|100s - Philosophy & Psychology|130s - Paranormal Phenomena",
+                1,
+                "Dewey Classification|100s - Philosophy & Psychology|150s - Psychology",
+                2,
+                "Dewey Classification|100s - Philosophy & Psychology|180s - Ancient, Medieval, Oriental Philosophy",
+                6,
+                "Dewey Classification|100s - Philosophy & Psychology|190s - Modern Western Philosophy",
+                5,
+                "Dewey Classification|200s - Religion",
+                7,
+                "Dewey Classification|200s - Religion|210s - Natural Theology",
+                1,
+                "Dewey Classification|200s - Religion|220s - Bible",
+                1,
+                "Dewey Classification|200s - Religion|270s - Christian Church History",
+                4,
+                "Dewey Classification|200s - Religion|280s - Christian Denominations & Sects",
+                1,
+                "Dewey Classification|300s - Social Sciences",
+                19,
+                "Dewey Classification|300s - Social Sciences|300s - Social Sciences",
+                1,
+                "Dewey Classification|300s - Social Sciences|320s - Political Science",
+                1,
+                "Dewey Classification|300s - Social Sciences|330s - Economics",
+                3,
+                "Dewey Classification|300s - Social Sciences|340s - Law",
+                2,
+                "Dewey Classification|300s - Social Sciences|360s - Social Services; Association",
+                2,
+                "Dewey Classification|300s - Social Sciences|370s - Education",
+                9,
+                "Dewey Classification|300s - Social Sciences|380s - Commerce, Communications, Transport",
+                1,
+                "Dewey Classification|400s - Language",
+                2,
+                "Dewey Classification|400s - Language|400s - Language",
+                1,
+                "Dewey Classification|400s - Language|470s - Italic Latin",
+                1,
+                "Dewey Classification|500s - Science",
+                158,
+                "Dewey Classification|500s - Science|500s - Science",
+                17,
+                "Dewey Classification|500s - Science|510s - Mathematics",
+                3,
+                "Dewey Classification|500s - Science|520s - Astronomy & Allied Sciences",
+                1,
+                "Dewey Classification|500s - Science|530s - Physics",
+                4,
+                "Dewey Classification|500s - Science|540s - Chemistry & Allied Sciences",
+                2,
+                "Dewey Classification|500s - Science|550s - Earth Sciences",
+                25,
+                "Dewey Classification|500s - Science|560s - Paleontology Paleozoology",
+                18,
+                "Dewey Classification|500s - Science|570s - Life Sciences",
+                71,
+                "Dewey Classification|500s - Science|580s - Botanical Sciences",
+                7,
+                "Dewey Classification|500s - Science|590s - Zoological Sciences",
+                12,
+                "Dewey Classification|600s - Technology",
+                3,
+                "Dewey Classification|600s - Technology|610s - Medical Sciences Medicine",
+                2,
+                "Dewey Classification|600s - Technology|620s - Engineering & Allied Operations",
+                1,
+                "Dewey Classification|800s - Literature",
+                38,
+                "Dewey Classification|800s - Literature|800s - Literature",
+                3,
+                "Dewey Classification|800s - Literature|810s - American Literature in English",
+                9,
+                "Dewey Classification|800s - Literature|820s - English & Old English Literatures",
+                13,
+                "Dewey Classification|800s - Literature|830s - Literatures of Germanic Languages",
+                1,
+                "Dewey Classification|800s - Literature|840s - Literatures of Romance Languages",
+                5,
+                "Dewey Classification|800s - Literature|860s - Spanish & Portuguese Literatures",
+                1,
+                "Dewey Classification|800s - Literature|870s - Italic Literatures Latin",
+                2,
+                "Dewey Classification|800s - Literature|880s - Hellenic Literatures Classical Greek",
+                3,
+                "Dewey Classification|800s - Literature|890s - Literatures of Other Languages",
+                1,
+                "Dewey Classification|900s - History & Geography",
+                21,
+                "Dewey Classification|900s - History & Geography|900s - History & Geography",
+                1,
+                "Dewey Classification|900s - History & Geography|910s - Geography & Travel",
+                3,
+                "Dewey Classification|900s - History & Geography|920s - Biography, Genealogy, Insignia",
+                1,
+                "Dewey Classification|900s - History & Geography|930s - History of Ancient World",
+                2,
+                "Dewey Classification|900s - History & Geography|940s - General History of Europe",
+                10,
+                "Dewey Classification|900s - History & Geography|950s - General History of Asia Far East",
+                1,
+                "Dewey Classification|900s - History & Geography|970s - General History of North America",
+                3,
+                "Government Document",
+                142,
+                "Government Document|California",
+                2,
+                "Government Document|Federal",
+                120,
+                "Government Document|Other",
+                21,
+                "LC Classification",
+                4792,
+                "LC Classification|A - General Works",
+                18,
+                "LC Classification|A - General Works|AC - Collections Works",
+                6,
+                "LC Classification|A - General Works|AM - Museums",
+                3,
+                "LC Classification|A - General Works|AP - Periodicals",
+                2,
+                "LC Classification|A - General Works|AS - Academies & Learned Societies",
+                5,
+                "LC Classification|A - General Works|AY - Yearbooks, Almanacs, Directories",
+                1,
+                "LC Classification|A - General Works|AZ - History of Scholarship & Learning",
+                1,
+                "LC Classification|B - Philosophy, Psychology, Religion",
+                218,
+                "LC Classification|B - Philosophy, Psychology, Religion|B - Philosophy, Psychology, Religion",
+                21,
+                "LC Classification|B - Philosophy, Psychology, Religion|BC - Logic",
+                3,
+                "LC Classification|B - Philosophy, Psychology, Religion|BD - Speculative Philosophy",
+                6,
+                "LC Classification|B - Philosophy, Psychology, Religion|BF - Psychology",
+                22,
+                "LC Classification|B - Philosophy, Psychology, Religion|BJ - Ethics",
+                3,
+                "LC Classification|B - Philosophy, Psychology, Religion|BL - Religions (General)",
+                59,
+                "LC Classification|B - Philosophy, Psychology, Religion|BM - Judaism",
+                4,
+                "LC Classification|B - Philosophy, Psychology, Religion|BP - Islam, Bahaism, Theosophy, etc.",
+                1,
+                "LC Classification|B - Philosophy, Psychology, Religion|BQ - Buddhism",
+                40,
+                "LC Classification|B - Philosophy, Psychology, Religion|BR - Christianity",
+                15,
+                "LC Classification|B - Philosophy, Psychology, Religion|BS - The Bible",
+                20,
+                "LC Classification|B - Philosophy, Psychology, Religion|BT - Doctrinal Theology",
+                9,
+                "LC Classification|B - Philosophy, Psychology, Religion|BV - Practical Theology",
+                2,
+                "LC Classification|B - Philosophy, Psychology, Religion|BX - Christian Denominations",
+                13,
+                "LC Classification|C - Historical Sciences (Archaeology, Genealogy)",
+                10,
+                "LC Classification|C - Historical Sciences (Archaeology, Genealogy)|CB - History of Civilization",
+                5,
+                "LC Classification|C - Historical Sciences (Archaeology, Genealogy)|CC - Archaeology",
+                2,
+                "LC Classification|C - Historical Sciences (Archaeology, Genealogy)|CT - Biography",
+                3,
+                "LC Classification|D - World History",
+                172,
+                "LC Classification|D - World History|D - World History",
+                11,
+                "LC Classification|D - World History|DA - Great Britain (History)",
+                63,
+                "LC Classification|D - World History|DC - France (History)",
+                14,
+                "LC Classification|D - World History|DD - Germany (History)",
+                3,
+                "LC Classification|D - World History|DF - Greece (History)",
+                2,
+                "LC Classification|D - World History|DG - Italy (History)",
+                2,
+                "LC Classification|D - World History|DK - Russia. Former Soviet Republics. Poland (History)",
+                2,
+                "LC Classification|D - World History|DL - Scandinavia (History)",
+                1,
+                "LC Classification|D - World History|DP - Spain. Portugal (History)",
+                2,
+                "LC Classification|D - World History|DQ - Switzerland (History)",
+                1,
+                "LC Classification|D - World History|DR - Balkan Peninsula (History)",
+                3,
+                "LC Classification|D - World History|DS - Asia (History)",
+                59,
+                "LC Classification|D - World History|DT - Africa (History)",
+                8,
+                "LC Classification|D - World History|DU - Oceania (History)",
+                1,
+                "LC Classification|E - History of the Americas (General)",
+                17,
+                "LC Classification|E - History of the Americas (General)|E - History of the Americas (General)",
+                17,
+                "LC Classification|F - History of the Americas (Local)",
+                11,
+                "LC Classification|F - History of the Americas (Local)|F - History of the Americas (Local)",
+                11,
+                "LC Classification|G - Geography, Anthropology, Recreation",
+                1670,
+                "LC Classification|G - Geography, Anthropology, Recreation|G - Geography, Anthropology, Recreation",
+                1588,
+                "LC Classification|G - Geography, Anthropology, Recreation|GA - Mathematical Geography, Cartography",
+                2,
+                "LC Classification|G - Geography, Anthropology, Recreation|GB - Physical Geography",
+                6,
+                "LC Classification|G - Geography, Anthropology, Recreation|GC - Oceanography",
+                12,
+                "LC Classification|G - Geography, Anthropology, Recreation|GE - Environmental Sciences",
+                1,
+                "LC Classification|G - Geography, Anthropology, Recreation|GF - Human Ecology, Anthropogeography",
+                1,
+                "LC Classification|G - Geography, Anthropology, Recreation|GN - Anthropology",
+                45,
+                "LC Classification|G - Geography, Anthropology, Recreation|GR - Folklore",
+                1,
+                "LC Classification|G - Geography, Anthropology, Recreation|GT - Manners & Customs",
+                1,
+                "LC Classification|G - Geography, Anthropology, Recreation|GV - Recreation. Leisure",
+                13,
+                "LC Classification|H - Social Sciences",
+                148,
+                "LC Classification|H - Social Sciences|HA - Statistics",
+                2,
+                "LC Classification|H - Social Sciences|HB - Economic Theory, Demography",
+                4,
+                "LC Classification|H - Social Sciences|HC - Economic History & Conditions",
+                11,
+                "LC Classification|H - Social Sciences|HD - Industries, Land use, Labor",
+                31,
+                "LC Classification|H - Social Sciences|HE - Transportation & Communications",
+                10,
+                "LC Classification|H - Social Sciences|HF - Commerce",
+                4,
+                "LC Classification|H - Social Sciences|HG - Finance",
+                2,
+                "LC Classification|H - Social Sciences|HJ - Public Finance",
+                3,
+                "LC Classification|H - Social Sciences|HM - Sociology",
+                8,
+                "LC Classification|H - Social Sciences|HN - Social History & Conditions",
+                3,
+                "LC Classification|H - Social Sciences|HQ - The Family, Marriage, Woman",
+                15,
+                "LC Classification|H - Social Sciences|HT - Communities, Classes, Races",
+                3,
+                "LC Classification|H - Social Sciences|HV - Social Pathology, Social & Public Welfare, Criminology",
+                41,
+                "LC Classification|H - Social Sciences|HX - Socialism, Communism, Anarchism",
+                11,
+                "LC Classification|J - Political Science",
+                23,
+                "LC Classification|J - Political Science|J - Political Science",
+                1,
+                "LC Classification|J - Political Science|JC - Political Theory",
+                3,
+                "LC Classification|J - Political Science|JF - Political Institutions",
+                1,
+                "LC Classification|J - Political Science|JK - Political Institutions (U.S.)",
+                10,
+                "LC Classification|J - Political Science|JN - Political Institutions (Europe)",
+                3,
+                "LC Classification|J - Political Science|JQ - Political Institutions (Asia, Africa, Australia, Pacific Area)",
+                5,
+                "LC Classification|K - Law",
+                48,
+                "LC Classification|K - Law|K - Law",
+                13,
+                "LC Classification|K - Law|KBR - Canon Law",
+                1,
+                "LC Classification|K - Law|KF - Law of the U.S.",
+                26,
+                "LC Classification|K - Law|KFC",
+                2,
+                "LC Classification|K - Law|KFN",
+                1,
+                "LC Classification|K - Law|KJE - Regional Organization & Integration",
+                1,
+                "LC Classification|K - Law|KJV - Law of France",
+                1,
+                "LC Classification|K - Law|KMK - Law of Israel",
+                1,
+                "LC Classification|K - Law|KZ - Law of Nations",
+                2,
+                "LC Classification|L - Education",
+                37,
+                "LC Classification|L - Education|LA - History of Education",
+                1,
+                "LC Classification|L - Education|LB - Theory & Practice of Education",
+                9,
+                "LC Classification|L - Education|LC - Special Aspects of Education",
+                2,
+                "LC Classification|L - Education|LD - Individual Educational Institutions (U.S.)",
+                19,
+                "LC Classification|L - Education|LF - Individual Educational Institutions: Europe",
+                4,
+                "LC Classification|L - Education|LH - College & School Magazines & Papers",
+                2,
+                "LC Classification|M - Music",
+                25,
+                "LC Classification|M - Music|M - Music",
+                7,
+                "LC Classification|M - Music|ML - Literature on Music",
+                14,
+                "LC Classification|M - Music|MT - Musical Instruction & Study",
+                4,
+                "LC Classification|N - Fine Arts",
+                49,
+                "LC Classification|N - Fine Arts|N - Fine Arts",
+                21,
+                "LC Classification|N - Fine Arts|NA - Architecture",
+                6,
+                "LC Classification|N - Fine Arts|NC - Drawing, Design, Illustration",
+                3,
+                "LC Classification|N - Fine Arts|ND - Painting",
+                1,
+                "LC Classification|N - Fine Arts|NE - Print Media",
+                18,
+                "LC Classification|P - Language & Literature",
+                1221,
+                "LC Classification|P - Language & Literature|P - Language & Literature",
+                9,
+                "LC Classification|P - Language & Literature|PA - Greek & Latin Language & Literature",
+                27,
+                "LC Classification|P - Language & Literature|PB - Modern Language, Celtic Languages",
+                2,
+                "LC Classification|P - Language & Literature|PD - Germanic Languages",
+                1,
+                "LC Classification|P - Language & Literature|PE - English Languages",
+                1,
+                "LC Classification|P - Language & Literature|PF - West Germanic Languages",
+                1,
+                "LC Classification|P - Language & Literature|PG - Slavic, Baltic, Albanian Languages, Russian Language & Literature",
+                3,
+                "LC Classification|P - Language & Literature|PH - Uralic & Basque Languages",
+                1,
+                "LC Classification|P - Language & Literature|PJ - Oriental Languages & Literature",
+                8,
+                "LC Classification|P - Language & Literature|PK - Indo-Iranian Languages & Literature",
+                1,
+                "LC Classification|P - Language & Literature|PN - Literature (General)",
+                16,
+                "LC Classification|P - Language & Literature|PQ - French, Italian, Spanish & Portuguese Literature",
+                14,
+                "LC Classification|P - Language & Literature|PR - English Literature",
+                1086,
+                "LC Classification|P - Language & Literature|PS - American Literature",
+                51,
+                "LC Classification|Q - Science",
+                835,
+                "LC Classification|Q - Science|Q - Science",
+                83,
+                "LC Classification|Q - Science|QA - Mathematics",
+                65,
+                "LC Classification|Q - Science|QB - Astronomy",
+                21,
+                "LC Classification|Q - Science|QC - Physics",
+                21,
+                "LC Classification|Q - Science|QD - Chemistry",
+                7,
+                "LC Classification|Q - Science|QE - Geology",
+                165,
+                "LC Classification|Q - Science|QH - Natural History, Biology",
+                225,
+                "LC Classification|Q - Science|QK - Botany",
+                51,
+                "LC Classification|Q - Science|QL - Zoology",
+                174,
+                "LC Classification|Q - Science|QM - Human Anatomy",
+                4,
+                "LC Classification|Q - Science|QP - Physiology",
+                17,
+                "LC Classification|Q - Science|QR - Microbiology",
+                3,
+                "LC Classification|R - Medicine",
+                122,
+                "LC Classification|R - Medicine|R - Medicine",
+                8,
+                "LC Classification|R - Medicine|RA - Public Aspects of Medicine",
+                14,
+                "LC Classification|R - Medicine|RC - Internal Medicine",
+                91,
+                "LC Classification|R - Medicine|RG - Gynecology & Obstetrics",
+                1,
+                "LC Classification|R - Medicine|RJ - Pediatrics",
+                1,
+                "LC Classification|R - Medicine|RM - Therapeutics, Pharmacology",
+                3,
+                "LC Classification|R - Medicine|RS - Pharmacy & Materia Medica",
+                4,
+                "LC Classification|S - Agriculture",
+                37,
+                "LC Classification|S - Agriculture|S - Agriculture",
+                4,
+                "LC Classification|S - Agriculture|SB - Plant Culture",
+                9,
+                "LC Classification|S - Agriculture|SD - Forestry",
+                2,
+                "LC Classification|S - Agriculture|SF - Animal Culture",
+                5,
+                "LC Classification|S - Agriculture|SH - Aquaculture",
+                16,
+                "LC Classification|S - Agriculture|SK - Hunting Sports",
+                1,
+                "LC Classification|T - Technology",
+                50,
+                "LC Classification|T - Technology|T - Technology",
+                11,
+                "LC Classification|T - Technology|TA - Engineering, Civil Engineering",
+                1,
+                "LC Classification|T - Technology|TD - Environmental Technology",
+                16,
+                "LC Classification|T - Technology|TE - Highway Engineering",
+                1,
+                "LC Classification|T - Technology|TH - Building Construction",
+                2,
+                "LC Classification|T - Technology|TK - Electrical Engineering, Nuclear Engineering",
+                5,
+                "LC Classification|T - Technology|TN - Mining Engineering",
+                2,
+                "LC Classification|T - Technology|TP - Chemical Technology",
+                1,
+                "LC Classification|T - Technology|TR - Photography",
+                6,
+                "LC Classification|T - Technology|TS - Manufactures",
+                3,
+                "LC Classification|T - Technology|TX - Home Economics",
+                2,
+                "LC Classification|U - Military Science",
+                25,
+                "LC Classification|U - Military Science|U - Military Science",
+                2,
+                "LC Classification|U - Military Science|UA - Armies",
+                12,
+                "LC Classification|U - Military Science|UB - Military Administration",
+                6,
+                "LC Classification|U - Military Science|UG - Military Engineering, Air Forces, Military Astronautics",
+                5,
+                "LC Classification|V - Naval Science",
+                3,
+                "LC Classification|V - Naval Science|V - Naval Science",
+                1,
+                "LC Classification|V - Naval Science|VB - Naval Administration",
+                1,
+                "LC Classification|V - Naval Science|VK - Navigation, Merchant Marine",
+                1,
+                "LC Classification|Z - Bibliography, Library Science, Information Resources",
+                59,
+                "LC Classification|Z - Bibliography, Library Science, Information Resources|Z - Bibliography, Library Science, Information Resources",
+                58,
+                "LC Classification|Z - Bibliography, Library Science, Information Resources|ZA - Information Science",
+                1
+            ],
+            "collection": [
+                "sirsi",
+                14704,
+                "jt466yc7169",
+                1100,
+                "sp673gr4168",
+                1026,
+                "xh235dd9059",
+                797,
+                "sr605np6062",
+                637,
+                "10357851",
+                273,
+                "bf420qj4978",
+                252,
+                "vv697py4750",
+                203,
+                "zb871zd0767",
+                130,
+                "sk373nx0013",
+                101,
+                "9645653",
+                42,
+                "vh650bb3062",
+                19,
+                "nh778zd7225",
+                18,
+                "9083941",
+                3,
+                "6863573",
+                1,
+                "9398126",
+                1,
+                "fs078sw0006",
+                1,
+                "np279ty9415",
+                1,
+                "rz406fw2729",
+                1
+            ],
+            "db_az_subject": [
+                "Uncategorized",
+                2
+            ],
+            "display_type": [],
+            "era_facet": [
+                "19th century",
+                851,
+                "20th century",
+                84,
+                "21st century",
+                13,
+                "500-1400",
+                12,
+                "18th century",
+                9,
+                "Middle Ages, 600-1500",
+                9,
+                "Revolution, 1789-1799",
+                9,
+                "13th century",
+                8,
+                "Civil War, 1642-1649",
+                7,
+                "Medieval period, 1066-1485",
+                7,
+                "Taishō period, 1912-1926",
+                7,
+                "15th century",
+                6,
+                "17th century",
+                6,
+                "Plantagenets, 1154-1399",
+                6,
+                "1600-1868",
+                5,
+                "To 1485",
+                5,
+                "To 1500",
+                5,
+                "16th century",
+                4,
+                "Anglo-Saxon period, 449-1066",
+                4,
+                "Early works to 1800",
+                4,
+                "House of Lancaster, 1399-1461",
+                4
+            ],
+            "format_main_ssim": [
+                "Archive/Manuscript",
+                240,
+                "Book",
+                11592,
+                "Database",
+                2,
+                "Dataset",
+                5,
+                "Image",
+                133,
+                "Journal/Periodical",
+                62,
+                "Map",
+                2625,
+                "Music recording",
+                29,
+                "Music score",
+                54,
+                "Object",
+                2,
+                "Software/Multimedia",
+                1,
+                "Sound recording",
+                4,
+                "Video",
+                18
+            ],
+            "format_physical_ssim": [
+                "Vinyl disc",
+                18,
+                "Piano/Organ roll",
+                10,
+                "Videocassette (VHS)",
+                6,
+                "DVD",
+                4,
+                "Microfiche",
+                4,
+                "Microfilm",
+                2,
+                "Photo",
+                2,
+                "Audiocassette",
+                1,
+                "Film",
+                1,
+                "Other video",
+                1
+            ],
+            "format": [
+                "Book",
+                11592,
+                "Thesis",
+                5613,
+                "Map/Globe",
+                2625,
+                "Manuscript/Archive",
+                177,
+                "Image",
+                128,
+                "Journal/Periodical",
+                57,
+                "Music - Score",
+                54,
+                "Music - Recording",
+                29,
+                "Conference Proceedings",
+                26,
+                "Other",
+                19,
+                "Video",
+                13,
+                "Computer File",
+                5,
+                "Microformat",
+                4,
+                "Sound Recording",
+                4,
+                "Database",
+                1
+            ],
+            "fund_facet": [
+                "vx827zv0815",
+                28,
+                "sr145dp1682",
+                12,
+                "tf882hn2198",
+                10,
+                "tg134vk8508",
+                10,
+                "dn757xg6183",
+                6,
+                "nh023fz6328",
+                5,
+                "wm960zg6875",
+                5,
+                "bf605rd2064",
+                4,
+                "jg051ng7909",
+                4,
+                "cd301py4971",
+                3,
+                "cd966nb0770",
+                3,
+                "gp803bf6685",
+                2,
+                "hd360gv1231",
+                2,
+                "cb648my2115",
+                1,
+                "dn727rs3828",
+                1,
+                "fc212qq1459",
+                1,
+                "fc667dd6052",
+                1,
+                "fc890jv4264",
+                1,
+                "kp761xz4568",
+                1,
+                "mg914ht8510",
+                1,
+                "qy010cn7414",
+                1
+            ],
+            "genre_ssim": [
+                "Thesis/Dissertation",
+                5613,
+                "Technical report",
+                2259,
+                "Government document",
+                617,
+                "Conference proceedings",
+                29
+            ],
+            "geographic_facet": [
+                "California",
+                566,
+                "United States",
+                562,
+                "Europe",
+                341,
+                "Africa",
+                312,
+                "Japan",
+                208,
+                "France",
+                119,
+                "Asia",
+                116,
+                "Great Britain",
+                115,
+                "North America",
+                108,
+                "Mexico",
+                98,
+                "Italy",
+                97,
+                "England",
+                88,
+                "San Francisco (Calif.)",
+                69,
+                "Canada",
+                58,
+                "Germany",
+                58,
+                "South America",
+                57,
+                "Middle East",
+                56,
+                "Nevada",
+                53,
+                "Los Angeles (Calif.)",
+                51,
+                "Palestine",
+                51,
+                "Texas",
+                51
+            ],
+            "language": [
+                "English",
+                12664,
+                "Latin",
+                776,
+                "French",
+                392,
+                "Japanese",
+                274,
+                "German",
+                187,
+                "Italian",
+                157,
+                "Dutch",
+                71,
+                "Spanish",
+                65,
+                "Russian",
+                13,
+                "Greek, Ancient (to 1453)",
+                12,
+                "Hebrew",
+                11,
+                "Portuguese",
+                11,
+                "Danish",
+                9,
+                "French, Old (ca. 842-1400)",
+                5,
+                "French, Middle (ca. 1400-1600)",
+                4,
+                "Yiddish",
+                4,
+                "Arabic",
+                3,
+                "Armenian",
+                3,
+                "English, Old (ca. 450-1100)",
+                3,
+                "Chinese",
+                2,
+                "Norwegian",
+                2
+            ],
+            "location_facet": [],
+            "pub_date": [
+                "2013",
+                999,
+                "2011",
+                975,
+                "2010",
+                963,
+                "2012",
+                957,
+                "2015",
+                748,
+                "2014",
+                730,
+                "2016",
+                673,
+                "2009",
+                135,
+                "1985",
+                90,
+                "1989",
+                89,
+                "1990",
+                87,
+                "1981",
+                85,
+                "1982",
+                83,
+                "1992",
+                81,
+                "1980",
+                78,
+                "1984",
+                78,
+                "1895",
+                77,
+                "1978",
+                77,
+                "1896",
+                75,
+                "1983",
+                75,
+                "1991",
+                74
+            ],
+            "pub_year_tisim": [
+                "2011",
+                1229,
+                "2010",
+                1083,
+                "2013",
+                1042,
+                "2012",
+                1015,
+                "2015",
+                779,
+                "2014",
+                768,
+                "2016",
+                706,
+                "2009",
+                177,
+                "1868",
+                144,
+                "1896",
+                141,
+                "1895",
+                139,
+                "1894",
+                135,
+                "1898",
+                135,
+                "1897",
+                134,
+                "1890",
+                128,
+                "1899",
+                127,
+                "1985",
+                126,
+                "1910",
+                125,
+                "1912",
+                125,
+                "1891",
+                123,
+                "1893",
+                122
+            ],
+            "topic_facet": [
+                "Maps",
+                1015,
+                "Animals",
+                224,
+                "Railroads",
+                212,
+                "World maps",
+                211,
+                "Engineering design",
+                202,
+                "Early maps",
+                191,
+                "Humans",
+                174,
+                "Roads",
+                155,
+                "Nautical charts",
+                141,
+                "Digital maps",
+                127,
+                "Road maps",
+                125,
+                "Military maps",
+                122,
+                "Geology",
+                116,
+                "Atlases",
+                112,
+                "Waterways",
+                110,
+                "Mice",
+                108,
+                "Evolution",
+                91,
+                "Paleontology",
+                90,
+                "Stanford University",
+                90,
+                "Indians of North America",
+                87,
+                "Natural history",
+                85
+            ]
+        },
+        "facet_dates": {},
+        "facet_ranges": {}
+    }
+}

@@ -1,0 +1,331 @@
+{
+    "responseHeader": {
+        "status": 0,
+        "QTime": 1245,
+        "params": {
+            "fl": "id",
+            "q": "*:*",
+            "wt": "json",
+            "fq": [
+                "id:/[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/",
+                "building_facet:\"Stanford Digital Repository\"",
+                "-collection_type:\"Digital Collection\"",
+                "-collection:*"
+            ],
+            "rows": "10000000"
+        }
+    },
+    "response": {
+        "numFound": 106,
+        "start": 0,
+        "docs": [
+            {"id": "cy960by6578"},
+            {"id": "vv853br8653"},
+            {"id": "kp672yb7178"},
+            {"id": "sz154cs6300"},
+            {"id": "qc157wd6464"},
+            {"id": "kd948pq9705"},
+            {"id": "ky399mf8286"},
+            {"id": "sn179yg3680"},
+            {"id": "rf436ph3918"},
+            {"id": "bx638ry0293"},
+            {"id": "cr615zw9252"},
+            {"id": "pt261jk2268"},
+            {"id": "gp350rv3034"},
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/wg878pw9299"],
+                "id": "11849352"
+            },
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/zx822vw3110"],
+                "id": "11688604"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11853998"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11849250"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11849357"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11735265"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11682463"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11685967"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11612522"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11688606"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11612520"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11688561"
+            },
+            {
+                "collection": ["sirsi"],
+                "id": "11688597"
+            },
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/wn605tx2844"],
+                "id": "11614106"
+            },
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/zs376sn5901"],
+                "id": "11682465"
+            },
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/ry437tc7883"],
+                "id": "11616850"
+            },
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/ry437tc7883"],
+                "id": "11551194"
+            },
+            {
+                "collection": ["sirsi"],
+                "managed_purl_urls": ["http://purl.stanford.edu/nm509pb1354"],
+                "id": "11849368"
+            }
+        ]
+    },
+    "facet_counts": {
+        "facet_queries": {},
+        "facet_fields": {
+            "access_facet": [
+                "Online",
+                106
+            ],
+            "author_person_facet": [
+                "Hennessy, John L.",
+                29,
+                "Bstan-ʼdzin-rgya-mtsho, Dalai Lama XIV, 1935-",
+                8,
+                "Perry, William James, 1927-",
+                4,
+                "Walsh, Bill, 1931-2007",
+                4,
+                "Gore, Al, 1948-",
+                3,
+                "Brzezinski, Zbigniew, 1928-",
+                2,
+                "Burnet, John, 1863-1928",
+                2,
+                "Chu, Steven",
+                2,
+                "Gates, Bill, 1955-",
+                2,
+                "Hewlett, Walter B.",
+                2,
+                "Loury, Glenn C.",
+                2,
+                "Osheroff, Douglas D.",
+                2,
+                "Plato.",
+                2,
+                "Arrowsmith, John, 1790-1873",
+                1,
+                "Augerot, Xanthippe",
+                1,
+                "Bhutto, Benazir, 1953-2007",
+                1,
+                "Block, Steven",
+                1,
+                "Casper, Gerhard",
+                1,
+                "Drell, Sidney D. (Sidney David), 1926-",
+                1,
+                "Earle, Gordon",
+                1,
+                "Ehrlich, Paul R.",
+                1
+            ],
+            "author_other_facet": [
+                "Stanford University. News and Publications Service",
+                98,
+                "Black Student Union (Stanford University)",
+                2,
+                "G.W. & C.B. Colton & Co",
+                1,
+                "Intergovernmental Panel on Climate Change",
+                1,
+                "Stanford University. Computer Science Department",
+                1
+            ],
+            "building_facet": [
+                "Stanford Digital Repository",
+                106
+            ],
+            "callnum_facet_hsim": [],
+            "collection": [],
+            "db_az_subject": [],
+            "display_type": [],
+            "era_facet": [
+                "1978",
+                1,
+                "2005",
+                1
+            ],
+            "format_main_ssim": [
+                "Book",
+                2,
+                "Map",
+                3,
+                "Sound recording",
+                1,
+                "Video",
+                98
+            ],
+            "format_physical_ssim": [],
+            "format": [
+                "Video",
+                98,
+                "Map/Globe",
+                3,
+                "Book",
+                2,
+                "Computer File",
+                1,
+                "Sound Recording",
+                1
+            ],
+            "fund_facet": [],
+            "genre_ssim": [],
+            "geographic_facet": [
+                "Cape of Good Hope",
+                1,
+                "Cape of Good Hope (South Africa)",
+                1,
+                "KwaZulu-Natal",
+                1,
+                "KwaZulu-Natal (South Africa)",
+                1,
+                "North Pacific Ocean",
+                1,
+                "South Africa",
+                1
+            ],
+            "language": [
+                "English",
+                101,
+                "Latin",
+                2
+            ],
+            "location_facet": [],
+            "pub_date": [
+                "2001",
+                20,
+                "2005",
+                16,
+                "2007",
+                15,
+                "2002",
+                11,
+                "2003",
+                11,
+                "2004",
+                10,
+                "2006",
+                8,
+                "2000",
+                4,
+                "1902",
+                2,
+                "1997",
+                2,
+                "1848",
+                1,
+                "1868",
+                1,
+                "1995",
+                1,
+                "2009",
+                1,
+                "2016",
+                1
+            ],
+            "pub_year_tisim": [
+                "2001",
+                20,
+                "2005",
+                16,
+                "2007",
+                15,
+                "2002",
+                11,
+                "2003",
+                11,
+                "2004",
+                10,
+                "2006",
+                8,
+                "2000",
+                4,
+                "1902",
+                2,
+                "1997",
+                2,
+                "1848",
+                1,
+                "1868",
+                1,
+                "1995",
+                1,
+                "2009",
+                1,
+                "2016",
+                1
+            ],
+            "topic_facet": [
+                "Boundaries",
+                1,
+                "Conservation",
+                1,
+                "Democracy",
+                1,
+                "Environment",
+                1,
+                "Equality",
+                1,
+                "Freshwater habitat conservation",
+                1,
+                "Inland Waters",
+                1,
+                "Marine habitat conservation",
+                1,
+                "Oceans",
+                1,
+                "Pacific salmon",
+                1,
+                "Watersheds",
+                1
+            ]
+        },
+        "facet_dates": {},
+        "facet_ranges": {}
+    }
+}
