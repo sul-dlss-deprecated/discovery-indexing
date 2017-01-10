@@ -15,11 +15,24 @@
 require 'rubygems'
 require 'net/http'
 require 'uri'
-require 'argo_client'
-require 'purl_client'
-require 'sw_client'
+require './argo_client'
+require './purl_client'
+require './sw_client'
 
 class Audit
+  attr_reader :argo_client, :purl_client, :sw_client, :argo_url, :pf_url, :sw_url, :tgt, :report_type, :collection_druid
+
+  def initialize(argo_url, pf_url, sw_url, tgt, report_type=nil, collection_druid=nil)
+    @argo_url = argo_url
+    @pf_url = pf_url
+    @sw_url   = sw_url
+    @tgt = tgt.downcase
+    @report_type = report_type
+    @collection_druid = collection_druid
+    @argo_client = ArgoClient.new(argo_url, tgt)
+    @purl_client = PurlClient.new(pf_url, tgt)
+    @sw_client   = SwClient.new(sw_url)
+  end
 
   def differences(ar, pf, sw)
     diff = {}
@@ -43,16 +56,16 @@ class Audit
     end
   end
 
-  def rpt_output(com, sw_target)
+  def rpt_output(com)
     com.keys.each do |c|
       sys = c.split("_")
       first = system(sys[0])
       second = system(sys[1])
       if (com[c].length > 0)
-        puts("These druids are in #{first} as released to #{sw_target} but not in #{second}")
+        puts("These #{com[c].length} druids are in #{first} as released to #{tgt} but not in #{second}")
         puts com[c]
       else
-        puts("Same druids in #{first} and #{second} are released to #{sw_target}")
+        puts("Same druids in #{first} and #{second} are released to #{tgt}")
       end
     end
     puts ''
@@ -61,16 +74,16 @@ class Audit
   end
 
   def collections_summary()
-    argo_coll = @argo_client.collections_druids
-    pf_coll = @purl_client.collections_druids
-    sw_coll = @sw_client.collections_druids
+    argo_coll = argo_client.collections_druids
+    pf_coll = purl_client.collections_druids
+    sw_coll = sw_client.collections_druids
 
     puts("Collections Statistics")
-    puts("Argo has #{argo_coll.length} released to #{sw_target}")
-    puts("PURL has #{pf_coll.length} released to #{sw_target}")
-    puts("SW has #{sw_coll.length} released to #{sw_target}")
+    puts("Argo has #{argo_coll.length} released to #{tgt}")
+    puts("PURL has #{pf_coll.length} released to #{tgt}")
+    puts("SW has #{sw_coll.length} released to #{tgt}")
 
-    rpt_output(differences(argo_coll, pf_coll, sw_coll), sw_target)
+    rpt_output(differences(argo_coll, pf_coll, sw_coll))
 
   end
 
@@ -81,11 +94,11 @@ class Audit
     sw_items = sw_client.items_druids
 
     puts("Individual Items Statistics")
-    puts("Argo has #{argo_items.length} released to #{sw_target}")
-    puts("PURL has #{pf_items.length} released to #{sw_target}")
-    puts("SW has #{sw_items.length} released to #{sw_target}")
+    puts("Argo has #{argo_items.length} released to #{tgt}")
+    puts("PURL has #{pf_items.length} released to #{tgt}")
+    puts("SW has #{sw_items.length} released to #{tgt}")
 
-    rpt_output(differences(argo_items, pf_items, sw_items), sw_target)
+    rpt_output(differences(argo_items, pf_items, sw_items))
 
   end
 
@@ -97,11 +110,11 @@ class Audit
     sw_mem = sw_client.collection_members(collection_druid)
 
     puts("Individual Collection Statistics")
-    puts("Argo has #{argo_mem.length} members in collection #{collection_druid} released to #{sw_target}")
-    puts("PURL has #{pf_mem.length} members in collection #{collection_druid} released to #{sw_target}")
-    puts("SW has #{sw_mem.length} members in collection #{collection_druid} released to #{sw_target}")
+    puts("Argo has #{argo_mem.length} members in collection #{collection_druid} released to #{tgt}")
+    puts("PURL has #{pf_mem.length} members in collection #{collection_druid} released to #{tgt}")
+    puts("SW has #{sw_mem.length} members in collection #{collection_druid} released to #{tgt}")
 
-    rpt_output(differences(argo_mem, pf_mem, sw_mem), sw_target)
+    rpt_output(differences(argo_mem, pf_mem, sw_mem))
 
   end
 
@@ -111,11 +124,11 @@ class Audit
     sw_all = sw_client.all_druids
 
     puts("Everything Statistics")
-    puts("Argo has #{argo_all.length} released to #{sw_target}")
-    puts("PURL has #{pf_all.length} released to #{sw_target}")
-    puts("SW has #{sw_all.length} released to #{sw_target}")
+    puts("Argo has #{argo_all.length} released to #{tgt}")
+    puts("PURL has #{pf_all.length} released to #{tgt}")
+    puts("SW has #{sw_all.length} released to #{tgt}")
 
-    rpt_output(differences(argo_all, pf_all, sw_all), sw_target)
+    rpt_output(differences(argo_all, pf_all, sw_all))
 
   end
 
@@ -134,44 +147,4 @@ class Audit
     end
   end
 
-private
-
-# Environment variables
-  def argo_url
-    ENV['ARGO_URL']
-  end
-
-  def purl_url
-    ENV['PF_URL']
-  end
-
-  def sw_url
-    ENV['SW_URL']
-  end
-
-  def sw_target
-    ENV['SW_TGT']
-  end
-
-  # Report types - Everything Released Summary, Collections Summary,
-  #                Individual Items Summary, Collection-specific Summary
-  def report_type
-    ENV['RPT_TYPE']
-  end
-
-  def collection_druid
-    ENV['COLL_DRUID']
-  end
-
-  def argo_client
-    ArgoClient.new(argo_url, sw_target)
-  end
-
-  def purl_client
-    PurlClient.new(pf_url, sw_target)
-  end
-
-  def sw_client
-    SwClient.new(sw_url)
-  end
 end
