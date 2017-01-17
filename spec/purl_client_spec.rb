@@ -86,7 +86,7 @@ describe PurlClient do
     end
     it 'loops over all result pages' do
       inp = File.open('spec/fixtures/purl_coll_response1.json').read
-      expect(subject).to receive(:results).exactly(4).times.with(/collections/).and_return(inp)
+      expect(subject).to receive(:results).at_least(:once).times.with(/collections/).and_return(inp)
       coll = subject.collections_druids
     end
   end
