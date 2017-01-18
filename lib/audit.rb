@@ -56,23 +56,43 @@ class Audit
     end
   end
 
-  def rpt_output(com)
-    res = []
-    com.keys.each do |c|
+  def rpt_hash(diff)
+    rpt = Hash.new{|h,k| h[k]=Hash.new(&h.default_proc) }
+    diff.each do |c, druids|
+      res = {}
       sys = c.split("_")
       first = system(sys[0])
       second = system(sys[1])
-      if (com[c].length > 0)
-        res.push("These #{com[c].length} druids are in #{first} as released to #{tgt} but not in #{second}")
-        res.push(com[c])
+      if (druids.length > 0)
+        res['text'] = "#{druids.length} druids are in #{first} as released to #{tgt} but not in #{second}"
+        res['druids'] = druids
+        res['length'] = druids.length
       else
-        res.push("Same druids in #{first} and #{second} are released to #{tgt}")
+        res['text'] = "Same druids in #{first} and #{second} are released to #{tgt}"
       end
+      rpt[first][second] = res
     end
-    res.push ''
-    res.push '====================================================================='
-    res.push ''
-    res
+    rpt
+  end
+
+  def druid_list(result_hash)
+    dl = []
+    dl.push('')
+    dl.push('====================================================================================')
+    dl.push('')
+    dl.push(result_hash['Argo']['PURL']['text'])
+    dl.push(result_hash['Argo']['PURL']['druids']) unless result_hash['Argo']['PURL']['druids'].nil?
+    dl.push(result_hash['Argo']['Searchworks']['text'])
+    dl.push(result_hash['Argo']['Searchworks']['druids']) unless result_hash['Argo']['Searchworks']['druids'].nil?
+    dl.push(result_hash['PURL']['Argo']['text'])
+    dl.push(result_hash['PURL']['Argo']['druids']) unless result_hash['PURL']['Argo']['druids'].nil?
+    dl.push(result_hash['PURL']['Searchworks']['text'])
+    dl.push(result_hash['PURL']['Searchworks']['druids']) unless result_hash['PURL']['Searchworks']['druids'].nil?
+    dl.push(result_hash['Searchworks']['Argo']['text'])
+    dl.push(result_hash['Searchworks']['Argo']['druids']) unless result_hash['Searchworks']['Argo']['druids'].nil?
+    dl.push(result_hash['Searchworks']['PURL']['text'])
+    dl.push(result_hash['Searchworks']['PURL']['druids']) unless result_hash['Searchworks']['PURL']['druids'].nil?
+    dl
   end
 
   def collections_summary()
@@ -81,12 +101,21 @@ class Audit
     pf_coll = purl_client.collections_druids
     sw_coll = sw_client.collections_druids
 
+    result_hash = rpt_hash(differences(argo_coll, pf_coll, sw_coll))
+
     result.push("Collections Statistics")
     result.push("Argo has #{argo_coll.length} released to #{tgt}")
+    result.push(result_hash['Argo']['PURL']['text'])
+    result.push(result_hash['Argo']['Searchworks']['text'])
+    result.push('')
     result.push("PURL has #{pf_coll.length} released to #{tgt}")
-    result.push("SW has #{sw_coll.length} released to #{tgt}")
-
-    result.push(rpt_output(differences(argo_coll, pf_coll, sw_coll)))
+    result.push(result_hash['PURL']['Argo']['text'])
+    result.push(result_hash['PURL']['Searchworks']['text'])
+    result.push('')
+    result.push("Searchworks has #{sw_coll.length} released to #{tgt}")
+    result.push(result_hash['Searchworks']['Argo']['text'])
+    result.push(result_hash['Searchworks']['PURL']['text'])
+    result.push(druid_list(result_hash))
     result
   end
 
@@ -96,12 +125,21 @@ class Audit
     pf_items = purl_client.items_druids
     sw_items = sw_client.items_druids
 
+    result_hash = rpt_hash(differences(argo_items, pf_items, sw_items))
+
     result.push("Individual Items Statistics")
     result.push("Argo has #{argo_items.length} released to #{tgt}")
+    result.push(result_hash['Argo']['PURL']['text'])
+    result.push(result_hash['Argo']['Searchworks']['text'])
+    result.push('')
     result.push("PURL has #{pf_items.length} released to #{tgt}")
-    result.push("SW has #{sw_items.length} released to #{tgt}")
-
-    result.push(rpt_output(differences(argo_items, pf_items, sw_items)))
+    result.push(result_hash['PURL']['Argo']['text'])
+    result.push(result_hash['PURL']['Searchworks']['text'])
+    result.push('')
+    result.push("Searchworks has #{sw_items.length} released to #{tgt}")
+    result.push(result_hash['Searchworks']['Argo']['text'])
+    result.push(result_hash['Searchworks']['PURL']['text'])
+    result.push(druid_list(result_hash))
     result
   end
 
@@ -112,12 +150,21 @@ class Audit
     pf_mem = purl_client.collection_members(collection_druid)
     sw_mem = sw_client.collection_members(collection_druid)
 
+    result_hash = rpt_hash(differences(argo_mem, pf_mem, sw_mem))
+
     result.push("Individual Collection Statistics")
     result.push("Argo has #{argo_mem.length} members in collection #{collection_druid} released to #{tgt}")
+    result.push(result_hash['Argo']['PURL']['text'])
+    result.push(result_hash['Argo']['Searchworks']['text'])
+    result.push('')
     result.push("PURL has #{pf_mem.length} members in collection #{collection_druid} released to #{tgt}")
-    result.push("SW has #{sw_mem.length} members in collection #{collection_druid} released to #{tgt}")
-
-    result.push(rpt_output(differences(argo_mem, pf_mem, sw_mem)))
+    result.push(result_hash['PURL']['Argo']['text'])
+    result.push(result_hash['PURL']['Searchworks']['text'])
+    result.push('')
+    result.push("Searchworks has #{sw_mem.length} members in collection #{collection_druid} released to #{tgt}")
+    result.push(result_hash['Searchworks']['Argo']['text'])
+    result.push(result_hash['Searchworks']['PURL']['text'])
+    result.push(druid_list(result_hash))
     result
   end
 
@@ -127,12 +174,21 @@ class Audit
     pf_all = purl_client.all_druids
     sw_all = sw_client.all_druids
 
+    result_hash = rpt_hash(differences(argo_all, pf_all, sw_all))
+
     result.push("Everything Statistics")
     result.push("Argo has #{argo_all.length} released to #{tgt}")
+    result.push(result_hash['Argo']['PURL']['text'])
+    result.push(result_hash['Argo']['Searchworks']['text'])
+    result.push('')
     result.push("PURL has #{pf_all.length} released to #{tgt}")
-    result.push("SW has #{sw_all.length} released to #{tgt}")
-
-    result.push(rpt_output(differences(argo_all, pf_all, sw_all)))
+    result.push(result_hash['PURL']['Argo']['text'])
+    result.push(result_hash['PURL']['Searchworks']['text'])
+    result.push('')
+    result.push("Searchworks has #{sw_all.length} released to #{tgt}")
+    result.push(result_hash['Searchworks']['Argo']['text'])
+    result.push(result_hash['Searchworks']['PURL']['text'])
+    result.push(druid_list(result_hash))
     result
   end
 
