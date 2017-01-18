@@ -80,18 +80,36 @@ class Audit
     dl.push('')
     dl.push('====================================================================================')
     dl.push('')
-    dl.push(result_hash['Argo']['PURL']['text'])
-    dl.push(result_hash['Argo']['PURL']['druids']) unless result_hash['Argo']['PURL']['druids'].nil?
-    dl.push(result_hash['Argo']['Searchworks']['text'])
-    dl.push(result_hash['Argo']['Searchworks']['druids']) unless result_hash['Argo']['Searchworks']['druids'].nil?
-    dl.push(result_hash['PURL']['Argo']['text'])
-    dl.push(result_hash['PURL']['Argo']['druids']) unless result_hash['PURL']['Argo']['druids'].nil?
-    dl.push(result_hash['PURL']['Searchworks']['text'])
-    dl.push(result_hash['PURL']['Searchworks']['druids']) unless result_hash['PURL']['Searchworks']['druids'].nil?
-    dl.push(result_hash['Searchworks']['Argo']['text'])
-    dl.push(result_hash['Searchworks']['Argo']['druids']) unless result_hash['Searchworks']['Argo']['druids'].nil?
-    dl.push(result_hash['Searchworks']['PURL']['text'])
-    dl.push(result_hash['Searchworks']['PURL']['druids']) unless result_hash['Searchworks']['PURL']['druids'].nil?
+    if result_hash.dig('Argo','PURL','druids')
+      dl.push(result_hash.dig('Argo','PURL','text'))
+      dl.push(result_hash.dig('Argo','PURL','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('Argo','Searchworks','druids')
+      dl.push(result_hash.dig('Argo','Searchworks','text'))
+      dl.push(result_hash.dig('Argo','Searchworks','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('PURL','Argo','druids')
+      dl.push(result_hash.dig('PURL','Argo','text'))
+      dl.push(result_hash.dig('PURL','Argo','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('PURL','Searchworks','druids')
+      dl.push(result_hash.dig('PURL','Searchworks','text'))
+      dl.push(result_hash.dig('PURL','Searchworks','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('Searchworks','Argo','druids')
+      dl.push(result_hash.dig('Searchworks','Argo','text'))
+      dl.push(result_hash.dig('Searchworks','Argo','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('Searchworks','PURL','druids')
+      dl.push(result_hash.dig('Searchworks','PURL','text'))
+      dl.push(result_hash.dig('Searchworks','PURL','druids'))
+      dl.push('')
+    end
     dl
   end
 
@@ -106,16 +124,17 @@ class Audit
     result.push("Collections Statistics")
     result.push("Argo has #{argo_coll.length} released to #{tgt}")
     result.push(result_hash['Argo']['PURL']['text'])
-    result.push(result_hash['Argo']['Searchworks']['text'])
+    result.push(result_hash.dig('Argo','Searchworks','text'))
     result.push('')
     result.push("PURL has #{pf_coll.length} released to #{tgt}")
-    result.push(result_hash['PURL']['Argo']['text'])
-    result.push(result_hash['PURL']['Searchworks']['text'])
+    result.push(result_hash.dig('PURL','Argo','text'))
+    result.push(result_hash.dig('PURL','Searchworks','text'))
     result.push('')
     result.push("Searchworks has #{sw_coll.length} released to #{tgt}")
-    result.push(result_hash['Searchworks']['Argo']['text'])
-    result.push(result_hash['Searchworks']['PURL']['text'])
+    result.push(result_hash.dig('Searchworks','Argo','text'))
+    result.push(result_hash.dig('Searchworks','PURL','text'))
     result.push(druid_list(result_hash))
+    result.push('')
     result
   end
 
@@ -130,16 +149,17 @@ class Audit
     result.push("Individual Items Statistics")
     result.push("Argo has #{argo_items.length} released to #{tgt}")
     result.push(result_hash['Argo']['PURL']['text'])
-    result.push(result_hash['Argo']['Searchworks']['text'])
+    result.push(result_hash.dig('Argo','Searchworks','text'))
     result.push('')
     result.push("PURL has #{pf_items.length} released to #{tgt}")
-    result.push(result_hash['PURL']['Argo']['text'])
-    result.push(result_hash['PURL']['Searchworks']['text'])
+    result.push(result_hash.dig('PURL','Argo','text'))
+    result.push(result_hash.dig('PURL','Searchworks','text'))
     result.push('')
     result.push("Searchworks has #{sw_items.length} released to #{tgt}")
-    result.push(result_hash['Searchworks']['Argo']['text'])
-    result.push(result_hash['Searchworks']['PURL']['text'])
+    result.push(result_hash.dig('Searchworks','Argo','text'))
+    result.push(result_hash.dig('Searchworks','PURL','text'))
     result.push(druid_list(result_hash))
+    result.push('')
     result
   end
 
@@ -155,16 +175,17 @@ class Audit
     result.push("Individual Collection Statistics")
     result.push("Argo has #{argo_mem.length} members in collection #{collection_druid} released to #{tgt}")
     result.push(result_hash['Argo']['PURL']['text'])
-    result.push(result_hash['Argo']['Searchworks']['text'])
+    result.push(result_hash.dig('Argo','Searchworks','text'))
     result.push('')
     result.push("PURL has #{pf_mem.length} members in collection #{collection_druid} released to #{tgt}")
-    result.push(result_hash['PURL']['Argo']['text'])
-    result.push(result_hash['PURL']['Searchworks']['text'])
+    result.push(result_hash.dig('PURL','Argo','text'))
+    result.push(result_hash.dig('PURL','Searchworks','text'))
     result.push('')
     result.push("Searchworks has #{sw_mem.length} members in collection #{collection_druid} released to #{tgt}")
-    result.push(result_hash['Searchworks']['Argo']['text'])
-    result.push(result_hash['Searchworks']['PURL']['text'])
+    result.push(result_hash.dig('Searchworks','Argo','text'))
+    result.push(result_hash.dig('Searchworks','PURL','text'))
     result.push(druid_list(result_hash))
+    result.push('')
     result
   end
 
@@ -179,16 +200,17 @@ class Audit
     result.push("Everything Statistics")
     result.push("Argo has #{argo_all.length} released to #{tgt}")
     result.push(result_hash['Argo']['PURL']['text'])
-    result.push(result_hash['Argo']['Searchworks']['text'])
+    result.push(result_hash.dig('Argo','Searchworks','text'))
     result.push('')
     result.push("PURL has #{pf_all.length} released to #{tgt}")
-    result.push(result_hash['PURL']['Argo']['text'])
-    result.push(result_hash['PURL']['Searchworks']['text'])
+    result.push(result_hash.dig('PURL','Argo','text'))
+    result.push(result_hash.dig('PURL','Searchworks','text'))
     result.push('')
     result.push("Searchworks has #{sw_all.length} released to #{tgt}")
-    result.push(result_hash['Searchworks']['Argo']['text'])
-    result.push(result_hash['Searchworks']['PURL']['text'])
+    result.push(result_hash.dig('Searchworks','Argo','text'))
+    result.push(result_hash.dig('Searchworks','PURL','text'))
     result.push(druid_list(result_hash))
+    result.push('')
     result
   end
 

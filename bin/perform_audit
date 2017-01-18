@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+
+require 'audit'
+
+def fetch_user_input(default)
+  data = gets.chomp
+  return data unless data.empty?
+  default
+end
+
+ARGO_URL_DEFAULT="http://solr.stanford.edu/solr/prod"
+puts "Please enter Argo URL [#{ARGO_URL_DEFAULT}]: "
+ARGO_URL = fetch_user_input(ARGO_URL_DEFAULT)
+
+PF_URL_DEFAULT="http://purl-fetcher.stanford.edu"
+puts "Please enter Purl Fetcher URL [#{PF_URL_DEFAULT}]: "
+PF_URL = fetch_user_input(PF_URL_DEFAULT)
+
+SW_URL_DEFAULT="http://solr.stanford.edu/solr/sw_prod"
+puts "Please enter Searchworks Solr URL [#{SW_URL_DEFAULT}]: "
+SW_URL = fetch_user_input(SW_URL_DEFAULT)
+
+SW_TGT_DEFAULT="Searchworks"
+puts "Please enter Searchworks Target [#{SW_TGT_DEFAULT}]: "
+SW_TGT = fetch_user_input(SW_TGT_DEFAULT)
+
+RPT_TYPE_DEFAULT="Collection Summary"
+puts "Please enter Report Type [#{RPT_TYPE_DEFAULT}]: "
+RPT_TYPE = fetch_user_input(RPT_TYPE_DEFAULT)
+
+COLL_DRUID_DEFAULT=""
+puts "Please enter Collection Druid [#{COLL_DRUID_DEFAULT}]: "
+COLL_DRUID = fetch_user_input(COLL_DRUID_DEFAULT)
+
+puts ""
+puts ""
+puts "Argo:               #{ARGO_URL}"
+puts "Purl Fetcher:       #{PF_URL}"
+puts "Searchworks:        #{SW_URL}"
+puts "Searchworks Target: #{SW_TGT}"
+puts "Report Type:        #{RPT_TYPE}"
+puts "Collection Druid:   #{COLL_DRUID}"
+puts ""
+puts ""
+
+aud = Audit.new(ARGO_URL, PF_URL, SW_URL, SW_TGT, RPT_TYPE, COLL_DRUID)
+puts aud.rpt_select
