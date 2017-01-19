@@ -1,0 +1,212 @@
+{
+    "responseHeader": {
+        "zkConnected": true,
+        "status": 0,
+        "QTime": 7,
+        "params": {
+            "fl": "id,released_to_ssim,catkey_id_ssim,processing_status_text_ssi,rights_descriptions_ssim",
+            "fq": ["objectType_ssim:\"collection\"","released_to_ssim:*"],
+            "sort": "id asc",
+            "rows": "10000",
+            "wt": "json"
+        }
+    },
+    "response": {
+        "numFound": 28,
+        "start": 0,
+        "docs": [
+            {
+                "id": "druid:bc225xg9715",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bd001pp3337",
+                "catkey_id_ssim": ["4083219"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bf420qj4978",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bg181xz6585",
+                "catkey_id_ssim": ["4083506"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["SearchWorks"]
+            },
+            {
+                "id": "druid:bh305mx9891",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bq187rh3787",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bq589tv8583",
+                "catkey_id_ssim": ["11235662"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bs646cd8717",
+                "catkey_id_ssim": ["4084372"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bv183tt9721",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bx011gm6026",
+                "catkey_id_ssim": ["9265298"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:bx967wx2402",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cg624xg5956",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cg877kb4367",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cj028pr0332",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cj269gn0736",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cj445qq4021",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:ck552zg2217",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cm018rf5314",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cq727dp8228",
+                "catkey_id_ssim": ["4085899"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cr827qv5481",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:ct961sj2730",
+                "catkey_id_ssim": ["10357851"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cv083fq4881",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:cv355cw2458",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:df918cs3825",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:dm482qr7820",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:dn166mg9206",
+                "catkey_id_ssim": ["6757885"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:dq017bh9237",
+                "catkey_id_ssim": ["10415356"],
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            },
+            {
+                "id": "druid:dq441rn2614",
+                "rights_descriptions_ssim": ["world"],
+                "processing_status_text_ssi": "Accessioned",
+                "released_to_ssim": ["Searchworks"]
+            }
+        ]
+    },
+    "facet_counts": {
+        "facet_queries": {},
+        "facet_fields": {
+            "active_fedora_model_ssi": [
+                "Dor::Collection",
+                28,
+                "Dor::Set",
+                1
+            ],
+            "object_type_si": []
+        },
+        "facet_ranges": {},
+        "facet_intervals": {},
+        "facet_heatmaps": {}
+    }
+}

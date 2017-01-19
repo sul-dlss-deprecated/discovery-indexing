@@ -41,31 +41,29 @@ class SwClient
         druid_ids.push(i["id"])
       end
     end
-    file = File.open("./multiple_managed_purls.txt", "w")
-    multi_urls.keys.each do | id |
-      file.write("#{id},")
-      file.write(multi_urls[id].map { |i| i.to_s }.join(","))
-      file.write("\n")
-    end
-    file.close unless file.nil?
+    write_multi_managed_purls_file(multi_urls) if multi_urls != {}
     druid_ids
   end
 
-  def parse_item_json_results(res)
+def parse_item_json_results(res)
     druid_ids=[]
+    multi_urls={}
     res["response"]["docs"].each do |i|
       if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"] && i["collection"].length < 2
+        multi=[]
         if i["managed_purl_urls"].length == 1
           druid_ids.push(druid_from_managed_purl(i["managed_purl_urls"].first))
         elsif i["managed_purl_urls"].length > 1
           i["managed_purl_urls"].each do |u|
-            druid_ids.push(druid_from_managed_purl(u))
+            multi.push(druid_from_managed_purl(u))
           end
+          multi_urls[i["id"]] = multi
         end
       elsif /[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/.match(i["id"])
         druid_ids.push(i["id"])
       end
     end
+    write_multi_managed_purls_file(multi_urls) if multi_urls != {}
     druid_ids
   end
 
@@ -127,7 +125,7 @@ class SwClient
       query = coll_search(ckey)
       res = json_parsed_resp(url, query)
     end
-    druid_ids += parse_item_json_results(res)
+    druid_ids += parse_collection_json_results(res)
     druid_ids.uniq.sort
   end
 
@@ -139,6 +137,16 @@ class SwClient
   def druid_from_ckey(ckey)
     query = "/select?fq=id%3A#{ckey}&fl=managed_purl_urls&wt=csv&&csv.header=false"
     results("#{url + query}").gsub!("\n","").gsub!("http:\/\/purl.stanford.edu\/", "")
+  end
+
+  def write_multi_managed_purls_file(multi_urls)
+    file = File.open("./multiple_managed_purls.txt", "w")
+    multi_urls.keys.each do | id |
+      file.write("#{id},")
+      file.write(multi_urls[id].map { |i| i.to_s }.join(","))
+      file.write("\n")
+    end
+    file.close unless file.nil?
   end
 
 end

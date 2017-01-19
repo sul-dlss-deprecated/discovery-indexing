@@ -15,145 +15,218 @@
 require 'rubygems'
 require 'net/http'
 require 'uri'
-require './argo_client'
-require './purl_client'
-require './sw_client'
+require 'argo_client'
+require 'purl_client'
+require 'sw_client'
 
-# Environment variables
-argo_url = ENV['ARGO_URL']
-pf_url = ENV['PF_URL']
-sw_url = ENV['SW_URL']
-sw_target = ENV['SW_TGT']
+class Audit
+  attr_reader :argo_client, :purl_client, :sw_client, :argo_url, :pf_url, :sw_url, :tgt, :report_type, :collection_druid
 
-# Report types - Everything Released Summary, Collections Summary,
-#                Individual Items Summary, Collection-specific Summary
-report_type = ENV['RPT_TYPE']
-collection_druid = ENV['COLL_DRUID']
-
-argo_client = ArgoClient.new(argo_url, sw_target)
-purl_client = PurlClient.new(pf_url, sw_target)
-sw_client = SwClient.new(sw_url)
-coll_data = argo_client.coll_info(argo_client.collections_info)
-
-def differences(ar, pf, sw)
-  diff = {}
-  diff["argo_pf"] = ar - pf
-  diff["argo_sw"] = ar - sw
-  diff["pf_argo"] = pf - ar
-  diff["pf_sw"]   = pf - sw
-  diff["sw_argo"] = sw - ar
-  diff["sw_pf"]   = sw - pf
-  diff
-end
-
-def system(s)
-  case s
-  when "argo"
-    "Argo"
-  when "pf"
-    "PURL"
-  when "sw"
-    "Searchworks"
+  def initialize(argo_url, pf_url, sw_url, tgt, report_type=nil, collection_druid=nil)
+    @argo_url = argo_url
+    @pf_url = pf_url
+    @sw_url   = sw_url
+    @tgt = tgt.downcase
+    @report_type = report_type
+    @collection_druid = collection_druid
+    @argo_client = ArgoClient.new(argo_url, tgt)
+    @purl_client = PurlClient.new(pf_url, tgt)
+    @sw_client   = SwClient.new(sw_url)
   end
-end
 
-def rpt_output(com, coll_data, sw_target)
-  puts ''
-  puts '====================================================================='
-  puts ''
-  com.keys.each do |c|
-    sys = c.split("_")
-    first = system(sys[0])
-    second = system(sys[1])
-    if (com[c].length > 0)
-      puts("These #{com[c].length} druids are in #{first} as released to #{sw_target} but not in #{second}")
-      puts ''
-      com[c].each do |ele|
-        print ele
-        if coll_data[ele]
-          puts coll_data[ele]
-        else
-          puts ''
-        end
-      end
-    else
-      puts("The same druids from #{first} and #{second} are released to #{sw_target}")
+  def differences(ar, pf, sw)
+    diff = {}
+    diff["argo_pf"] = ar - pf
+    diff["argo_sw"] = ar - sw
+    diff["pf_argo"] = pf - ar
+    diff["pf_sw"]   = pf - sw
+    diff["sw_argo"] = sw - ar
+    diff["sw_pf"]   = sw - pf
+    diff
+  end
+
+  def system(s)
+    case s
+    when "argo"
+      "Argo"
+    when "pf"
+      "PURL"
+    when "sw"
+      "Searchworks"
     end
-    puts ''
-    puts '====================================================================='
-    puts ''
   end
-end
 
-def collections_summary(argo_client, purl_client, sw_client, coll_data, sw_target)
+  def rpt_hash(diff)
+    rpt = Hash.new{|h,k| h[k]=Hash.new(&h.default_proc) }
+    diff.each do |c, druids|
+      res = {}
+      sys = c.split("_")
+      first = system(sys[0])
+      second = system(sys[1])
+      if (druids.length > 0)
+        res['text'] = "#{druids.length} druids are in #{first} as released to #{tgt} but not in #{second}"
+        res['druids'] = druids
+        res['length'] = druids.length
+      else
+        res['text'] = "Same druids in #{first} and #{second} are released to #{tgt}"
+      end
+      rpt[first][second] = res
+    end
+    rpt
+  end
 
-  argo_coll = argo_client.collections_druids
-  pf_coll = purl_client.collections_druids
-  sw_coll = sw_client.collections_druids
+  def druid_list(result_hash)
+    dl = []
+    dl.push('')
+    dl.push('====================================================================================')
+    dl.push('')
+    if result_hash.dig('Argo','PURL','druids')
+      dl.push(result_hash.dig('Argo','PURL','text'))
+      dl.push(result_hash.dig('Argo','PURL','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('Argo','Searchworks','druids')
+      dl.push(result_hash.dig('Argo','Searchworks','text'))
+      dl.push(result_hash.dig('Argo','Searchworks','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('PURL','Argo','druids')
+      dl.push(result_hash.dig('PURL','Argo','text'))
+      dl.push(result_hash.dig('PURL','Argo','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('PURL','Searchworks','druids')
+      dl.push(result_hash.dig('PURL','Searchworks','text'))
+      dl.push(result_hash.dig('PURL','Searchworks','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('Searchworks','Argo','druids')
+      dl.push(result_hash.dig('Searchworks','Argo','text'))
+      dl.push(result_hash.dig('Searchworks','Argo','druids'))
+      dl.push('')
+    end
+    if result_hash.dig('Searchworks','PURL','druids')
+      dl.push(result_hash.dig('Searchworks','PURL','text'))
+      dl.push(result_hash.dig('Searchworks','PURL','druids'))
+      dl.push('')
+    end
+    dl
+  end
 
-  puts("Collections Statistics")
-  puts("Argo has #{argo_coll.length} released to #{sw_target}")
-  puts("PURL has #{pf_coll.length} released to #{sw_target}")
-  puts("SW has #{sw_coll.length} collections")
+  def collections_summary()
+    result = []
+    argo_coll = argo_client.collections_druids
+    pf_coll = purl_client.collections_druids
+    sw_coll = sw_client.collections_druids
 
-  rpt_output(differences(argo_coll, pf_coll, sw_coll), coll_data, sw_target)
+    result_hash = rpt_hash(differences(argo_coll, pf_coll, sw_coll))
 
-end
+    result.push("Collections Statistics")
+    result.push("Argo has #{argo_coll.length} released to #{tgt}")
+    result.push(result_hash['Argo']['PURL']['text'])
+    result.push(result_hash.dig('Argo','Searchworks','text'))
+    result.push('')
+    result.push("PURL has #{pf_coll.length} released to #{tgt}")
+    result.push(result_hash.dig('PURL','Argo','text'))
+    result.push(result_hash.dig('PURL','Searchworks','text'))
+    result.push('')
+    result.push("Searchworks has #{sw_coll.length} released to #{tgt}")
+    result.push(result_hash.dig('Searchworks','Argo','text'))
+    result.push(result_hash.dig('Searchworks','PURL','text'))
+    result.push(druid_list(result_hash))
+    result.push('')
+    result
+  end
 
-def individual_items_summary(argo_client, purl_client, sw_client, coll_data, sw_target)
+  def individual_items_summary()
+    result = []
+    argo_items = argo_client.items_druids
+    pf_items = purl_client.items_druids
+    sw_items = sw_client.items_druids
 
-  argo_items = argo_client.items_druids
-  pf_items = purl_client.items_druids
-  sw_items = sw_client.items_druids
+    result_hash = rpt_hash(differences(argo_items, pf_items, sw_items))
 
-  puts("Individual Items Statistics")
-  puts("Argo has #{argo_items.length} released to #{sw_target}")
-  puts("PURL has #{pf_items.length} released to #{sw_target}")
-  puts("SW has #{sw_items.length} released to #{sw_target}")
+    result.push("Individual Items Statistics")
+    result.push("Argo has #{argo_items.length} released to #{tgt}")
+    result.push(result_hash['Argo']['PURL']['text'])
+    result.push(result_hash.dig('Argo','Searchworks','text'))
+    result.push('')
+    result.push("PURL has #{pf_items.length} released to #{tgt}")
+    result.push(result_hash.dig('PURL','Argo','text'))
+    result.push(result_hash.dig('PURL','Searchworks','text'))
+    result.push('')
+    result.push("Searchworks has #{sw_items.length} released to #{tgt}")
+    result.push(result_hash.dig('Searchworks','Argo','text'))
+    result.push(result_hash.dig('Searchworks','PURL','text'))
+    result.push(druid_list(result_hash))
+    result.push('')
+    result
+  end
 
-  rpt_output(differences(argo_items, pf_items, sw_items), coll_data, sw_target)
+  def individual_collection_summary()
+    result = []
+    fail "Must provide Environment variable COLL_DRUID with this script" if collection_druid.nil?
+    argo_mem = argo_client.collection_members(collection_druid)
+    pf_mem = purl_client.collection_members(collection_druid)
+    sw_mem = sw_client.collection_members(collection_druid)
 
-end
+    result_hash = rpt_hash(differences(argo_mem, pf_mem, sw_mem))
 
-def individual_collection_summary(argo_client, purl_client, sw_client, coll_data, sw_target, collection_druid)
+    result.push("Individual Collection Statistics")
+    result.push("Argo has #{argo_mem.length} members in collection #{collection_druid} released to #{tgt}")
+    result.push(result_hash['Argo']['PURL']['text'])
+    result.push(result_hash.dig('Argo','Searchworks','text'))
+    result.push('')
+    result.push("PURL has #{pf_mem.length} members in collection #{collection_druid} released to #{tgt}")
+    result.push(result_hash.dig('PURL','Argo','text'))
+    result.push(result_hash.dig('PURL','Searchworks','text'))
+    result.push('')
+    result.push("Searchworks has #{sw_mem.length} members in collection #{collection_druid} released to #{tgt}")
+    result.push(result_hash.dig('Searchworks','Argo','text'))
+    result.push(result_hash.dig('Searchworks','PURL','text'))
+    result.push(druid_list(result_hash))
+    result.push('')
+    result
+  end
 
-  fail "Must provide Environment variable COLL_DRUID with this script" if collection_druid.nil?
-  argo_mem = argo_client.collection_members(collection_druid)
-  pf_mem = purl_client.collection_members(collection_druid)
-  sw_mem = sw_client.collection_members(collection_druid)
+  def everything_released_summary()
+    result = []
+    argo_all = argo_client.all_druids
+    pf_all = purl_client.all_druids
+    sw_all = sw_client.all_druids
 
-  puts("Individual Collection Statistics")
-  puts("Argo has #{argo_mem.length} members in collection #{collection_druid} released to #{sw_target}")
-  puts("PURL has #{pf_mem.length} members in collection #{collection_druid} released to #{sw_target}")
-  puts("SW has #{sw_mem.length} members in collection #{collection_druid} released to #{sw_target}")
+    result_hash = rpt_hash(differences(argo_all, pf_all, sw_all))
 
-  rpt_output(differences(argo_mem, pf_mem, sw_mem), coll_data, sw_target)
+    result.push("Everything Statistics")
+    result.push("Argo has #{argo_all.length} released to #{tgt}")
+    result.push(result_hash['Argo']['PURL']['text'])
+    result.push(result_hash.dig('Argo','Searchworks','text'))
+    result.push('')
+    result.push("PURL has #{pf_all.length} released to #{tgt}")
+    result.push(result_hash.dig('PURL','Argo','text'))
+    result.push(result_hash.dig('PURL','Searchworks','text'))
+    result.push('')
+    result.push("Searchworks has #{sw_all.length} released to #{tgt}")
+    result.push(result_hash.dig('Searchworks','Argo','text'))
+    result.push(result_hash.dig('Searchworks','PURL','text'))
+    result.push(druid_list(result_hash))
+    result.push('')
+    result
+  end
 
-end
+  def rpt_select
+    case report_type
+    when "Collections Summary"
+      collections_summary()
+    when "Individual Items Summary"
+      individual_items_summary()
+    when "Collection-specific Summary"
+      individual_collection_summary()
+    when "Everything Released Summary"
+      everything_released_summary()
+    else
+      collections_summary()
+    end
+  end
 
-def everything_released_summary(argo_client, purl_client, sw_client, coll_data, sw_target)
-  argo_all = argo_client.all_druids
-  pf_all = purl_client.all_druids
-  sw_all = sw_client.all_druids
-
-  puts("Everything Statistics")
-  puts("Argo has #{argo_all.length} released to #{sw_target}")
-  puts("PURL has #{pf_all.length} released to #{sw_target}")
-  puts("SW has #{sw_all.length} released to #{sw_target}")
-
-  rpt_output(differences(argo_all, pf_all, sw_all), coll_data, sw_target)
-
-end
-
-case report_type
-when "Collections Summary"
-  collections_summary(argo_client, purl_client, sw_client, coll_data, sw_target)
-when "Individual Items Summary"
-  individual_items_summary(argo_client, purl_client, sw_client, coll_data, sw_target)
-when "Collection-specific Summary"
-  individual_collection_summary(argo_client, purl_client, sw_client, coll_data, sw_target, collection_druid)
-when "Everything Released Summary"
-  everything_released_summary(argo_client, purl_client, sw_client, coll_data, sw_target)
-else
-  collections_summary(argo_client, purl_client, sw_client, coll_data, sw_target)
 end

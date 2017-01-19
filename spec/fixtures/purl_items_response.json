@@ -1,0 +1,114 @@
+{
+    "purls": [
+        {
+            "druid": "druid:wp285yz2311",
+            "published_at": "2012-05-17T22:53:14.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "3831617",
+            "title": "Autograph etchings by American artists: produced by a new application of photographic art",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:px901zd6069",
+            "published_at": "2012-08-29T02:24:16.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537171",
+            "title": "The design and implementation of dynamic information flow tracking systems for software security",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:xj841tx8203",
+            "published_at": "2012-08-29T02:24:26.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537173",
+            "title": "Autonomous ultra-low power ELF/VLF receiver systems",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:gy220jj4643",
+            "published_at": "2012-08-29T02:25:06.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537117",
+            "title": "Laser-based diagnostics for hydrocarbon fuels in the liquid and vapor phases",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:zg341nj2801",
+            "published_at": "2012-08-29T02:25:18.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537158",
+            "title": "Theoretical performance evaluations of NMOS double gate FETs with high mobility materials: strained III-V, Ge and Si",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:tt356tw7110",
+            "published_at": "2012-08-29T02:25:28.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537172",
+            "title": "Effective scheduling algorithms for service and computing systems",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:zs652gt8462",
+            "published_at": "2012-08-29T02:25:48.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537141",
+            "title": "Starting big: the role of multi-word phrases in language learning and use",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:ww300dq8839",
+            "published_at": "2012-08-29T02:25:58.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537176",
+            "title": "Fast photoconductive materials for wideband A/D conversion and monolithic integration with CMOS",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:mj235sj9211",
+            "published_at": "2012-08-29T02:26:08.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537154",
+            "title": "Internal electrostatic transduction of micromechanical resonators",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        },
+        {
+            "druid": "druid:jm061hz0702",
+            "published_at": "2012-08-29T02:26:19.000Z",
+            "deleted_at": null,
+            "object_type": "item",
+            "catkey": "8537157",
+            "title": "Formal proofs of cryptographic security of network protocols",
+            "collections": [],
+            "true_targets": ["Searchworks"]
+        }
+    ],
+    "pages": {
+        "current_page": 1,
+        "next_page": 1,
+        "prev_page": null,
+        "total_pages": 1,
+        "per_page": 10,
+        "offset_value": 0,
+        "first_page?": true,
+        "last_page?": false
+    }
+}
