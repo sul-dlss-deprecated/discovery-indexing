@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'argo_client'
 require 'json'
 
@@ -34,25 +33,25 @@ describe ArgoClient do
     end
   end
 
-  describe '.items_druids' do
+  describe '.items_druids_no_collection' do
     it 'receives results with object type of item' do
       inp = JSON.parse(File.open('spec/fixtures/argo_item_response.json').read)
       expect(subject).to receive(:results).with(/fq=objectType_ssim%3A%22item%22/).and_return(inp)
-      item = subject.items_druids
+      item = subject.items_druids_no_collection
       expect(item).to be_an Array
       expect(item.length).to eq(1789)
     end
     it 'receives results that are not in collections' do
       inp = JSON.parse(File.open('spec/fixtures/argo_item_response.json').read)
       expect(subject).to receive(:results).with(/fq=-is_member_of_collection_ssim%3A*/).and_return(inp)
-      item = subject.items_druids
+      item = subject.items_druids_no_collection
       expect(item).to be_an Array
       expect(item.length).to eq(1789)
     end
     it 'receives results with a value in the released_to_ssim field' do
       inp = JSON.parse(File.open('spec/fixtures/argo_item_response.json').read)
       expect(subject).to receive(:results).with(/fq=released_to_ssim%3A*/).and_return(inp)
-      item = subject.items_druids
+      item = subject.items_druids_no_collection
       expect(item).to be_an Array
       expect(item.length).to eq(1789)
     end

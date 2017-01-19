@@ -37,7 +37,7 @@ class ArgoClient
     individual_items_released_to_tgt(results(query))
   end
 
-  def items_druids
+  def items_druids_no_collection
     # Argo item druids released but not in a collection
     # Query is fq=-is_member_of_collection_ssim:*, fq=objectType_ssim:"item", fq=released_to_ssim:*
     # number of rows to output is 10000

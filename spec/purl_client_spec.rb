@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'purl_client'
 require 'json'
 
@@ -91,18 +90,18 @@ describe PurlClient do
     end
   end
 
-  describe '.items_druids' do
+  describe '.items_druids_no_collection' do
     it 'returns items druids without associated collection from results' do
       inp = File.open('spec/fixtures/purl_items_response.json').read
       expect(subject).to receive(:results).with(/item/).and_return(inp)
-      coll = subject.items_druids
+      coll = subject.items_druids_no_collection
       expect(coll).to be_an Array
       expect(coll.length).to eq(10)
     end
     it 'loops over all result pages' do
       inp = File.open('spec/fixtures/purl_items_response1.json').read
       expect(subject).to receive(:results).exactly(6).times.with(/item/).and_return(inp)
-      coll = subject.items_druids
+      coll = subject.items_druids_no_collection
     end
   end
 

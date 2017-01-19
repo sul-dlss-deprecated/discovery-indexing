@@ -23,29 +23,34 @@ class SwClient
     JSON.parse(results("#{url + query}"))
   end
 
-  def parse_collection_json_results(res)
-    druid_ids=[]
+  def parse_collection_druids(res)
+    id_arr=[]
     multi_urls={}
     res["response"]["docs"].each do |i|
+      ids = {}
       if /[0-9]*/.match(i["id"]) && i["managed_purl_urls"]
         multi=[]
+        ids[:ckey] = i["id"]
         if i["managed_purl_urls"].length == 1
-          druid_ids.push(druid_from_managed_purl(i["managed_purl_urls"].first))
+          ids[:druid] = druid_from_managed_purl(i["managed_purl_urls"].first)
         elsif i["managed_purl_urls"].length > 1
+          ids[:druid] = ''
           i["managed_purl_urls"].each do |u|
             multi.push(druid_from_managed_purl(u))
           end
           multi_urls[i["id"]] = multi
         end
       elsif /[a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4}/.match(i["id"])
-        druid_ids.push(i["id"])
+        ids[:druid] = i["id"]
+        ids[:ckey] = ''
       end
+      id_arr.push(ids)
     end
     write_multi_managed_purls_file(multi_urls) if multi_urls != {}
-    druid_ids
+    id_arr
   end
 
-def parse_item_json_results(res)
+def parse_item_druids_no_collection(res)
     druid_ids=[]
     multi_urls={}
     res["response"]["docs"].each do |i|
@@ -72,17 +77,18 @@ def parse_item_json_results(res)
     mpu.gsub!("http:\/\/purl.stanford.edu\/", "")
   end
 
-  def collections_druids
+  def collections_ids
+    druids = []
     # SearchWorks production collection druids
     # Query is fq=collection_type:"Digital Collection", q=*:*
     # number of rows to output is 10000000
     # output fields are id and managed_purl_urls
     # output format is json
     query = "/select?&fq=collection_type%3A%22Digital+Collection%22&q=*%3A*&rows=10000000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
-    parse_collection_json_results(json_parsed_resp(url, query)).uniq.sort
+    parse_collection_druids(json_parsed_resp(url, query))
   end
 
-  def items_druids
+  def items_druids_no_collection
     ids = []
     # SearchWorks production item druids not in a collection
     # druid_id_query searches for records with druids as ids
@@ -103,8 +109,8 @@ def parse_item_json_results(res)
     # output fields are id, managed_purl_urls, and collection
     # output format is json
     ckey_id_query = "/select?fq=-collection_type%3A%22Digital+Collection%22&fq=collection%3A%22sirsi%22&fq=id%3A%2F%5B0-9%5D*%2F&fq=building_facet%3A%22Stanford+Digital+Repository%22&q=*%3A*&rows=100000&fl=id%2Cmanaged_purl_urls%2Ccollection&wt=json"
-    ids = parse_item_json_results(json_parsed_resp(url, druid_id_query))
-    ids += parse_item_json_results(json_parsed_resp(url, ckey_id_query))
+    ids = parse_item_druids_no_collection(json_parsed_resp(url, druid_id_query))
+    ids += parse_item_druids_no_collection(json_parsed_resp(url, ckey_id_query))
     ids.uniq.sort
   end
 
@@ -125,8 +131,7 @@ def parse_item_json_results(res)
       query = coll_search(ckey)
       res = json_parsed_resp(url, query)
     end
-    druid_ids += parse_collection_json_results(res)
-    druid_ids.uniq.sort
+    parse_collection_druids(json_parsed_resp(url, query))
   end
 
   def ckey_from_druid(druid)
