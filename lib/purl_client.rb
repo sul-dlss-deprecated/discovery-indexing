@@ -72,7 +72,7 @@ class PurlClient
     druids_from_results(coll_ids)
   end
 
-  def items_druids
+  def items_druids_no_collection
     # Purl_fetcher item druids that are not in collections
     query = "/purls?membership=none&object_type=item&per_page=10000"
     purls = JSON.parse(results("#{url + query}"))

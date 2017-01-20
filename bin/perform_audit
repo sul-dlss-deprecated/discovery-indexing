@@ -11,7 +11,7 @@ def fetch_user_input(default)
 end
 
 ARGO_URL_DEFAULT="http://solr.stanford.edu/solr/prod"
-puts "Please enter Argo URL [#{ARGO_URL_DEFAULT}]: "
+puts "Please enter Argo Solr URL [#{ARGO_URL_DEFAULT}]: "
 ARGO_URL = fetch_user_input(ARGO_URL_DEFAULT)
 
 PF_URL_DEFAULT="http://purl-fetcher.stanford.edu"

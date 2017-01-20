@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'audit'
 
 describe Audit do
@@ -7,6 +6,12 @@ describe Audit do
   let(:ar) { ['aa111bb2222','aa111cc3333','bb111dd2222','cc111dd2222'] }
   let(:pf) { ['aa111bb2222','aa111cc3333','dd111aa2222','ee123ff1212'] }
   let(:sw) { ['aa111bb2222','aa111cc3333','bb111dd2222','cc111dd2222','dd111aa2222','ee111ff2222'] }
+  let(:sw_hash) { [{:druid=>"qv012tw8453", :ckey=>""},
+                   {:ckey=>"11403482", :druid=>"hv987gp1617"},
+                   {:ckey=>"11403475", :druid=>"zd198qs9343"},
+                   {:ckey=>"11523796", :druid=>"sq270nd5698"},
+                   {:ckey=>"10452676", :druid=>"nn623wk9886"},
+                   {:ckey=>"11403480", :druid=>"hd767tx4719"}]}
   let(:differences) { subject.differences(ar, pf, sw) }
   before do
     ENV['ARGO_URL']   = "argo_url"
@@ -45,13 +50,14 @@ describe Audit do
   end
 
   describe '.rpt_hash' do
+    let (:rpt_hash) { subject.rpt_hash(differences) }
     it 'outputs summary information and druids from the differences' do
-      expect(subject.rpt_hash(differences)).to include("Argo" => {"PURL"=>{"text"=>"2 druids are in Argo as released to searchworks but not in PURL", "druids"=>["bb111dd2222", "cc111dd2222"], "length"=>2}, "Searchworks"=>{"text"=>"Same druids in Argo and Searchworks are released to searchworks"}})
-      expect(subject.rpt_hash(differences)).to include("PURL" => {"Argo"=>{"text"=>"2 druids are in PURL as released to searchworks but not in Argo", "druids"=>["dd111aa2222", "ee123ff1212"], "length"=>2}, "Searchworks"=>{"text"=>"1 druids are in PURL as released to searchworks but not in Searchworks", "druids"=>["ee123ff1212"], "length"=>1}})
-      expect(subject.rpt_hash(differences)).to include("Searchworks" => {"Argo"=>{"text"=>"2 druids are in Searchworks as released to searchworks but not in Argo", "druids"=>["dd111aa2222", "ee111ff2222"], "length"=>2}, "PURL"=>{"text"=>"3 druids are in Searchworks as released to searchworks but not in PURL", "druids"=>["bb111dd2222", "cc111dd2222", "ee111ff2222"], "length"=>3}})
+      expect(rpt_hash).to include("Argo" => {"PURL"=>{"text"=>"2 druids are in Argo as released to searchworks but not in PURL", "druids"=>["bb111dd2222", "cc111dd2222"], "length"=>2}, "Searchworks"=>{"text"=>"Same druids in Argo and Searchworks are released to searchworks"}})
+      expect(rpt_hash).to include("PURL" => {"Argo"=>{"text"=>"2 druids are in PURL as released to searchworks but not in Argo", "druids"=>["dd111aa2222", "ee123ff1212"], "length"=>2}, "Searchworks"=>{"text"=>"1 druids are in PURL as released to searchworks but not in Searchworks", "druids"=>["ee123ff1212"], "length"=>1}})
+      expect(rpt_hash).to include("Searchworks" => {"Argo"=>{"text"=>"2 druids are in Searchworks as released to searchworks but not in Argo", "druids"=>["dd111aa2222", "ee111ff2222"], "length"=>2}, "PURL"=>{"text"=>"3 druids are in Searchworks as released to searchworks but not in PURL", "druids"=>["bb111dd2222", "cc111dd2222", "ee111ff2222"], "length"=>3}})
     end
     it 'outputs same statement when the difference is nil' do
-      expect(subject.rpt_hash(differences)).to include("Argo" => {"PURL"=>{"text"=>"2 druids are in Argo as released to searchworks but not in PURL", "druids"=>["bb111dd2222", "cc111dd2222"], "length"=>2}, "Searchworks"=>{"text"=>"Same druids in Argo and Searchworks are released to searchworks"}})
+      expect(rpt_hash).to include("Argo" => {"PURL"=>{"text"=>"2 druids are in Argo as released to searchworks but not in PURL", "druids"=>["bb111dd2222", "cc111dd2222"], "length"=>2}, "Searchworks"=>{"text"=>"Same druids in Argo and Searchworks are released to searchworks"}})
     end
   end
 
@@ -59,23 +65,25 @@ describe Audit do
     it 'outputs collections summary' do
       expect(subject.argo_client).to receive(:collections_druids).at_least(:once).times.and_return(ar)
       expect(subject.purl_client).to receive(:collections_druids).at_least(:once).times.and_return(pf)
-      expect(subject.sw_client).to receive(:collections_druids).at_least(:once).times.and_return(sw)
-      expect(subject.collections_summary()).to include('Collections Statistics')
-      expect(subject.collections_summary()).to include('Argo has 4 released to searchworks')
-      expect(subject.collections_summary()).to include('PURL has 4 released to searchworks')
-      expect(subject.collections_summary()).to include('Searchworks has 6 released to searchworks')
+      expect(subject.sw_client).to receive(:collections_ids).at_least(:once).times.and_return(sw_hash)
+      sum = subject.collections_summary()
+      expect(sum).to include('Collections Statistics')
+      expect(sum).to include('Argo has 4 released to searchworks')
+      expect(sum).to include('PURL has 4 released to searchworks')
+      expect(sum).to include('Searchworks has 6 released to searchworks')
     end
   end
 
   describe '.individual_items_summary' do
     it 'outputs individual items summary' do
-      expect(subject.argo_client).to receive(:items_druids).at_least(:once).times.and_return(ar)
-      expect(subject.purl_client).to receive(:items_druids).at_least(:once).times.and_return(pf)
-      expect(subject.sw_client).to receive(:items_druids).at_least(:once).times.and_return(sw)
-      expect(subject.individual_items_summary()).to include('Individual Items Statistics')
-      expect(subject.individual_items_summary()).to include('Argo has 4 released to searchworks')
-      expect(subject.individual_items_summary()).to include('PURL has 4 released to searchworks')
-      expect(subject.individual_items_summary()).to include('Searchworks has 6 released to searchworks')
+      expect(subject.argo_client).to receive(:items_druids_no_collection).at_least(:once).times.and_return(ar)
+      expect(subject.purl_client).to receive(:items_druids_no_collection).at_least(:once).times.and_return(pf)
+      expect(subject.sw_client).to receive(:items_druids_no_collection).at_least(:once).times.and_return(sw)
+      sum = subject.individual_items_summary()
+      expect(sum).to include('Individual Items Statistics')
+      expect(sum).to include('Argo has 4 released to searchworks')
+      expect(sum).to include('PURL has 4 released to searchworks')
+      expect(sum).to include('Searchworks has 6 released to searchworks')
     end
   end
 
@@ -89,10 +97,11 @@ describe Audit do
       expect(a.argo_client).to receive(:collection_members).with(collection_druid).at_least(:once).times.and_return(ar)
       expect(a.purl_client).to receive(:collection_members).with(collection_druid).at_least(:once).times.and_return(pf)
       expect(a.sw_client).to receive(:collection_members).with(collection_druid).at_least(:once).times.and_return(sw)
-      expect(a.individual_collection_summary()).to include('Individual Collection Statistics')
-      expect(a.individual_collection_summary()).to include('Argo has 4 members in collection aa123bb1212 released to searchworks')
-      expect(a.individual_collection_summary()).to include('PURL has 4 members in collection aa123bb1212 released to searchworks')
-      expect(a.individual_collection_summary()).to include('Searchworks has 6 members in collection aa123bb1212 released to searchworks')
+      sum = a.individual_collection_summary()
+      expect(sum).to include('Individual Collection Statistics')
+      expect(sum).to include('Argo has 4 members in collection aa123bb1212 released to searchworks')
+      expect(sum).to include('PURL has 4 members in collection aa123bb1212 released to searchworks')
+      expect(sum).to include('Searchworks has 6 members in collection aa123bb1212 released to searchworks')
     end
   end
 
@@ -101,10 +110,11 @@ describe Audit do
       expect(subject.argo_client).to receive(:all_druids).at_least(:once).times.and_return(ar)
       expect(subject.purl_client).to receive(:all_druids).at_least(:once).times.and_return(pf)
       expect(subject.sw_client).to receive(:all_druids).at_least(:once).times.and_return(sw)
-      expect(subject.everything_released_summary()).to include('Everything Statistics')
-      expect(subject.everything_released_summary()).to include('Argo has 4 released to searchworks')
-      expect(subject.everything_released_summary()).to include('PURL has 4 released to searchworks')
-      expect(subject.everything_released_summary()).to include('Searchworks has 6 released to searchworks')
+      sum = subject.everything_released_summary()
+      expect(sum).to include('Everything Statistics')
+      expect(sum).to include('Argo has 4 released to searchworks')
+      expect(sum).to include('PURL has 4 released to searchworks')
+      expect(sum).to include('Searchworks has 6 released to searchworks')
     end
   end
 

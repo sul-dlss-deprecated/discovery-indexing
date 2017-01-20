@@ -115,9 +115,13 @@ class Audit
 
   def collections_summary()
     result = []
+    sw_coll = []
     argo_coll = argo_client.collections_druids
     pf_coll = purl_client.collections_druids
-    sw_coll = sw_client.collections_druids
+    sw_hash = sw_client.collections_ids
+    sw_hash.each do | sw |
+      sw_coll.push(sw[:druid]) unless sw[:druid].nil?
+    end
 
     result_hash = rpt_hash(differences(argo_coll, pf_coll, sw_coll))
 
@@ -140,9 +144,9 @@ class Audit
 
   def individual_items_summary()
     result = []
-    argo_items = argo_client.items_druids
-    pf_items = purl_client.items_druids
-    sw_items = sw_client.items_druids
+    argo_items = argo_client.items_druids_no_collection
+    pf_items = purl_client.items_druids_no_collection
+    sw_items = sw_client.items_druids_no_collection
 
     result_hash = rpt_hash(differences(argo_items, pf_items, sw_items))
 
